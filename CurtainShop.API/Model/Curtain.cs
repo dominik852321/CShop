@@ -16,6 +16,8 @@ namespace CurtainShop.API.Model
         public int Height { get; set; }
         public int Width { get; set; }
 
+        //DODAĆ RODZAJ POKOJU !!!!!!!
+
         public string StickOn { get; set; }
         public string Color1 { get; set; }
         public string Color2 { get; set; }

@@ -37,8 +37,6 @@ namespace CurtainShop.API.Controllers
         }
 
         
-
-        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var curtains = await _repository.GetCurtains();

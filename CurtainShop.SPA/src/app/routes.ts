@@ -4,6 +4,7 @@ import { CurtainListComponent } from './curtain/curtain-list/curtain-list.compon
 import { PromotionsComponent } from './promotions/promotions.component';
 import { TableclothsListComponent } from './tablecloths/tablecloths-list/tablecloths-list.component';
 import { ZaslonyListComponent } from './zaslony/zaslony-list/zaslony-list.component';
+import { CurtainListResolver } from './_resolvers/curtain-list.resolver';
 
 
 
@@ -11,8 +12,12 @@ import { ZaslonyListComponent } from './zaslony/zaslony-list/zaslony-list.compon
 
 export const appRoutes: Routes = [
    {path: '', component: HomeComponent },
-   {path: 'firany', component : CurtainListComponent},
-   {path: 'obrusy', component: TableclothsListComponent},
-   {path: 'zaslony', component: ZaslonyListComponent},
-   {path: 'promocje', component: PromotionsComponent}
+   {path: '',
+    runGuardsAndResolvers: 'always',
+    children: [
+      {path: 'firany', component : CurtainListComponent, resolve: {curtains : CurtainListResolver}},
+      {path: 'obrusy', component: TableclothsListComponent},
+      {path: 'zaslony', component: ZaslonyListComponent},
+      {path: 'promocje', component: PromotionsComponent}
+    ]}
 ];

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Curtain } from 'src/app/_models/curtain';
 
 @Component({
   selector: 'app-curtain-card',
@@ -7,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CurtainCardComponent implements OnInit {
 
+  @Input() curtain: Curtain;
   
   constructor() { }
 

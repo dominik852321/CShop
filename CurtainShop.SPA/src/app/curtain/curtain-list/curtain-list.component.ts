@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Curtain } from 'src/app/_models/curtain';
+import { from } from 'rxjs';
+import { CurtainService } from 'src/app/_services/curtain.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-curtain-list',
@@ -7,10 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurtainListComponent implements OnInit {
 
-  curtains;
-  constructor() { }
+  curtains: Curtain[];
+  constructor(private curtainService: CurtainService,
+              public route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.data.subscribe(data => {
+      this.curtains = data.curtains;
+    })
   }
 
 }
