@@ -12,6 +12,9 @@ namespace CurtainShop.API.Helpers
           CreateMap<Curtain, CurtainToListDTO>();
           CreateMap<Curtain, CurtainToDetailDTO>();
           CreateMap<CurtainToEditDTO, Curtain>();
+          
+          CreateMap<PhotoForCreationDTO, PhotoMaterial>();
+          CreateMap<PhotoMaterial, PhotoToReturnDTO>();
         }
     }
 }

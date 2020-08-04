@@ -1,3 +1,6 @@
+import { PhotoMaterial } from './photoMaterial';
+
+
 export interface Curtain {
     id: number;
     name: string;
@@ -6,6 +9,7 @@ export interface Curtain {
     dateAdded: string;
     height: number;
     width: number;
+    room: string;
     stickOn: string;
     color1: string;
     color2: string;
@@ -13,4 +17,6 @@ export interface Curtain {
     material2: string;
     material3: string;
     photoUrl: string;
+
+    photoMaterial: PhotoMaterial[];
 }

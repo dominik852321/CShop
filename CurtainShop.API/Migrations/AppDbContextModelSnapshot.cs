@@ -59,6 +59,9 @@ namespace CurtainShop.API.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<string>("Room")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("StickOn")
                         .HasColumnType("nvarchar(max)");
 
@@ -86,7 +89,13 @@ namespace CurtainShop.API.Migrations
                     b.Property<DateTime>("DateAdded")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("TableClothId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Url")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("public_id")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
@@ -98,7 +107,7 @@ namespace CurtainShop.API.Migrations
 
             modelBuilder.Entity("CurtainShop.API.Model.PhotoMaterial", b =>
                 {
-                    b.HasOne("CurtainShop.API.Model.Curtain", "Curtain")
+                    b.HasOne("CurtainShop.API.Model.Curtain", null)
                         .WithMany("PhotoMaterial")
                         .HasForeignKey("CurtainId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -5,6 +5,8 @@ import { PromotionsComponent } from './promotions/promotions.component';
 import { TableclothsListComponent } from './tablecloths/tablecloths-list/tablecloths-list.component';
 import { ZaslonyListComponent } from './zaslony/zaslony-list/zaslony-list.component';
 import { CurtainListResolver } from './_resolvers/curtain-list.resolver';
+import { CurtainDetailComponent } from './curtain/curtain-detail/curtain-detail.component';
+import { CurtainDetailResolver } from './_resolvers/curtain-detail.resolver';
 
 
 
@@ -16,6 +18,7 @@ export const appRoutes: Routes = [
     runGuardsAndResolvers: 'always',
     children: [
       {path: 'firany', component : CurtainListComponent, resolve: {curtains : CurtainListResolver}},
+      {path: 'firany/:id', component: CurtainDetailComponent, resolve: {curtain: CurtainDetailResolver}},
       {path: 'obrusy', component: TableclothsListComponent},
       {path: 'zaslony', component: ZaslonyListComponent},
       {path: 'promocje', component: PromotionsComponent}

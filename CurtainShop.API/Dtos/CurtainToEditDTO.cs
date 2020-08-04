@@ -13,6 +13,8 @@ namespace CurtainShop.API.Dtos
         public string StickOn { get; set; }
         public string Color1 { get; set; }
         public string Color2 { get; set; }
+
+        public string Room { get; set; }
         public string Material1 { get; set; }
         public string Material2 { get; set; }
         public string Material3 { get; set; }

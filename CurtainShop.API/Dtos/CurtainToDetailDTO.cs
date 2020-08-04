@@ -14,6 +14,7 @@ namespace CurtainShop.API.Dtos
         public int Height { get; set; }
         public int Width { get; set; }
 
+        public string Room { get; set; }
         public string StickOn { get; set; }
         public string Color1 { get; set; }
         public string Color2 { get; set; }

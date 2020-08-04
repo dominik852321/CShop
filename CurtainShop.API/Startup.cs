@@ -25,9 +25,11 @@ namespace CurtainShop.API
             services.AddDbContext<AppDbContext>(z => z.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddCors();
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
+            services.Configure<CloudinarySettings2>(Configuration.GetSection("CloudinarySettings2"));
+            
             services.AddAutoMapper(typeof(Startup));
          
-
+            services.AddTransient<Seed>();
             
             services.AddScoped<ICurtainRepository, CurtainRepository>();
             services.AddScoped<IGenericRepository, GenericRepository>();
@@ -38,12 +40,15 @@ namespace CurtainShop.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, Seed seeder)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            seeder.SeedCurtains();
+            
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseHttpsRedirection();

@@ -7,9 +7,16 @@ namespace CurtainShop.API.Dtos
     {
         //Informacje ogólne
         public string Name { get; set; }
-        public string Price { get; set; }
+        public int Price { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }
+        public string Description { get; set;}
+
+        //Informacje szczególne
+        public string Room { get; set; }
+        public string Material1 { get; set; }
+        public string Material2 { get; set; }
+        public string Material3 { get; set; } 
 
         //Zdjęcie
         public string PhotoUrl { get; set; }

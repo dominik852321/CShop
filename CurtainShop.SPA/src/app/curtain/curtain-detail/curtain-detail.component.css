@@ -1,0 +1,65 @@
+.img {
+    max-width: 100%;
+    
+}
+
+.fa-check-circle-o {
+    color: green;
+    font-size: medium;
+}
+.list-group-item {
+   padding: 10px;
+}
+.lead {
+    margin: 0;
+    font-size: medium;
+}
+
+
+
+.fa-arrows-v,.fa-arrows-h {
+    font-size: x-large;
+    height: 32px;
+    width: 32px;
+}
+
+
+td {
+    color: black;
+    font-weight: 400;
+}
+th {
+    font-weight: 300;
+    text-align: center;
+} 
+
+.price {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.price::before {
+    content: '';
+    display: inline-block;
+    border-top: 1.5px solid #DDD;
+    width: 60px;
+    padding-top: 13px;
+    margin: 0px 9px 0px 0px ;
+}
+
+.price::after {
+    content: '';
+    display: inline-block;
+    border-top: 1.5px solid #DDD;
+    width: 60px;
+    padding-top: 13px;
+    margin: 0px 0px 0px 9px ;
+}
+
+table {
+    min-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+

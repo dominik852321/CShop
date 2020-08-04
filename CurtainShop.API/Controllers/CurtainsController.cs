@@ -37,26 +37,15 @@ namespace CurtainShop.API.Controllers
         }
 
         
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery]CurtainParams curtainParams)
         {
-            var curtains = await _repository.GetCurtains();
+            var curtains = await _repository.GetCurtains(curtainParams);
 
             var curtainToList = _mapper.Map<IEnumerable<CurtainToListDTO>>(curtains);
+
+            Response.AddPagination(curtains.CurrentPage, curtains.PageSize, curtains.TotalCount, curtains.TotalPages);
             
             return Ok(curtainToList);
-        }
-
-        [HttpGet("{id}", Name = "GetCurtain")]
-        public async Task<IActionResult> GetCurtain(int id)
-        {
-           var curtain = await _repository.GetCurtain(id);
-
-           if(curtain==null)
-              return BadRequest("Nie znaleziono");
-
-           var curtainToDetail = _mapper.Map<CurtainToDetailDTO>(curtain);   
-
-           return Ok(curtainToDetail);
         }
         
 
@@ -78,6 +67,7 @@ namespace CurtainShop.API.Controllers
                     uploadResult = _cloudinary.Upload(uploadParams);
                 }
             }
+            
             curtainForCreation.PhotoUrl = uploadResult.Uri.ToString();
             curtainForCreation.public_id = uploadResult.PublicId;
 
@@ -93,6 +83,21 @@ namespace CurtainShop.API.Controllers
 
             throw new Exception("Utworzenie nie powiodło się");
         }
+
+
+        [HttpGet("{id}", Name = "GetCurtain")]
+        public async Task<IActionResult> GetCurtain(int id)
+        {
+           var curtain = await _repository.GetCurtain(id);
+
+           if(curtain==null)
+              return BadRequest("Nie znaleziono");
+
+           var curtainToDetail = _mapper.Map<CurtainToDetailDTO>(curtain);   
+
+           return Ok(curtainToDetail);
+        }
+        
 
         [HttpPut("{id}")]
         public async Task<IActionResult> EditCurtain(int id, CurtainToEditDTO curtainToEdit )

@@ -22,3 +22,12 @@
     </div>
 
 </div>
+
+
+<div class="col-md-11 mx-auto">
+    <div class="row">
+        <div *ngFor="let tablecloth of tablecloths" class="mx-auto">
+            <app-tablecloths-card [tablecloth]='tablecloth'></app-tablecloths-card>
+        </div>
+    </div>
+</div>

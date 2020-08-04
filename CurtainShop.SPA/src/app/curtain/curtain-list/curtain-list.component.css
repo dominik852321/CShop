@@ -26,3 +26,14 @@
     border: none;
     border-bottom: 1px solid #DDD;
 }
+
+.custom {
+    width: 15em;
+}
+
+.fa-shopping-basket {
+    font-size: xx-large;
+    color: #DDD;
+}
+
+
