@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace CurtainShop.API.Dtos
 {
@@ -24,6 +25,8 @@ namespace CurtainShop.API.Dtos
 
         //Zdjęcie
         public string PhotoUrl { get; set; }
+
+        public ICollection<PhotoToReturnDTO> PhotoMaterial { get; set; }
         
 
     }

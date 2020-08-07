@@ -17,6 +17,7 @@ constructor(private http: HttpClient) { }
 
    GetCurtains(page?, itemsPerPage?, curtainParams?): Observable<PaginationResult<Curtain[]>>{
      const paginationResult: PaginationResult<Curtain[]> = new PaginationResult<Curtain[]>();
+     
      let params = new HttpParams();
 
      if (page != null && itemsPerPage != null)
@@ -44,7 +45,7 @@ constructor(private http: HttpClient) { }
           map(response => {
             paginationResult.result = response.body;
 
-            if(response.headers.get('Pagination') != null ) {
+            if (response.headers.get('Pagination') != null ) {
               paginationResult.pagination = JSON.parse(response.headers.get('Pagination'));
             }
             return paginationResult;
@@ -55,7 +56,6 @@ constructor(private http: HttpClient) { }
      return this.http.get<Curtain>(this.baseUrl + '/' + id);
    }
 
-   
    CreateCurtain(curtain: Curtain) {
      return this.http.post(this.baseUrl, curtain);
    }

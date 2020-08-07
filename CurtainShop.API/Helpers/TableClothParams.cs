@@ -1,10 +1,10 @@
 namespace CurtainShop.API.Helpers
 {
-    public class CurtainParams
+    public class TableClothParams
     {
-        public const int MaxPageSize = 24;
+         public const int MaxPageSize = 24;
         public int PageNumber { get; set; } = 1;
-        private int pageSize = 12;
+        private int pageSize = 15;
 
         public int PageSize 
         {
@@ -13,10 +13,7 @@ namespace CurtainShop.API.Helpers
         }
 
         public int MinValue { get; set; } = 0;
-        public int MaxValue { get; set; } = 1000;
-        public string Room { get; set; }
-        public string Material { get; set; } 
-      
-
+        public int MaxValue { get; set; } = 500;
+        public string Type { get; set; }
     }
 }

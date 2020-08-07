@@ -15,13 +15,13 @@ namespace CurtainShop.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CurtainsController: ControllerBase
+    public class TableClothsController: ControllerBase
     {
-        private readonly ICurtainRepository _repository;
+        private readonly ITableClothRepository _repository;
         private readonly IMapper _mapper;
         private readonly IOptions<CloudinarySettings> _cloudinaryConfig;
         private Cloudinary _cloudinary;
-        public CurtainsController(ICurtainRepository Repository, IMapper mapper, IOptions<CloudinarySettings> cloudinaryConfig)
+        public TableClothsController(ITableClothRepository Repository, IMapper mapper, IOptions<CloudinarySettings> cloudinaryConfig)
         {
             _repository = Repository;
             _mapper = mapper;
@@ -37,22 +37,22 @@ namespace CurtainShop.API.Controllers
         }
 
         
-        public async Task<IActionResult> GetAll([FromQuery]CurtainParams curtainParams)
+        public async Task<IActionResult> GetAll([FromQuery]TableClothParams tableClothParams)
         {
-            var curtains = await _repository.GetCurtains(curtainParams);
+           var tableCloths = await _repository.GetTableCloths(tableClothParams);
 
-            var curtainToList = _mapper.Map<IEnumerable<CurtainToListDTO>>(curtains);
+            var tableClothsToList = _mapper.Map<IEnumerable<TableClothToListDTO>>(tableCloths);
 
-            Response.AddPagination(curtains.CurrentPage, curtains.PageSize, curtains.TotalCount, curtains.TotalPages);
+            Response.AddPagination(tableCloths.CurrentPage, tableCloths.PageSize, tableCloths.TotalCount, tableCloths.TotalPages);
             
-            return Ok(curtainToList);
+            return Ok(tableClothsToList);
         }
         
 
         [HttpPost]
-        public async Task<IActionResult> AddCurtain([FromForm]CurtainForCreationDTO curtainForCreation)
+        public async Task<IActionResult> AddTableCloth([FromForm]TableClothForCreationDTO tableClothForCreation)
         {
-            var file = curtainForCreation.File;
+            var file = tableClothForCreation.File;
             var uploadResult = new ImageUploadResult();
 
             if(file.Length> 0)
@@ -68,42 +68,42 @@ namespace CurtainShop.API.Controllers
                 }
             }
             
-            curtainForCreation.PhotoUrl = uploadResult.Uri.ToString();
-            curtainForCreation.public_id = uploadResult.PublicId;
+            tableClothForCreation.PhotoUrl = uploadResult.Uri.ToString();
+            tableClothForCreation.public_id = uploadResult.PublicId;
 
-            var curtain = _mapper.Map<Curtain>(curtainForCreation);
+            var tableCloth = _mapper.Map<TableCloth>(tableClothForCreation);
 
-            _repository.Add(curtain);
+            _repository.Add(tableCloth);
 
             if(await _repository.SaveAll())
             { 
-               var curtainToReturn = _mapper.Map<CurtainToDetailDTO>(curtain);
-               return CreatedAtRoute("GetCurtain", new { id = curtain.Id}, curtainToReturn);
+               var tableClothToReturn = _mapper.Map<TableClothToDetailDTO>(tableCloth);
+               return CreatedAtRoute("GetTableCloth", new { id = tableCloth.Id}, tableClothToReturn);
             }
 
             throw new Exception("Utworzenie nie powiodło się");
         }
 
 
-        [HttpGet("{id}", Name = "GetCurtain")]
-        public async Task<IActionResult> GetCurtain(int id)
+        [HttpGet("{id}", Name = "GetTableCloth")]
+        public async Task<IActionResult> GetTableCloth(int id)
         {
-           var curtain = await _repository.GetCurtain(id);
+           var tableCloth = await _repository.GetTableCloth(id);
 
-           if(curtain==null)
+           if(tableCloth == null)
               return BadRequest("Nie znaleziono");
 
-           var curtainToDetail = _mapper.Map<CurtainToDetailDTO>(curtain);   
+           var tableClothToDetail = _mapper.Map<TableClothToDetailDTO>(tableCloth);
 
-           return Ok(curtainToDetail);
+           return Ok(tableClothToDetail);
         }
         
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> EditCurtain(int id, CurtainToEditDTO curtainToEdit )
+        public async Task<IActionResult> EditTableCloth(int id, TableClothToEditDTO tableClothToEdit )
         {
-           var curtain = await _repository.GetCurtain(id);
-           _mapper.Map(curtainToEdit, curtain);
+           var tableCloth = await _repository.GetTableCloth(id);
+           _mapper.Map(tableClothToEdit, tableCloth);
 
            if(await _repository.SaveAll())
               return Ok("Pomyślnie zaktualizowano");
@@ -113,29 +113,26 @@ namespace CurtainShop.API.Controllers
 
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCurtain(int id)
+        public async Task<IActionResult> DeleteTableCloth(int id)
         {
-            var curtain = await _repository.GetCurtain(id);
+            var tableCloth = await _repository.GetTableCloth(id);
             
-            if(curtain.public_id != null)
+            if(tableCloth.public_id != null)
             {
-                var deleteParams = new DeletionParams(curtain.public_id);
+                var deleteParams = new DeletionParams(tableCloth.public_id);
                 var result = _cloudinary.Destroy(deleteParams);
 
                 if(result.Result == "ok")
-                  _repository.Delete(curtain);
+                  _repository.Delete(tableCloth);
             }
 
-            if(curtain.public_id == null)
-                _repository.Delete(curtain);
+            if(tableCloth.public_id == null)
+                _repository.Delete(tableCloth);
 
             if(await _repository.SaveAll())
                return Ok();
 
             throw new Exception("Usunięcie nie powiodło się");   
         }
-
-
-
     }
 }

@@ -11,6 +11,7 @@ import { NgxGalleryOptions, NgxGalleryAnimation } from 'ngx-gallery-9';
   styleUrls: ['./curtain-detail.component.css'],
 })
 export class CurtainDetailComponent implements OnInit {
+  
   curtain: Curtain;
   sizeForm: FormGroup;
   changeSizeMode = false;
@@ -43,11 +44,16 @@ export class CurtainDetailComponent implements OnInit {
 
     this.galleryOptions = [
       {
-        width: '600px',
-        height: '400px',
-        thumbnailsColumns: 4,
-        imagePercent: 100,
+        width: '100%',
+        thumbnails: false,
         imageAnimation: NgxGalleryAnimation.Slide,
+        previewZoom: true,
+      },
+       // max-width 500
+      {
+        breakpoint: 780,
+        width: '100%',
+        height: '280px'
       }
     ];
 
@@ -58,14 +64,21 @@ export class CurtainDetailComponent implements OnInit {
   GetImages() {
     const imagesUrls = [];
 
+    imagesUrls.push({
+      small: this.curtain.photoUrl,
+      medium: this.curtain.photoUrl,
+      big: this.curtain.photoUrl
+    });
+    
     // tslint:disable-next-line: prefer-for-of
-    for(let i = 0; i < this.curtain.photoMaterial.length; i++){
+    for (let i = 0; i < this.curtain.photoMaterial.length; i++){
       imagesUrls.push({
        small: this.curtain.photoMaterial[i].url,
        medium: this.curtain.photoMaterial[i].url,
        big: this.curtain.photoMaterial[i].url
       });
     }
+
     return imagesUrls;
   }
 

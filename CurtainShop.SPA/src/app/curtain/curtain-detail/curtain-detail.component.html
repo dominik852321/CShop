@@ -1,11 +1,11 @@
-<div class="row m-0 ">
-
-    <div class="col-md-6 p-1 ml-auto ">
-        <img class="img" src="../../assets/JAK-UPIĄĆ-FIRANY-ABY-WYGLĄDAŁY-MODNIE-I-NOWOCZEŚNIE.jpg">
+<div class="col-lg-10 row mx-auto p-0 mt-3">
+  
+    <div class="col-md-6 p-1 ml-auto mr-1">
+        <ngx-gallery class="shadow " [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
     </div>
 
-    <div class="col-md-4 p-1 mr-auto ">
-        <div class="card h-100">
+    <div class="col-md-4 p-1 mr-auto ml-1">
+        <div class="card  h-100">
             <div class="card-body">
                 <h2 class="text-primary text-center">{{curtain.name}}</h2>
 
@@ -73,90 +73,79 @@
         </div>
     </div>
 
-    <div class="col-md-8 mx-auto">
-        <div class="tab-panel ">
-           <tabset>
-               <tab heading="Szczegóły Firany">
-                  <table>
-                        <div class="mb-3">
-                            <h2>Opis</h2>
-                            <p>{{curtain.description}}</p>
-                        </div>
-                        <div>
-                            <h2>Szczegóły</h2>
-                            <table class="h6  table table-bordered shadow-lg ">
-                               <tbody >
-                                   <tr>
-                                       <td>
-                                          Wysokość
-                                       </td>
-                                       <th>
-                                           {{curtain.height}} cm
-                                       </th>
-                                   </tr>
-                                   <tr>
-                                       <td>
-                                           Szerokość
-                                       </td>
-                                       <th>
-                                           {{curtain.width}} cm
-                                       </th>
-                                   </tr>
-                                   <tr>
-                                       <td>
-                                          Rodzaj pokoju
-                                       </td>
-                                       <th>
-                                          {{curtain.room}}
-                                       </th>
-                                   </tr>
-                                   <tr>
-                                       <td>
-                                          Sposób zawieszenia
-                                       </td>
-                                       <th>
-                                          {{curtain.stickOn}}
-                                       </th>
-
-                                   </tr>
-                                   <tr>
-                                       <td>
-                                           Materiał
-                                       </td>
-                                       <th>
-                                           {{curtain.material1}}, {{curtain.material2}}
-                                       </th>
-                                   </tr>
-                                   <tr>
-                                       <td>
-                                           Kolor
-                                       </td>
-                                       <th>
-                                           {{curtain.color1}}, {{curtain.color2}}
-                                       </th>
-                                   </tr>
-                                   <tr>
-                                       <td>
-                                           Pranię oraz pielęgnacja
-                                       </td>
-                                       <th>
-
-                                       </th>
-                                   </tr>
-                               </tbody>
-
-                            </table>
-                        </div>
-                   
-                  </table>
-               </tab>
-               <tab heading="Zdjęcia materiału">
-                 <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
-               </tab>
-
-           </tabset>
+    <div class="col-md-8 my-3 border mx-auto text-center shadow">
+    
+        <div class="mb-3 mt-3">
+            <h2>Opis</h2>
+            <p>{{curtain.description}}</p>
         </div>
-
+    
+        <div>
+            <h2>Szczegóły</h2>
+            <table class="h6 table table-bordered shadow-lg ">
+                <tbody>
+                    <tr>
+                        <td>
+                            Wysokość
+                        </td>
+                        <th>
+                            {{curtain.height}} cm
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Szerokość
+                        </td>
+                        <th>
+                            {{curtain.width}} cm
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Rodzaj pokoju
+                        </td>
+                        <th>
+                            {{curtain.room}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Sposób zawieszenia
+                        </td>
+                        <th>
+                            {{curtain.stickOn}}
+                        </th>
+    
+                    </tr>
+                    <tr>
+                        <td>
+                            Materiał
+                        </td>
+                        <th>
+                            {{curtain.material1}}, {{curtain.material2}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Kolor
+                        </td>
+                        <th>
+                            {{curtain.color1}}, {{curtain.color2}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Pranię oraz pielęgnacja
+                        </td>
+                        <th>
+    
+                        </th>
+                    </tr>
+                </tbody>
+    
+            </table>
+        </div>
+    
     </div>
 
 </div>

@@ -1,6 +1,8 @@
 using AutoMapper;
 using CurtainShop.API.Data;
 using CurtainShop.API.Helpers;
+using CurtainShop.API.Interface;
+using CurtainShop.API.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +35,7 @@ namespace CurtainShop.API
             
             services.AddScoped<ICurtainRepository, CurtainRepository>();
             services.AddScoped<IGenericRepository, GenericRepository>();
+            services.AddScoped<ITableClothRepository, TableClothRepository>();
 
 
 
@@ -48,6 +51,7 @@ namespace CurtainShop.API
             }
 
             seeder.SeedCurtains();
+            seeder.SeedTableCloths();
             
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 

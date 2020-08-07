@@ -1,15 +1,4 @@
-.img {
-    max-width: 100%;
-    
-}
 
-.fa-check-circle-o {
-    color: green;
-    font-size: medium;
-}
-.list-group-item {
-   padding: 10px;
-}
 .lead {
     margin: 0;
     font-size: medium;
@@ -21,6 +10,10 @@
     font-size: x-large;
     height: 32px;
     width: 32px;
+}
+
+.card {
+    border: none;
 }
 
 

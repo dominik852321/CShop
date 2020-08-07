@@ -102,7 +102,60 @@ namespace CurtainShop.API.Migrations
 
                     b.HasIndex("CurtainId");
 
+                    b.HasIndex("TableClothId");
+
                     b.ToTable("Photos");
+                });
+
+            modelBuilder.Entity("CurtainShop.API.Model.TableCloth", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Color1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Color2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Length")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Material1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Material2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhotoUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Width")
+                        .HasColumnType("int");
+
+                    b.Property<string>("public_id")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TableCloths");
                 });
 
             modelBuilder.Entity("CurtainShop.API.Model.PhotoMaterial", b =>
@@ -110,6 +163,12 @@ namespace CurtainShop.API.Migrations
                     b.HasOne("CurtainShop.API.Model.Curtain", null)
                         .WithMany("PhotoMaterial")
                         .HasForeignKey("CurtainId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CurtainShop.API.Model.TableCloth", null)
+                        .WithMany("PhotoMaterial")
+                        .HasForeignKey("TableClothId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

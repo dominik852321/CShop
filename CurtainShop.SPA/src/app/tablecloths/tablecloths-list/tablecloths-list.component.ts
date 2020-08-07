@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TableCloth } from '../../_models/tablecloth';
+import { TableClothService } from 'src/app/_services/tableCloth.service';
+import { ActivatedRoute } from '@angular/router';
+import { Pagination } from 'src/app/_models/pagination';
 
 @Component({
   selector: 'app-tablecloths-list',
@@ -9,10 +12,16 @@ import { TableCloth } from '../../_models/tablecloth';
 export class TableclothsListComponent implements OnInit {
 
   tablecloths: TableCloth[];
+  pagination: Pagination;
 
-  constructor() { }
+  constructor(private tableClothService: TableClothService,
+              public route: ActivatedRoute) { }
 
   ngOnInit(): void {
+     this.route.data.subscribe(data => {
+       this.tablecloths = data.tablecloths.result;
+       this.pagination = data.tablecloths.pagination;
+     });
   }
 
 }

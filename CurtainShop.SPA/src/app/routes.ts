@@ -7,6 +7,8 @@ import { ZaslonyListComponent } from './zaslony/zaslony-list/zaslony-list.compon
 import { CurtainListResolver } from './_resolvers/curtain-list.resolver';
 import { CurtainDetailComponent } from './curtain/curtain-detail/curtain-detail.component';
 import { CurtainDetailResolver } from './_resolvers/curtain-detail.resolver';
+import { TableclothsCardComponent } from './tablecloths/tablecloths-card/tablecloths-card.component';
+import { TableClothListResolver } from './_resolvers/tablecloth-list.resolver';
 
 
 
@@ -19,7 +21,8 @@ export const appRoutes: Routes = [
     children: [
       {path: 'firany', component : CurtainListComponent, resolve: {curtains : CurtainListResolver}},
       {path: 'firany/:id', component: CurtainDetailComponent, resolve: {curtain: CurtainDetailResolver}},
-      {path: 'obrusy', component: TableclothsListComponent},
+      {path: 'obrusy-i-podszewki', component: TableclothsListComponent, resolve: {tablecloths : TableClothListResolver}},
+      {path: 'obrusy-i-podszewki/:id', component: TableclothsCardComponent},
       {path: 'zaslony', component: ZaslonyListComponent},
       {path: 'promocje', component: PromotionsComponent}
     ]}

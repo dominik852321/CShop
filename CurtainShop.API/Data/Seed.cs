@@ -31,6 +31,22 @@ namespace CurtainShop.API.Data
                 }
             }
 
+            public void SeedTableCloths()
+            {
+                if(!_appDbContext.TableCloths.Any())
+                {
+                    var tableClothsData = File.ReadAllText("Data/TableClothsSeedData.json");
+                    var tableCloths = JsonConvert.DeserializeObject<List<TableCloth>>(tableClothsData);
+
+                    foreach (var tableCloth in tableCloths)
+                    {
+                        _appDbContext.TableCloths.Add(tableCloth);
+                    }
+
+                    _appDbContext.SaveChanges();
+                }
+            }
+
             
         
 

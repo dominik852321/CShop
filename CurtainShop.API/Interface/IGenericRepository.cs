@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace CurtainShop.API.Data
+namespace CurtainShop.API.Interface
 {
     public interface IGenericRepository
     {

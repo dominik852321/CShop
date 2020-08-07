@@ -2,6 +2,7 @@ namespace CurtainShop.API.Dtos
 {
     public class CurtainToEditDTO
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
         public string Description { get; set; }
@@ -21,6 +22,7 @@ namespace CurtainShop.API.Dtos
 
         //Zdjęcie
         public string PhotoUrl { get; set; }
+        public string public_id { get; set; }
         
     }
 }

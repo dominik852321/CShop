@@ -26,12 +26,9 @@ import { CurtainListResolver } from './_resolvers/curtain-list.resolver';
 import { CurtainService } from './_services/curtain.service';
 import { CurtainDetailComponent } from './curtain/curtain-detail/curtain-detail.component';
 import { CurtainDetailResolver } from './_resolvers/curtain-detail.resolver';
+import { TableClothService } from './_services/tableCloth.service';
+import { TableClothListResolver } from './_resolvers/tablecloth-list.resolver';
 import { from } from 'rxjs';
-
-
-
-
-
 
 
 @NgModule({
@@ -63,7 +60,9 @@ import { from } from 'rxjs';
    providers: [
       CurtainService,
       CurtainListResolver,
-      CurtainDetailResolver
+      CurtainDetailResolver,
+      TableClothService,
+      TableClothListResolver
    ],
    bootstrap: [
       AppComponent

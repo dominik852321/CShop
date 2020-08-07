@@ -10,9 +10,8 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class CurtainListResolver implements Resolve<Curtain[]> {
-  
   pageNumber = 1;
-  pageSize = 15;
+  pageSize = 12;
 
 
   constructor(private curtainService: CurtainService, private router: Router) {}

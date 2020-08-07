@@ -67,3 +67,4 @@ C:\Users\Dominik\Projekty\CurtainShop\CurtainShop.API\obj\Debug\netcoreapp3.1\Cu
 C:\Users\Dominik\Projekty\CurtainShop\CurtainShop.API\obj\Debug\netcoreapp3.1\CurtainShop.API.pdb
 C:\Users\Dominik\Projekty\CurtainShop\CurtainShop.API\obj\Debug\netcoreapp3.1\CurtainShop.API.genruntimeconfig.cache
 C:\Users\Dominik\Projekty\CurtainShop\CurtainShop.API\bin\Debug\netcoreapp3.1\Data\CurtainSeedData.json
+C:\Users\Dominik\Projekty\CurtainShop\CurtainShop.API\bin\Debug\netcoreapp3.1\Data\TableClothsSeedData.json

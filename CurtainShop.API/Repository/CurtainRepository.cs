@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CurtainShop.API.Dtos;
+using CurtainShop.API.Data;
 using CurtainShop.API.Helpers;
+using CurtainShop.API.Interface;
 using CurtainShop.API.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace CurtainShop.API.Data
+namespace CurtainShop.API.Repository
 {
     public class CurtainRepository: GenericRepository, ICurtainRepository
     {
@@ -17,7 +18,7 @@ namespace CurtainShop.API.Data
         }
         public async Task<PagedList<Curtain>> GetCurtains(CurtainParams curtainParams)
          {
-              var curtains = _appDbContext.Curtains.Include(p => p.PhotoMaterial).AsQueryable();
+              var curtains = _appDbContext.Curtains.Include(p => p.PhotoMaterial).OrderByDescending(z => z.DateAdded).AsQueryable();
 
               if(curtainParams.MinValue!=0 || curtainParams.MaxValue!=1000)
               {
@@ -35,7 +36,7 @@ namespace CurtainShop.API.Data
                                                  z.Material2.ToLower() == curtainParams.Material.ToLower() ||
                                                  z.Material3.ToLower() == curtainParams.Material.ToLower());
               }
-
+           
               return await PagedList<Curtain>.CreateListAsync(curtains, curtainParams.PageNumber, curtainParams.PageSize);
          }    
 
@@ -43,10 +44,10 @@ namespace CurtainShop.API.Data
         public async Task<Curtain> GetCurtain(int id)
              =>await _appDbContext.Curtains.Include(z=>z.PhotoMaterial).FirstOrDefaultAsync(z => z.Id==id);
 
-        public async Task<PhotoMaterial> GetPhotoMaterial(int id)
+        public async Task<PhotoMaterial> GetCurtainPhoto(int id)
              =>await _appDbContext.Photos.FirstOrDefaultAsync(z => z.id == id);
 
-        public async Task<IEnumerable<PhotoMaterial>> GetPhotoMaterials(int id)
+        public async Task<IEnumerable<PhotoMaterial>> GetCurtainPhotos(int id)
             =>await _appDbContext.Photos.Where(z => z.CurtainId == id).ToListAsync();
     } 
 }
