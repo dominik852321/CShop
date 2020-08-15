@@ -25,3 +25,21 @@
     padding-top: 15px;
     margin: 0px 0px 0px 10px ;
 }
+
+
+.form-control {
+    width: 15em;
+    border: none;
+    border-bottom: 1px solid #DDD;
+}
+
+.custom {
+    width: 15em;
+}
+
+.fa-shopping-basket {
+    font-size: xx-large;
+    color: #DDD;
+}
+
+

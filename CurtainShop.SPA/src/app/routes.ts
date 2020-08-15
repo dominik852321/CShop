@@ -21,8 +21,8 @@ export const appRoutes: Routes = [
     children: [
       {path: 'firany', component : CurtainListComponent, resolve: {curtains : CurtainListResolver}},
       {path: 'firany/:id', component: CurtainDetailComponent, resolve: {curtain: CurtainDetailResolver}},
-      {path: 'obrusy-i-podszewki', component: TableclothsListComponent, resolve: {tablecloths : TableClothListResolver}},
-      {path: 'obrusy-i-podszewki/:id', component: TableclothsCardComponent},
+      {path: 'obrusy-i-poszewki', component: TableclothsListComponent, resolve: {tablecloths : TableClothListResolver}},
+      {path: 'obrusy-i-poszewki/:id', component: TableclothsCardComponent},
       {path: 'zaslony', component: ZaslonyListComponent},
       {path: 'promocje', component: PromotionsComponent}
     ]}

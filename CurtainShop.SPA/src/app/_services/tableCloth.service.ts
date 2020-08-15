@@ -14,7 +14,7 @@ export class TableClothService {
 
   constructor(private http: HttpClient) {}
 
-  GetTableCloths(page?, itemsPerPage?, tableClothParams?): Observable<PaginationResult<TableCloth[]>> {
+  GetTableCloths(page?, itemsPerPage?, tableclothParams?): Observable<PaginationResult<TableCloth[]>> {
     const paginationResult: PaginationResult<
       TableCloth[]> = new PaginationResult<TableCloth[]>();
 
@@ -25,11 +25,11 @@ export class TableClothService {
       params = params.append('pageSize', itemsPerPage);
     }
 
-    if (tableClothParams != null) {
-      params = params.append('minValue', tableClothParams.minValue);
-      params = params.append('maxValue', tableClothParams.maxValue);
-      if (tableClothParams.room != null) {
-        params = params.append('type', tableClothParams.room);
+    if (tableclothParams != null) {
+      params = params.append('minValue', tableclothParams.minValue);
+      params = params.append('maxValue', tableclothParams.maxValue);
+      if (tableclothParams.type != null) {
+        params = params.append('type', tableclothParams.type);
       }
     }
 

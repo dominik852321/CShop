@@ -18,9 +18,9 @@ export class CurtainListComponent implements OnInit {
   pagination: Pagination;
 
   rooms: NgOption[] = [
-    {value: 'Salon', name: 'Salon'},
-    {value: 'Kuchnia', name: 'Kuchnia'},
-    {value: 'Sypialnia', name: 'Sypialnia'},
+    {value: 'Salon', name: 'Salonowe'},
+    {value: 'Kuchnia', name: 'Kuchenne'},
+    {value: 'Sypialnia', name: 'Sypialniane'},
   ];
   materials: NgOption[] = [
     {value: 'Żakard' , name: 'Żakard'},
@@ -64,8 +64,5 @@ export class CurtainListComponent implements OnInit {
       console.log(error);
     });
   }
-
-
-
 
 }
