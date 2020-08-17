@@ -2,7 +2,10 @@
 .title {
     font-size: 3.5em;
     font-weight: lighter;
+    color: #008cba ;
 }
+
+@media (min-width: 575px) {
 .title::before {
     content: '';
     display: inline-block;
@@ -18,6 +21,7 @@
     width: 10%;
     padding-top: 15px;
     margin: 0px 0px 0px 10px ;
+}
 }
 
 

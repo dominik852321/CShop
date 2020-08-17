@@ -1,4 +1,4 @@
-<div class="text-center text-primary title mb-3">
+<div class="text-center title mb-3 mt-2">
     <a>Obrusy i poszewki</a>
 </div>
 
@@ -31,5 +31,17 @@
         <div *ngFor="let tablecloth of tablecloths" class="mx-auto">
             <app-tablecloths-card [tablecloth]='tablecloth'></app-tablecloths-card>
         </div>
+    </div>
+
+    <div class="row">
+        <pagination class="mx-auto mb-4"  [boundaryLinks]="true"
+        [totalItems]="pagination.totalItems" 
+        [itemsPerPage]="pagination.itemsPerPage"
+        [(ngModel)]="pagination.currentPage" 
+        (pageChanged)="pageChanged($event)"
+        [maxSize]="maxSize"
+        previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" 
+        lastText="&raquo;" >
+       </pagination>
     </div>
 </div>

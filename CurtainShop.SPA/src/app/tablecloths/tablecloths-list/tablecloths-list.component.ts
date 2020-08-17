@@ -42,6 +42,11 @@ export class TableclothsListComponent implements OnInit {
      });
   }
 
+  pageChanged(event: any): void {
+    this.pagination.currentPage = event.page;
+    this.LoadTableCloths();
+  }
+
   LoadTableCloths() {
     this.tableclothsParams.minValue = this.minValue;
     this.tableclothsParams.maxValue = this.maxValue;

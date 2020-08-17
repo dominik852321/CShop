@@ -1,14 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light border">
+<nav ngxNavbarDynamicExpand class="navbar navbar-expand-lg navbar-light bg-light ">
+  
+
+    <img [routerLink]="['']" src="../../assets/Bez tytułu.png" class="img" style="cursor: pointer; outline: none;">
  
-  <div class="collapse navbar-collapse  " >
-    <ul class="navbar-nav h5 mx-auto align-items-center">
-       <li class=" nav-item active m-2 h3" style="font-weight: 200;">
-        <a class="nav-link text-primary" [routerLink]="['']" >Panienka z okienka</a>
-       </li>
+  
+
+  <button class="navbar-toggler ml-auto" type="button" (click)="collapse.toggle()" aria-controls="main-nav" aria-expanded="false">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <ngx-navbar-collapse id="main-nav" #collapse="ngxNavbarCollapse">
+    <ul class="navbar-nav ml-5 align-items-center">
       
       <li class="nav-item  m-2" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/firany']">Firany</a>
+        <a class="nav-link " [routerLink]="['/firany']">Firany</a>
       </li>
+
       <li class="nav-item  m-2" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['/obrusy-i-poszewki']">Obrusy i podszewki</a>
       </li>
@@ -20,10 +27,22 @@
       <li class="nav-item  m-2" routerLinkActive="active">
         <a class="nav-link " [routerLink]="['/promocje']">Wyprzedaż</a>
       </li>
-      <li class="nav-item m-2 ">
-        <a class="nav-link " href="#">Kontakt</a>
-      </li>
+      
     </ul>
 
+   </ngx-navbar-collapse>
+
+  <div class="text-center mx-3">
+    <i class="fa fa-shopping-basket mt-2" aria-hidden="true"></i>
+    <h5>Koszyk</h5>
   </div>
+
+  <div class="text-center mx-3 ">
+    <i class="fa fa-user-o mt-2" aria-hidden="true"></i>
+    <h5>Zaloguj się</h5>
+  </div>
+ 
+   
 </nav>
+
+

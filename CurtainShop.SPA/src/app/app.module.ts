@@ -9,6 +9,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxSliderModule } from '@m0t0r/ngx-slider';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { NgxGalleryModule } from 'ngx-gallery-9';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+
 
 
 
@@ -28,6 +31,7 @@ import { CurtainDetailComponent } from './curtain/curtain-detail/curtain-detail.
 import { CurtainDetailResolver } from './_resolvers/curtain-detail.resolver';
 import { TableClothService } from './_services/tableCloth.service';
 import { TableClothListResolver } from './_resolvers/tablecloth-list.resolver';
+
 import { from } from 'rxjs';
 
 
@@ -55,7 +59,9 @@ import { from } from 'rxjs';
       NgSelectModule,
       NgxSliderModule,
       PaginationModule.forRoot(),
-      NgxGalleryModule
+      NgxGalleryModule,
+      BrowserAnimationsModule,
+      NgxNavbarModule
    ],
    providers: [
       CurtainService,
