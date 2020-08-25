@@ -1,14 +1,17 @@
+using System.Text;
 using AutoMapper;
 using CurtainShop.API.Data;
 using CurtainShop.API.Helpers;
 using CurtainShop.API.Interface;
 using CurtainShop.API.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 
 namespace CurtainShop.API
 {
@@ -32,10 +35,24 @@ namespace CurtainShop.API
             services.AddAutoMapper(typeof(Startup));
          
             services.AddTransient<Seed>();
+
+             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(Options =>{
+                        Options.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            ValidateIssuerSigningKey = true,
+                            IssuerSigningKey = new SymmetricSecurityKey
+                            (Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
+                            ValidateIssuer = false,
+                            ValidateAudience = false
+                        };
+                    });
+           
             
             services.AddScoped<ICurtainRepository, CurtainRepository>();
             services.AddScoped<IGenericRepository, GenericRepository>();
             services.AddScoped<ITableClothRepository, TableClothRepository>();
+            services.AddScoped<IAuthRepository, AuthRepository>();
 
 
 
@@ -57,6 +74,7 @@ namespace CurtainShop.API
 
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseDefaultFiles();
             app.UseStaticFiles();

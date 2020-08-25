@@ -8,6 +8,9 @@ namespace CurtainShop.API.Helpers
     {
         public AutoMapperProfiles()
         {
+         CreateMap<UserForRegisterDTO, User>();
+         CreateMap<User, UserToReturnDTO>();
+
           CreateMap<CurtainForCreationDTO, Curtain>();
           CreateMap<Curtain, CurtainToListDTO>();
           CreateMap<Curtain, CurtainToDetailDTO>();
@@ -17,8 +20,6 @@ namespace CurtainShop.API.Helpers
           CreateMap<TableCloth, TableClothToListDTO>();
           CreateMap<TableCloth, TableClothToDetailDTO>();
           CreateMap<TableClothToEditDTO, TableCloth>();
-
-
           
           CreateMap<PhotoForCreationDTO, PhotoMaterial>();
           CreateMap<PhotoMaterial, PhotoToReturnDTO>();

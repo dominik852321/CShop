@@ -15,6 +15,7 @@ export class CurtainDetailComponent implements OnInit {
   curtain: Curtain;
   sizeForm: FormGroup;
   changeSizeMode = false;
+  changeSizeModeComplete = false;
 
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryOptions[];
@@ -101,6 +102,14 @@ export class CurtainDetailComponent implements OnInit {
     this.changeSizeMode = false;
   }
 
+  ResetSize() {
+    this.curtain.width = this.firstWidth;
+    this.curtain.height = this.firstWidth;
+    this.curtain.price = this.firstPrice;
+
+    this.changeSizeModeComplete = false;
+  }
+
   SaveSize() {
     console.log(this.sizeForm.value);
     this.curtain.height = this.sizeForm.value.height;
@@ -114,5 +123,6 @@ export class CurtainDetailComponent implements OnInit {
     this.curtain.price = Math.ceil(this.firstPrice * this.result);
 
     this.changeSizeMode = false;
+    this.changeSizeModeComplete = true;
   }
 }

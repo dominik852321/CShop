@@ -1,8 +1,8 @@
-<nav ngxNavbarDynamicExpand class="navbar navbar-expand-lg navbar-light bg-light ">
+<nav ngxNavbarDynamicExpand class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
   
 
-    <img [routerLink]="['']" src="../../assets/Bez tytułu.png" class="img" style="cursor: pointer; outline: none;">
- 
+   <a class="text-title" [routerLink]="['']">Panienka z okienka</a>
+  
   
 
   <button class="navbar-toggler ml-auto" type="button" (click)="collapse.toggle()" aria-controls="main-nav" aria-expanded="false">
@@ -10,7 +10,7 @@
   </button>
 
   <ngx-navbar-collapse id="main-nav" #collapse="ngxNavbarCollapse">
-    <ul class="navbar-nav ml-5 align-items-center">
+    <ul class="navbar-nav ">
       
       <li class="nav-item  m-2" routerLinkActive="active">
         <a class="nav-link " [routerLink]="['/firany']">Firany</a>
@@ -24,24 +24,20 @@
         <a class="nav-link" [routerLink]="['/zaslony']">Zasłony</a>
       </li>
 
-      <li class="nav-item  m-2" routerLinkActive="active">
-        <a class="nav-link " [routerLink]="['/promocje']">Wyprzedaż</a>
+    </ul>
+
+    <ul class="navbar-nav ml-auto align-items-center">
+      <li class="nav-item text-center " routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/koszyk']"> <i class="fa fa-shopping-basket mx-2" aria-hidden="true"></i></a>
       </li>
-      
+
+    
+      <li class="nav-item  text-center" routerLinkActive="active">
+        <a class="nav-link " [routerLink]="['/zaloguj']"> <i class="fa fa-user-o mx-2" aria-hidden="true"></i></a>
+      </li>
     </ul>
 
    </ngx-navbar-collapse>
-
-  <div class="text-center mx-3">
-    <i class="fa fa-shopping-basket mt-2" aria-hidden="true"></i>
-    <h5>Koszyk</h5>
-  </div>
-
-  <div class="text-center mx-3 ">
-    <i class="fa fa-user-o mt-2" aria-hidden="true"></i>
-    <h5>Zaloguj się</h5>
-  </div>
- 
    
 </nav>
 

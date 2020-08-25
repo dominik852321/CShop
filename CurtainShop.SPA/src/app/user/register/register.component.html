@@ -1,0 +1,31 @@
+<div class="container-register">
+    <div class="register shadow-lg border" >
+        <form #registerForm="ngForm"  class="mb-3" > 
+            <div class=" text-center m-2 mb-4">
+                <div class="title">Rejestracja</div>
+            </div>
+
+            <div class="form-group">
+                <input class="form-control form-control-lg" type="text" placeholder="Użytkownik" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <input class="form-control form-control-lg" type="email" placeholder="Email" required autocomplete="off">
+            </div>
+            
+            <div class="form-group">
+                <input class="form-control form-control-lg" type="password" placeholder="Hasło" required autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <input class="form-control form-control-lg" type="password" placeholder="Potwierdz hasło" required autocomplete="off">
+            </div>
+
+
+            
+           <button [disabled]="!registerForm.valid" class="btn btn-primary my-2 btn-block btn-lg" type="submit">Zarejestruj</button>
+        </form>
+           <div class="text-center">
+               <p>Masz już konto? <a [routerLink]="['/zaloguj']">Zaloguj się!</a></p>
+           </div>
+    </div>
+</div>

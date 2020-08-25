@@ -1,0 +1,51 @@
+
+.fa-arrows-v,.fa-arrows-h {
+    font-size: x-large;
+    height: 32px;
+    width: 32px;
+}
+
+.card {
+    border: none;
+}
+
+
+td {
+    color: black;
+    font-weight: 400;
+}
+th {
+    font-weight: 300;
+    text-align: center;
+} 
+
+.price {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.price::before {
+    content: '';
+    display: inline-block;
+    border-top: 1.5px solid #DDD;
+    width: 60px;
+    padding-top: 13px;
+    margin: 0px 9px 0px 0px ;
+}
+
+.price::after {
+    content: '';
+    display: inline-block;
+    border-top: 1.5px solid #DDD;
+    width: 60px;
+    padding-top: 13px;
+    margin: 0px 0px 0px 9px ;
+}
+
+table {
+    min-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
