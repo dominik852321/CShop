@@ -1,4 +1,5 @@
-using Core.Model;
+using System.Reflection;
+using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
@@ -7,10 +8,18 @@ namespace Infrastructure.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options): base(options) {}
 
-        public DbSet<Curtain> Curtains { get; set; }
-        public DbSet<TableCloth> TableCloths { get; set; }
-        public DbSet<PhotoMaterial> Photos { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductPhotos> ProductPhotos { get; set; }
+        public DbSet<ProductType> ProductTypes { get; set; }
+        public DbSet<ProductRoom> ProductRooms { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
+      
      
     }
 }

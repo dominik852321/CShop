@@ -1,56 +1,87 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Core.Model;
+using System.Reflection;
 using System.Text.Json;
-
+using System.Threading.Tasks;
+using Core.Entities;
+using Microsoft.Extensions.Logging;
 
 namespace Infrastructure.Data
 {
     public class Seed
     {
-     
-            private readonly AppDbContext _appDbContext;
-            public Seed(AppDbContext context)
+      public static async Task SeedAsync(AppDbContext context, ILoggerFactory loggerFactory)
+        {
+            try
             {
-                _appDbContext = context;
-            }
 
-            public void SeedCurtains()
-            {
-                if (!_appDbContext.Curtains.Any())
+                if (!context.ProductRooms.Any())
                 {
-                    var curtainsData = File.ReadAllText("Data/CurtainSeedData.json");
-                    var curtains = JsonSerializer.Deserialize<List<Curtain>>(curtainsData);
+                    var roomsData =
+                        File.ReadAllText("../Infrastructure/Data/SeedData/rooms.json");
 
-                    foreach (var curtain in curtains)
+                    var rooms = JsonSerializer.Deserialize<List<ProductRoom>>(roomsData);
+
+                    foreach (var item in rooms)
                     {
-                        _appDbContext.Curtains.Add(curtain);
+                        context.ProductRooms.Add(item);
                     }
 
-                    _appDbContext.SaveChanges();
+                    await context.SaveChangesAsync();
                 }
-            }
 
-            public void SeedTableCloths()
-            {
-                if(!_appDbContext.TableCloths.Any())
+                if (!context.ProductTypes.Any())
                 {
-                    var tableClothsData = File.ReadAllText("Data/TableClothsSeedData.json");
-                    var tableCloths = JsonSerializer.Deserialize<List<TableCloth>>(tableClothsData);
+                    var typesData =
+                        File.ReadAllText("../Infrastructure/Data/SeedData/types.json");
 
-                    foreach (var tableCloth in tableCloths)
+                    var types = JsonSerializer.Deserialize<List<ProductType>>(typesData);
+
+                    foreach (var item in types)
                     {
-                        _appDbContext.TableCloths.Add(tableCloth);
+                        context.ProductTypes.Add(item);
                     }
 
-                    _appDbContext.SaveChanges();
+                    await context.SaveChangesAsync();
+                }
+
+                if (!context.Products.Any())
+                {
+                    var productsData =
+                        File.ReadAllText("../Infrastructure/Data/SeedData/products.json");
+
+                    var products = JsonSerializer.Deserialize<List<Product>>(productsData);
+
+                    foreach (var item in products)
+                    {
+                        context.Products.Add(item);
+                    }
+
+                    await context.SaveChangesAsync();
+                }
+                
+                if (!context.ProductPhotos.Any())
+                {
+                    var productPhotosData =
+                       File.ReadAllText("../Infrastructure/Data/SeedData/photos.json");
+
+                    var productPhotos = JsonSerializer.Deserialize<List<ProductPhotos>>(productPhotosData);   
+
+                    foreach (var item in productPhotos)
+                    {
+                        context.ProductPhotos.Add(item);
+                    }
+
+                    await context.SaveChangesAsync();
                 }
             }
-
-            
-        
-
-
+            catch (Exception ex)
+            {
+                var logger = loggerFactory.CreateLogger<Seed>();
+                logger.LogError(ex.Message);
+            }
+        }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\infrastructure\\Infrastructure.csproj": {}
+    "C:\\Users\\Dominik\\Projekty\\CShop\\infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\core\\Core.csproj": {
+    "C:\\Users\\Dominik\\Projekty\\CShop\\core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\Dominik\\Projekty\\CShop\\core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\core\\Core.csproj",
+        "projectPath": "C:\\Users\\Dominik\\Projekty\\CShop\\core\\Core.csproj",
         "packagesPath": "C:\\Users\\Dominik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\core\\obj\\",
+        "outputPath": "C:\\Users\\Dominik\\Projekty\\CShop\\core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dominik\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -63,14 +63,14 @@
         }
       }
     },
-    "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\Dominik\\Projekty\\CShop\\infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Dominik\\Projekty\\CShop\\infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\infrastructure\\Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Dominik\\Projekty\\CShop\\infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Dominik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Dominik\\Projekty\\CShop\\infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dominik\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -86,8 +86,8 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\core\\Core.csproj"
+              "C:\\Users\\Dominik\\Projekty\\CShop\\core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Dominik\\Projekty\\CShop\\core\\Core.csproj"
               }
             }
           }

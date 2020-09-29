@@ -16,18 +16,18 @@ import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 
 
 import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
-import { HomeComponent } from './home/home.component';
-import { FooterComponent } from './footer/footer.component';
-import { CurtainListComponent } from './curtain/curtain-list/curtain-list.component';
-import { TableclothsListComponent } from './tablecloths/tablecloths-list/tablecloths-list.component';
-import { CurtainCardComponent } from './curtain/curtain-card/curtain-card.component';
-import { TableclothsCardComponent } from './tablecloths/tablecloths-card/tablecloths-card.component';
-import { TableclothsDetailComponent } from './tablecloths/tablecloths-detail/tablecloths-detail.component';
-import { ZaslonyListComponent } from './zaslony/zaslony-list/zaslony-list.component';
+import { NavComponent } from './main/nav/nav.component';
+import { HomeComponent } from './main/home/home.component';
+import { FooterComponent } from './main/footer/footer.component';
+import { CurtainListComponent } from './products/curtain/curtain-list/curtain-list.component';
+import { TableclothsListComponent } from './products/tablecloths/tablecloths-list/tablecloths-list.component';
+import { CurtainCardComponent } from './products/curtain/curtain-card/curtain-card.component';
+import { TableclothsCardComponent } from './products/tablecloths/tablecloths-card/tablecloths-card.component';
+import { TableclothsDetailComponent } from './products/tablecloths/tablecloths-detail/tablecloths-detail.component';
+import { ZaslonyListComponent } from './products/zaslony/zaslony-list/zaslony-list.component';
 import { CurtainListResolver } from './_resolvers/curtain-list.resolver';
 import { CurtainService } from './_services/curtain.service';
-import { CurtainDetailComponent } from './curtain/curtain-detail/curtain-detail.component';
+import { CurtainDetailComponent } from './products/curtain/curtain-detail/curtain-detail.component';
 import { CurtainDetailResolver } from './_resolvers/curtain-detail.resolver';
 import { TableClothService } from './_services/tableCloth.service';
 import { TableClothListResolver } from './_resolvers/tablecloth-list.resolver';
@@ -39,6 +39,7 @@ import { RegisterComponent } from './user/register/register.component';
 import { RegulationsComponent } from './shop/regulations/regulations.component';
 import { ContactComponent } from './shop/contact/contact.component';
 import { ShopComponent } from './shop/shop/shop.component';
+import { BasketComponent } from './basket/basket.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { ShopComponent } from './shop/shop/shop.component';
       RegulationsComponent,
       ContactComponent,
       ShopComponent,
+      BasketComponent,
 
    ],
    imports: [

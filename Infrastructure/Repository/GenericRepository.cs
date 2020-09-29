@@ -1,30 +1,45 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Core.Entities;
 using Core.Interface;
+using Core.Specifications;
 using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repository
 {
-    public class GenericRepository: IGenericRepository
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
-        private readonly AppDbContext _appDbContext;
-
+        private readonly AppDbContext _context;
         public GenericRepository(AppDbContext appDbContext)
         {
-            _appDbContext = appDbContext;
+            _context = appDbContext;
         }
 
-        public void Add<T>(T entity) where T : class
+        public async Task<T> GetByIdAsync(int id)
         {
-            _appDbContext.Add(entity);
+            return await _context.Set<T>().FindAsync(id);
         }
 
-       public void Delete<T>(T entity) where T : class
+        public async Task<IReadOnlyList<T>> ListAllAsync()
         {
-            _appDbContext.Remove(entity);
+            return await _context.Set<T>().ToListAsync();
         }
 
-        public async Task<bool> SaveAll(){
-           return await _appDbContext.SaveChangesAsync() > 0;
+        public async Task<T> GetEntityWithSpec(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).FirstOrDefaultAsync();
+        }
+
+        public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).ToListAsync();
+        }
+
+        private IQueryable<T> ApplySpecification(ISpecification<T> spec)
+        {
+            return SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);
         }
     }
 }

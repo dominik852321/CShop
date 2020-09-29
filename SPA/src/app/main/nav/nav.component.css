@@ -1,0 +1,39 @@
+
+.text-title {
+    color: #008CBA;
+    text-decoration: none;
+   
+}
+
+
+
+@media (max-width: 680px) {
+    .text-title {
+    font-size: 30px;
+    }
+}
+@media (min-width: 680px) {
+    .text-title {
+    font-size: 35px;
+    }
+}
+
+
+.fa-shopping-cart{
+    color:#008CBA;
+    font-size: 1.8em;
+   
+}
+.fa-user-o {
+    color:#31708f;
+    font-size: 1.8em;
+}
+
+.nav-link {
+    font-size: 1.6em;
+}
+
+
+.navbar-toggler-icon {
+    font-size: 1.3rem;
+}

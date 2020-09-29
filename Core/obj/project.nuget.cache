@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lQMlU2msneLKg3gHGTzQ8+yUXCTIpPWWGSogNTz1evUWa4G/wqvesFFaDX4yDDjODCHbjUBoLqgd8yDXyMyGyw==",
+  "dgSpecHash": "3iKXoxxwNPD8IMT4afsQgbxRzn02swh+HTE10kkTjCpxvJyJwPlpl4EJXv6yluaKRUCXnzvB3EWZ9TB8Q58Tdg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\core\\Core.csproj",
+  "projectFilePath": "C:\\Users\\Dominik\\Projekty\\CShop\\core\\Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Dominik\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

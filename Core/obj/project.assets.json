@@ -1043,11 +1043,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\Dominik\\Projekty\\CShop\\core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\Core\\Core.csproj",
+      "projectPath": "C:\\Users\\Dominik\\Projekty\\CShop\\core\\Core.csproj",
       "packagesPath": "C:\\Users\\Dominik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\Core\\obj\\",
+      "outputPath": "C:\\Users\\Dominik\\Projekty\\CShop\\core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dominik\\AppData\\Roaming\\NuGet\\NuGet.Config",

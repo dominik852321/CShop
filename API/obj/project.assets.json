@@ -5601,11 +5601,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\api\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Dominik\\Projekty\\CShop\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\api\\API.csproj",
+      "projectPath": "C:\\Users\\Dominik\\Projekty\\CShop\\API\\API.csproj",
       "packagesPath": "C:\\Users\\Dominik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\api\\obj\\",
+      "outputPath": "C:\\Users\\Dominik\\Projekty\\CShop\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Dominik\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5621,8 +5621,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Dominik\\Projekty\\Shop\\CurtainShop\\infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\Dominik\\Projekty\\CShop\\infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Dominik\\Projekty\\CShop\\infrastructure\\Infrastructure.csproj"
             }
           }
         }

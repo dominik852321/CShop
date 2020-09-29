@@ -32,9 +32,9 @@ namespace API
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.Configure<CloudinarySettings2>(Configuration.GetSection("CloudinarySettings2"));
             
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(MappingProfiles));
          
-            services.AddTransient<Seed>();
+       
 
              services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(Options =>{
@@ -48,11 +48,8 @@ namespace API
                         };
                     });
            
-            
-            services.AddScoped<ICurtainRepository, CurtainRepository>();
-            services.AddScoped<IGenericRepository, GenericRepository>();
-            services.AddScoped<ITableClothRepository, TableClothRepository>();
-            services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
 
 
 
@@ -60,15 +57,13 @@ namespace API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, Seed seeder)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            seeder.SeedCurtains();
-            seeder.SeedTableCloths();
+           
             
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
