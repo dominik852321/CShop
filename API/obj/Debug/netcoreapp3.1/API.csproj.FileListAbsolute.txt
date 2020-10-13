@@ -144,3 +144,8 @@ C:\Users\Dominik\Projekty\CShop\API\obj\Debug\netcoreapp3.1\staticwebassets\API.
 C:\Users\Dominik\Projekty\CShop\API\obj\Debug\netcoreapp3.1\API.dll
 C:\Users\Dominik\Projekty\CShop\API\obj\Debug\netcoreapp3.1\API.pdb
 C:\Users\Dominik\Projekty\CShop\API\obj\Debug\netcoreapp3.1\API.genruntimeconfig.cache
+C:\Users\Dominik\Projekty\CShop\api\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\Dominik\Projekty\CShop\api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Dominik\Projekty\CShop\api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Dominik\Projekty\CShop\api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Dominik\Projekty\CShop\api\obj\Debug\netcoreapp3.1\API.MvcApplicationPartsAssemblyInfo.cs

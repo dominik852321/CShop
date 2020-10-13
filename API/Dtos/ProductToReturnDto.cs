@@ -22,9 +22,6 @@ namespace API.Dtos
         public string Material1 { get; set; }
         public string Material2 { get; set; }
 
-
-        public ICollection<ProductPhotosToReturnDto> Photos { get; set; }
-
         public string PictureUrl { get; set; }
     }
 }
