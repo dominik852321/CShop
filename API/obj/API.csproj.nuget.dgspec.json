@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Dominik\\Projekty\\CShop\\API\\API.csproj": {}
+    "C:\\Users\\Dominik\\Projekty\\CShop\\api\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Dominik\\Projekty\\CShop\\API\\API.csproj": {
+    "C:\\Users\\Dominik\\Projekty\\CShop\\api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dominik\\Projekty\\CShop\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\Dominik\\Projekty\\CShop\\api\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\Dominik\\Projekty\\CShop\\API\\API.csproj",
+        "projectPath": "C:\\Users\\Dominik\\Projekty\\CShop\\api\\API.csproj",
         "packagesPath": "C:\\Users\\Dominik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dominik\\Projekty\\CShop\\API\\obj\\",
+        "outputPath": "C:\\Users\\Dominik\\Projekty\\CShop\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Dominik\\AppData\\Roaming\\NuGet\\NuGet.Config",
