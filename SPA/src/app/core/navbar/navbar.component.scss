@@ -3,9 +3,22 @@
     font-weight: 350;
     
 }
-.link {
+
+a {
     text-decoration: none;
     color:#6c757d;
+
+    &.active {
+        color: black;
+    }
+}
+
+.logo{
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
+
 }
 
 .basket {
@@ -24,3 +37,4 @@
     top: -16px;
     right: 18px;
 }
+

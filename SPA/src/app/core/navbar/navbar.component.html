@@ -3,10 +3,10 @@
     <img src="/assets/images/logo.png" style="max-height: 70px;" alt="logo" class="logo" routerLink="/">
     
     <nav class="navbar my-2 my-md-0 mr-md-3 " >
-      <a class="p-2 link" routerLink="/Shop" routerLinkActive="active">Sklep</a>
-      <a class="p-2 link" routerLink="/Shop" routerLinkActive="active">Kolekcje</a>
-      <a class="p-2 link" routerLink="/Shop" routerLinkActive="active">Akcesoria</a>
-      <a class="p-2 link" routerLink="/Contact" routerLinkActive="active">Kontakt</a>
+      <a class="p-2 link" [routerLink]="['/']" routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact: true}"   >Strona główna</a>
+      <a class="p-2 link" routerLink="/shop" routerLinkActive="active" >Sklep</a>
+      <a class="p-2 link" routerLink="/test-error" routerLinkActive="active" >Errors</a>
     </nav>
 
     <div class="d-flex align-items-center basket">
