@@ -5,6 +5,7 @@
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.7.1"/>
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1"/>
     <PackageReference Include="System.Text.Json" Version="4.7.2"/>
+    <PackageReference Include="StackExchange.Redis" Version="2.1.58"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\core\Core.csproj"/>

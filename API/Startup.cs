@@ -18,6 +18,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using StackExchange.Redis;
 
 namespace API
 {
@@ -40,6 +41,11 @@ namespace API
             
             services.AddAutoMapper(typeof(MappingProfiles));
          
+            services.AddSingleton<IConnectionMultiplexer>(c => {
+                var configuration = ConfigurationOptions
+                .Parse(Configuration.GetConnectionString("Redis"),true);
+                return ConnectionMultiplexer.Connect(configuration);
+            });
            
             services.AddApplicationServices();
             services.AddSwaggerDocumentation();
