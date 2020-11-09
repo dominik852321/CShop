@@ -12,7 +12,7 @@
     <div class="d-flex align-items-center basket">
       <a routerLink="/basket" class="position-relative">
         <i class="fa fa-shopping-cart fa-2x mr-5 text-dark"></i>
-        <div class="cart-no">5</div>
+        <div *ngIf="(basket$ | async)" class="cart-no">{{(basket$ | async).items.length}}</div>
       </a>
       <ng-container>
         <a routerLink="/account/login" class="btn btn-outline-secondary mr-2">Zaloguj</a>

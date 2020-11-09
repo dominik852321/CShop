@@ -10,10 +10,11 @@ import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

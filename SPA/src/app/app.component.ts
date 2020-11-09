@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BasketService } from './basket/basket.service';
 
 
 
@@ -11,9 +12,17 @@ export class AppComponent {
   
   title = 'Panienka z okienka';
 
-  constructor() {}
+  constructor(private basketService: BasketService) {}
 
   ngOnInit(): void {
+    const basketId = localStorage.getItem('basket_id');
+    if (basketId) {
+      this.basketService.getBasket(basketId).subscribe(() => {
+        console.log('initialised basket');
+      }, error => {
+        console.log(error);
+      });
+    }
   }
 
 }
