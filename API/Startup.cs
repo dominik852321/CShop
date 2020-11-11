@@ -7,6 +7,7 @@ using API.Middleware;
 using AutoMapper;
 using Core.Interface;
 using Infrastructure.Data;
+using Infrastructure.Identity;
 using Infrastructure.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -24,17 +25,19 @@ namespace API
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+       
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(z => z.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppIdentityDbContext>(z =>  z.UseSqlite(Configuration.GetConnectionString("IdentityConnection")));
 
             services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.Configure<CloudinarySettings2>(Configuration.GetSection("CloudinarySettings2"));
@@ -42,12 +45,13 @@ namespace API
             services.AddAutoMapper(typeof(MappingProfiles));
          
             services.AddSingleton<IConnectionMultiplexer>(c => {
-                var configuration = ConfigurationOptions
+                var config = ConfigurationOptions
                 .Parse(Configuration.GetConnectionString("Redis"),true);
-                return ConnectionMultiplexer.Connect(configuration);
+                return ConnectionMultiplexer.Connect(config);
             });
            
             services.AddApplicationServices();
+            services.AddIdentityService(Configuration);
             services.AddSwaggerDocumentation();
 
             services.AddCors(opt => 

@@ -4,19 +4,13 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.5"/>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.5"/>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.5"/>
     <PackageReference Include="CloudinaryDotNet" Version="1.10.0"/>
-    <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.5"/>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5"/>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.5"/>
-    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.7.1"/>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9"/>
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.6.3"/>
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.6.3"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\infrastructure\Infrastructure.csproj"/>
+    <ProjectReference Include="../Infrastructure/Infrastructure.csproj"/>
   </ItemGroup>
 </Project>
