@@ -4,22 +4,22 @@ namespace API.Dtos
 {
     public class AddresDto
     {
-        [Required]
+        [Required(ErrorMessage = "Imię jest wymagane")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Nazwisko jest wymagane")]
         public string LastName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Ulica jest wymagana")]
         public string Street { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Miast jest wymagane")]
         public string City { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Region jest wymagany")]
         public string State { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Kod pocztowy jest wymagany")]
         public string Zipcode { get; set; }
     }
 }
