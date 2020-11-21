@@ -30,6 +30,7 @@ namespace Infrastructure.Repository
             return await _appDbContext.Products
             .Include(s => s.ProductType)
             .Include(s => s.ProductRoom)
+            .Include(s => s.Photos)
             .FirstOrDefaultAsync(s => s.Id == id);
         }
 

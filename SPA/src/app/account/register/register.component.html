@@ -13,7 +13,7 @@
                 
                 
                  
-                <button class="btn btn-primary my-2 btn-block btn-lg" type="submit">Rejestracja</button>
+                <button [disabled]="registerForm.invalid" class="btn btn-primary my-2 btn-block btn-lg" type="submit">Rejestracja</button>
             </form>
             <div class="text-center">
                 <p>Masz już konto? <a [routerLink]="['/account/login']">Zaloguj się!</a></p>

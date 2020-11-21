@@ -24,7 +24,7 @@ namespace Core.Entities
         public string Color2 { get; set; }
         public string Material1 { get; set; }
         public string Material2 { get; set; }
-
+        
 
         //Zdjęcia produktu
         public ICollection<ProductPhotos> Photos { get; set; }

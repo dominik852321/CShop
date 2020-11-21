@@ -19,6 +19,9 @@ namespace API.Dtos
         [Required(ErrorMessage = "Region jest wymagany")]
         public string State { get; set; }
 
+        [Required(ErrorMessage = "Panstwo jest wymagany")]
+        public string Country { get; set; }
+
         [Required(ErrorMessage = "Kod pocztowy jest wymagany")]
         public string Zipcode { get; set; }
     }
