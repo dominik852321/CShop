@@ -1,0 +1,35 @@
+<div class="mt-4" [formGroup]="checkoutForm">
+    <div class="d-flex justify-content-between align-items-center">
+        <h4>Dane odbiorcy</h4>
+        
+    </div>
+    <div class="row mt-3" formGroupName="addressForm">
+        <div class="form-group col-6">
+            <app-text-input [label]="'Imię'" formControlName="firstName"></app-text-input>
+        </div>
+        <div class="form-group col-6">
+            <app-text-input [label]="'Nazwisko'" formControlName="lastName"></app-text-input>
+        </div>
+        <div class="form-group col-6">
+            <app-text-input [label]="'Ulica i numer domu'" formControlName="street"></app-text-input>
+        </div>
+        <div class="form-group col-6">
+            <app-text-input [label]="'Miasto'" formControlName="city"></app-text-input>
+        </div>
+        <div class="form-group col-6">
+            <app-text-input [label]="'Państwo'" formControlName="country"></app-text-input>
+        </div>
+        <div class="form-group col-6">
+            <app-text-input [label]="'Kod pocztowy'" formControlName="zipcode"></app-text-input>
+        </div>
+    </div>
+</div>
+
+<div class="float-none d-flex justify-content-between flex-column flex-lg-row mb-5">
+    <button class="btn btn-outline-primary" routerLink="/basket">
+        <i class="fa fa-angle-left"></i> Wróć do koszyka
+    </button>
+    <button  class="btn btn-primary" cdkStepperNext>
+        Sposób doręczenia <i class="fa fa-angle-right"></i> 
+    </button>
+</div>
