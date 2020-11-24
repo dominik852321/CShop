@@ -1,18 +1,18 @@
-<ng-container *ngIf="basket$ | async">
+<ng-container *ngIf="items.length > 0">
     <div class="table-responsive">
-        <table class="table">
-            <thead>
+        <table class="table table-borderless">
+            <thead [class.bg-light]="isBasket || isOrder">
                 <tr>
-                    <th class="border-0" [class.bg-light]="isBasket">
+                    <th class="border-0" >
                         <div class="p-2 px-3 text uppercase">Produkt</div>
                     </th>
-                    <th scope="col" class="border-0 " [class.bg-light]="isBasket">
+                    <th scope="col" class="border-0 " >
                          <div class="py-2 text-uppercase">Cena</div>
                     </th>
-                    <th scope="col" class="border-0 " [class.bg-light]="isBasket">
+                    <th scope="col" class="border-0 " >
                         <div class="py-2 text-uppercase">Ilość</div>
                     </th>
-                    <th scope="col" class="border-0 " [class.bg-light]="isBasket">
+                    <th scope="col" class="border-0 " >
                        <div class="py-2 text-uppercase">Razem</div>
                     </th>
                     <th *ngIf="isBasket" scope="col" class="border-0 bg-light">
@@ -21,7 +21,7 @@
                 </tr>
             </thead>
             <tbody >
-                <tr *ngFor="let item of (basket$ | async).items">
+                <tr *ngFor="let item of items" class="border-0">
                    <th scope="row">
                        <div class="p-2">
                            <img src="{{item.pictureUrl}}" alt="{{item.productName}}" class="img-fluid" style="max-height: 50px;">

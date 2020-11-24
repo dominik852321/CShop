@@ -2,5 +2,7 @@
     <div class="i fa fa-check-circle fa-5x" style="color: green;"></div>
     <h2>Dziękuję. Twoje zamówienie zostało potwierdzone</h2>
     <p class="mb-4">Twoje zamówienie </p>
-    <button class="btn btn-outline-success">Zobacz swoję zamówienie</button>
+    <button *ngIf="order" routerLink="/orders/{{order?.id}}" class="btn btn-outline-success">Zobacz swoje zamówienie</button>
+
+    <button *ngIf="!order" routerLink="/orders" class="btn btn-outline-success">Zobacz wszystkie swoje zamówienia</button>
 </div>

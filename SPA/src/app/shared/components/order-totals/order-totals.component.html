@@ -2,21 +2,18 @@
     Podsumowanie zamówienia
 </div>
 <div class="p-4">
-    <p class="font-italic mb-4">
-        Koszt przesyłki będzie dodany, gdy dokonasz wyboru.
-    </p>
-    <ul class="list-unstyled mb-4" *ngIf="(basketTotal$ | async) as totals">
+    <ul class="list-unstyled mb-4" >
         <li class="d-flex justify-content-between py-3 border-bottom">
             <strong class="text-muted">Koszt produktów</strong>
-            <strong>{{(basketTotal$ | async).subtotal}}.00 zł</strong>
+            <strong>{{Subtotal}}.00 zł</strong>
         </li>
         <li class="d-flex justify-content-between py-3 border-bottom">
             <strong class="text-muted">Wysyłka i doręczenie</strong>
-            <strong>{{(basketTotal$ | async).shipping}}.00 zł</strong>
+            <strong>{{Shipping}}.00 zł</strong>
         </li>
         <li class="d-flex justify-content-between py-3 border-bottom">
             <strong class="text-muted">Podsumowanie zamówienia</strong>
-            <strong>{{(basketTotal$ | async).total}}.00 zł</strong>
+            <strong>{{Total}}.00 zł</strong>
         </li>
     </ul>
 </div>
