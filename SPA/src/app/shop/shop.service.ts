@@ -1,3 +1,4 @@
+import { IProduct } from './../shared/models/product';
 import { Pagination } from './../shared/models/pagination';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -5,7 +6,6 @@ import { IPagination } from '../shared/models/pagination';
 import { IType } from '../shared/models/productType';
 import { IRoom } from '../shared/models/productRoom';
 import { ShopParams } from '../shared/models/shopParams';
-import { IProduct } from '../shared/models/product';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -79,12 +79,6 @@ export class ShopService {
   }
 
   getProduct(id: number) {
-    const product = this.products.find(p => p.id === id);
-
-    if (product) {
-      return of(product);
-    }
-
     return this.http.get<IProduct>(this.baseUrl + 'product/' + id);
   }
 

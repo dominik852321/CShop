@@ -3,7 +3,9 @@
 
     <div class="row" *ngIf="product">
         <div class="col-6">
-            <img src="{{product.pictureUrl}}" alt="{{product.name}}" class="img-fluid w-100">
+            <div >
+                <ngx-gallery class="shadow " [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+            </div>
         </div>
         <div class="col-6">
             <h3>{{product.name}}</h3>

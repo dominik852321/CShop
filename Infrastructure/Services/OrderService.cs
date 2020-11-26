@@ -30,9 +30,8 @@ namespace Infrastructure.Services
              foreach(var item in basket.Items)
              {
                  var productItem = await _productRepository.GetProductByIdAsync(item.Id);
-                 var productPhoto = productItem?.Photos?.FirstOrDefault(x => x.MainPhoto == true)?.PictureUrl;
-
-                 var itemOrdered = new ProductItemOrdered(productItem.Id, productItem.Name, productPhoto);
+                
+                 var itemOrdered = new ProductItemOrdered(productItem.Id, productItem.Name, productItem.PictureUrl);
                  var orderItem = new OrderItem(itemOrdered, productItem.Price, item.Quantity);
                  items.Add(orderItem);
              }

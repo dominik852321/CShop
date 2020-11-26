@@ -1,3 +1,4 @@
+using System.IO;
 using System.Linq;
 using System.Text;
 using API.Errors;
@@ -16,6 +17,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -38,9 +40,6 @@ namespace API
         {
             services.AddDbContext<AppDbContext>(z => z.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<AppIdentityDbContext>(z =>  z.UseSqlite(Configuration.GetConnectionString("IdentityConnection")));
-
-            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
-            services.Configure<CloudinarySettings2>(Configuration.GetSection("CloudinarySettings2"));
             
             services.AddAutoMapper(typeof(MappingProfiles));
          
@@ -80,6 +79,12 @@ namespace API
             app.UseAuthorization();
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions 
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "Content")
+                ), RequestPath = "/content"
+            });
 
             app.UseSwaggerDocumentation();
              

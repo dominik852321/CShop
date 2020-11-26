@@ -23,7 +23,8 @@
       "Color1": "Żółty",
       "Description": "Ullamco ea magna Lorem irure irure elit nisi sint cupidatat exercitation.",
       "ProductTypeId": 5,
-      "ProductRoomId": 2
+      "ProductRoomId": 2,
+      "PictureUrl": "images/productphotos/img.jpg"
     },
     {
       "Name": "Product",
@@ -36,7 +37,8 @@
       "Color1": "Biały",
       "Description": "Veniam deserunt do exercitation magna ex sint anim voluptate anim non aliqua tempor commodo.",
       "ProductTypeId": 3,
-      "ProductRoomId": 1
+      "ProductRoomId": 1,
+      "PictureUrl": "images/productphotos/img.jpg"
     },
     {
       "Name": "Product",
@@ -49,7 +51,8 @@
       "Color1": "Niebieski",
       "Description": "Veniam adipisicing Lorem aute duis officia.",
       "ProductTypeId": 1,
-      "ProductRoomId": 4
+      "ProductRoomId": 4,
+      "PictureUrl": "images/productphotos/img.jpg"
     },
     {
       "Name": "Product",
@@ -62,7 +65,8 @@
       "Color1": "Niebieski",
       "Description": "Exercitation eu officia consequat esse excepteur non.",
       "ProductTypeId": 2,
-      "ProductRoomId": 3
+      "ProductRoomId": 3,
+      "PictureUrl": "images/productphotos/img.jpg"
     },
     {
       "Name": "Product",
@@ -75,7 +79,8 @@
       "Color1": "Niebieski",
       "Description": "Tempor quis nulla aute culpa magna aliquip incididunt id fugiat anim aliqua dolore.",
       "ProductTypeId": 4,
-      "ProductRoomId": 4
+      "ProductRoomId": 4,
+      "PictureUrl": "images/productphotos/img.jpg"
     },
     {
       "Name": "Product",
@@ -88,7 +93,8 @@
       "Color1": "Niebieski",
       "Description": "Commodo est sunt non pariatur esse dolore eu anim velit id ullamco dolor duis.",
       "ProductTypeId": 1,
-      "ProductRoomId": 3
+      "ProductRoomId": 3,
+      "PictureUrl": "images/productphotos/img.jpg"
     },
     {
       "Name": "Product",
@@ -101,7 +107,8 @@
       "Color1": "Żółty",
       "Description": "Esse voluptate cillum adipisicing non laboris consectetur commodo et ea amet cillum.",
       "ProductTypeId": 3,
-      "ProductRoomId": 1
+      "ProductRoomId": 1,
+      "PictureUrl": "images/productphotos/img.jpg"
     },
     {
       "Name": "Product",
@@ -114,7 +121,8 @@
       "Color1": "Żółty",
       "Description": "Fugiat duis enim nulla nostrud aliquip dolor eu ullamco deserunt.",
       "ProductTypeId": 4,
-      "ProductRoomId": 3
+      "ProductRoomId": 3,
+      "PictureUrl": "images/productphotos/img.jpg"
     },
     {
       "Name": "Product",
@@ -127,7 +135,8 @@
       "Color1": "Żółty",
       "Description": "Exercitation amet consequat elit consequat dolor qui nulla quis ea tempor proident.",
       "ProductTypeId": 5,
-      "ProductRoomId": 4
+      "ProductRoomId": 4,
+      "PictureUrl": "images/productphotos/img.jpg"
     },
     {
       "Name": "Product",
@@ -140,7 +149,8 @@
       "Color1": "Biały",
       "Description": "Consectetur esse occaecat veniam occaecat pariatur irure pariatur incididunt ipsum fugiat.",
       "ProductTypeId": 2,
-      "ProductRoomId": 2
+      "ProductRoomId": 2,
+      "PictureUrl": "images/productphotos/img.jpg"
     },
     {
       "Name": "Product",
@@ -153,7 +163,8 @@
       "Color1": "Niebieski",
       "Description": "Esse consequat voluptate aliqua commodo.",
       "ProductTypeId": 4,
-      "ProductRoomId": 3
+      "ProductRoomId": 3,
+      "PictureUrl": "images/productphotos/img.jpg"
     },
     {
       "Name": "Product",
@@ -166,7 +177,8 @@
       "Color1": "Biały",
       "Description": "Cillum ut esse et minim qui voluptate Lorem eu ad sint voluptate cillum duis magna.",
       "ProductTypeId": 4,
-      "ProductRoomId": 4
+      "ProductRoomId": 4,
+      "PictureUrl": "images/productphotos/img.jpg"
     },
     {
       "Name": "Product",
@@ -179,7 +191,8 @@
       "Color1": "Niebieski",
       "Description": "Et non magna pariatur elit sit Lorem non occaecat aliqua cupidatat.",
       "ProductTypeId": 2,
-      "ProductRoomId": 1
+      "ProductRoomId": 1,
+      "PictureUrl": "images/productphotos/img.jpg"
     },
     {
       "Name": "Product",

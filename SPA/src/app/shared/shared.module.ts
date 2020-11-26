@@ -1,12 +1,10 @@
 import { RouterModule } from '@angular/router';
-import { Basket } from './models/basket';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { PagingHeaderComponent } from './components/paging-header/paging-header.component';
 import { PagerComponent } from './components/pager/pager.component';
-import { from } from 'rxjs';
 import { OrderTotalsComponent } from './components/order-totals/order-totals.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -14,6 +12,7 @@ import { TextInputComponent } from './components/text-input/text-input.component
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { BasketSummaryComponent } from './components/basket-summary/basket-summary.component';
+import { NgxGalleryModule } from 'ngx-gallery-9';
 
 
 
@@ -34,7 +33,8 @@ import { BasketSummaryComponent } from './components/basket-summary/basket-summa
     ReactiveFormsModule,
     FormsModule,
     CdkStepperModule,
-    RouterModule
+    RouterModule,
+    NgxGalleryModule
   ],
   exports: [
     PaginationModule,
@@ -48,7 +48,8 @@ import { BasketSummaryComponent } from './components/basket-summary/basket-summa
     TextInputComponent,
     CdkStepperModule,
     StepperComponent,
-    BasketSummaryComponent
+    BasketSummaryComponent,
+    NgxGalleryModule
   ]
 })
 export class SharedModule { }

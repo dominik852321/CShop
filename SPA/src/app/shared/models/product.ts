@@ -1,4 +1,4 @@
-export interface IProduct{ 
+export interface IProduct{
   id: number;
   name: string;
   price: number;
@@ -12,5 +12,11 @@ export interface IProduct{
   color2: string;
   material1: string;
   material2: string;
+  pictureUrl: string;
+  photos: IProductPhotos[];
+}
+
+export interface IProductPhotos {
+  id: number;
   pictureUrl: string;
 }

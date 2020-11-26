@@ -1,5 +1,6 @@
 using System.Linq;
 using API.Dtos;
+using API.Helpers.Resolvers;
 using AutoMapper;
 using Core.Entities;
 using Core.Entities.OrderAggregate;
@@ -13,11 +14,16 @@ namespace API.Helpers
             CreateMap<Product, ProductToListDto>()
                .ForMember(s => s.ProductType, z => z.MapFrom(x => x.ProductType.Name))
                .ForMember(s => s.ProductRoom, z => z.MapFrom(x => x.ProductRoom.Name))
-               .ForMember(s => s.PictureUrl, z => { z.MapFrom(x => x.Photos.FirstOrDefault(p => p.MainPhoto).PictureUrl);});
+               .ForMember(s => s.PictureUrl, z => z.MapFrom<ProductToListUrlResolver>());
+        
             CreateMap<Product, ProductToReturnDto>()
                .ForMember(s => s.ProductType, z => z.MapFrom(x => x.ProductType.Name))
                .ForMember(s => s.ProductRoom, z => z.MapFrom(x => x.ProductRoom.Name))
-               .ForMember(s => s.PictureUrl, z => { z.MapFrom(x => x.Photos.FirstOrDefault(p => p.MainPhoto).PictureUrl);});
+               .ForMember(s => s.PictureUrl, z => z.MapFrom<ProductToReturnUrlResolver>());   
+
+            CreateMap<ProductPhotos, ProductPhotosToReturnDto>()
+               .ForMember(d => d.PictureUrl, z => z.MapFrom<ProductPhotoUrlResolver>());
+               
             CreateMap<Core.Entities.Identity.Address, AddresDto>().ReverseMap();
             CreateMap<CustomerBasketDto, CustomerBasket>();
             CreateMap<BasketItemDto, BasketItem>();

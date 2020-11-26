@@ -125,6 +125,9 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("TEXT")
                         .HasMaxLength(1000);
 
+                    b.Property<string>("PictureUrl")
+                        .HasColumnType("TEXT");
+
                     b.Property<double>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -152,20 +155,11 @@ namespace Infrastructure.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DateAdded")
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("MainPhoto")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("PictureUrl")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("productId")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("public_id")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 

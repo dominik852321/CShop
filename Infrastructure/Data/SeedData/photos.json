@@ -1,62 +1,54 @@
 [
     {
-      "PictureUrl": "https://res.cloudinary.com/dnjlaolqh/image/upload/v1596562856/yq9m65nqqdgjfnt2hhje.jpg",
-      "public_id": "yq9m65nqqdgjfnt2hhje",
-      "MainPhoto": true,
+      "PictureUrl": "images/productphotos/img.jpg",
       "productId": 1
     },
     {
-      "PictureUrl": "https://res.cloudinary.com/dnjlaolqh/image/upload/v1596562856/yq9m65nqqdgjfnt2hhje.jpg",
-      "public_id": "yq9m65nqqdgjfnt2hhje",
-      "MainPhoto": true,
+      "PictureUrl": "images/productphotos/boot-ang1.png",
+      "productId": 1
+    },
+    {
+      "PictureUrl": "images/productphotos/boot-ang2.png",
+      "productId": 1
+    },
+    {
+      "PictureUrl": "images/productphotos/boot-core1.png",
+      "productId": 1
+    },
+    {
+      "PictureUrl": "images/productphotos/boot-core2.png",
       "productId": 2
     },
     {
-      "PictureUrl": "https://res.cloudinary.com/dnjlaolqh/image/upload/v1596562856/yq9m65nqqdgjfnt2hhje.jpg",
-      "public_id": "yq9m65nqqdgjfnt2hhje",
-      "MainPhoto": true,
+      "PictureUrl": "images/productphotos/img.jpg",
       "productId": 3
     },
     {
-      "PictureUrl": "https://res.cloudinary.com/dnjlaolqh/image/upload/v1596562856/yq9m65nqqdgjfnt2hhje.jpg",
-      "public_id": "yq9m65nqqdgjfnt2hhje",
-      "MainPhoto": true,
+      "PictureUrl": "images/productphotos/img.jpg",
       "productId": 4
     },
     {
-      "PictureUrl": "https://res.cloudinary.com/dnjlaolqh/image/upload/v1596562856/yq9m65nqqdgjfnt2hhje.jpg",
-      "public_id": "yq9m65nqqdgjfnt2hhje",
-      "MainPhoto": true,
+      "PictureUrl": "images/productphotos/img.jpg",
       "productId": 5
     },
     {
-      "PictureUrl": "https://res.cloudinary.com/dnjlaolqh/image/upload/v1596562856/yq9m65nqqdgjfnt2hhje.jpg",
-      "public_id": "yq9m65nqqdgjfnt2hhje",
-      "MainPhoto": true,
+      "PictureUrl": "images/productphotos/img.jpg",
       "productId": 6
     },
     {
-      "PictureUrl": "https://res.cloudinary.com/dnjlaolqh/image/upload/v1596562856/yq9m65nqqdgjfnt2hhje.jpg",
-      "public_id": "yq9m65nqqdgjfnt2hhje",
-      "MainPhoto": true,
+      "PictureUrl": "images/productphotos/img.jpg",
       "productId": 7
     },
     {
-      "PictureUrl": "https://res.cloudinary.com/dnjlaolqh/image/upload/v1596562856/yq9m65nqqdgjfnt2hhje.jpg",
-      "public_id": "yq9m65nqqdgjfnt2hhje",
-      "MainPhoto": true,
+      "PictureUrl": "images/productphotos/img.jpg",
       "productId": 8
     },
     {
-      "PictureUrl": "https://res.cloudinary.com/dnjlaolqh/image/upload/v1596562856/yq9m65nqqdgjfnt2hhje.jpg",
-      "public_id": "yq9m65nqqdgjfnt2hhje",
-      "MainPhoto": true,
+      "PictureUrl": "images/productphotos/img.jpg",
       "productId": 9
     },
     {
-      "PictureUrl": "https://res.cloudinary.com/dnjlaolqh/image/upload/v1596562856/yq9m65nqqdgjfnt2hhje.jpg",
-      "public_id": "yq9m65nqqdgjfnt2hhje",
-      "MainPhoto": true,
+      "PictureUrl": "images/productphotos/img.jpg",
       "productId": 10
     }
   ]
