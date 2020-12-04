@@ -17,6 +17,7 @@ export interface IOrder {
     subtotal: number;
     total: number;
     status: string;
+    
   }
 export interface IOrderItem {
    productId: number;
@@ -24,4 +25,6 @@ export interface IOrderItem {
    pictureUrl: string;
    price: number;
    quantity: number;
+   width: number;
+   height: number;
  }

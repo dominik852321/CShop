@@ -12,13 +12,11 @@ namespace Infrastructure.Services
     {
         public readonly IBasketRepository _basketRepo;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IProductRepository _productRepository;
 
-        public OrderService(IBasketRepository basketRepo, IUnitOfWork unitOfWork, IProductRepository productRepository)
+        public OrderService(IBasketRepository basketRepo, IUnitOfWork unitOfWork)
         {
             _basketRepo = basketRepo;
             _unitOfWork = unitOfWork;
-            _productRepository = productRepository;
         }
 
         public async Task<Order> CreateOrderAsync(string buyerEmail, int deliveryMethodId, string basketId, Address shippingAddress)
@@ -29,10 +27,11 @@ namespace Infrastructure.Services
              var items = new List<OrderItem>();
              foreach(var item in basket.Items)
              {
-                 var productItem = await _productRepository.GetProductByIdAsync(item.Id);
+                 var productItem = await _unitOfWork.Repository<Product>().GetByIdAsync(item.Id);
                 
-                 var itemOrdered = new ProductItemOrdered(productItem.Id, productItem.Name, productItem.PictureUrl);
-                 var orderItem = new OrderItem(itemOrdered, productItem.Price, item.Quantity);
+                 var itemOrdered = new ProductItemOrdered(productItem.Id, productItem.Name, productItem.PictureUrl, 
+                                                          item.Width, item.Height);
+                 var orderItem = new OrderItem(itemOrdered, item.Price, item.Quantity);
                  items.Add(orderItem);
              }
              // Get Delivery method from repo

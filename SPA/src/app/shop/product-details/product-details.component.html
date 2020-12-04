@@ -1,28 +1,66 @@
-
-<div class="container mt-5">
-
-    <div class="row" *ngIf="product">
-        <div class="col-6">
-            <div >
+<div class="container row mx-auto" *ngIf="product">
+        <div class="col-md-7 p-0 ">
                 <ngx-gallery class="shadow " [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
-            </div>
         </div>
-        <div class="col-6">
-            <h3>{{product.name}}</h3>
-            <p style="font-size: 2em;">{{product.price}}.00 zł</p>
-            <div class="d-flex justify-content-start align-items-center">
-                <i (click)="decrementQuantity()" class="fa fa-minus-circle text-warning mr-2" style="cursor: pointer; font-size: 2em;"></i>
-            <span class="font-weight-bold" style="font-size: 1.5em;">{{quantity}}</span>
-                <i (click)="incrementQuantity()" class="fa fa-plus-circle text-warning mx-2" style="cursor: pointer; font-size: 2em;"></i>
-                <button (click)="addItemToBasket()" class="btn btn-outline-primary btn-lg ml-4">Add to Cart</button>
-            </div>
-            
+        <div class="col-md-5 shadow-sm">
+            <app-change-default [product]="product" ></app-change-default>
         </div>
-        <div class="row mt-5">
-            <div class="col-12 ml-3">
-                <h4>Description</h4>
+    
+        <div class="col-md-12 my-3  mx-auto mb-4 shadow-sm  ">
+    
+            <div class="mb-3 mt-3">
+                <h2>Opis</h2>
                 <p>{{product.description}}</p>
             </div>
+        
+            <div>
+                <h2>Szczegóły</h2>
+                <table class="h6 table table-bordered ">
+                    <tbody>
+                        <tr>
+                            <td>
+                                Wysokość
+                            </td>
+                            <th>
+                                {{product.height}} cm
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Szerokość
+                            </td>
+                            <th>
+                                {{product.width}} cm
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Rodzaj pokoju
+                            </td>
+                            <th>
+                                {{product.productRoom}}
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Materiał
+                            </td>
+                            <th>
+                                {{product.material1}}, {{product.material2}}
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Kolor
+                            </td>
+                            <th>
+                                {{product.color1}}, {{product.color2}}
+                            </th>
+                        </tr>
+                    </tbody>
+        
+                </table>
+            </div>
+        
         </div>
-    </div>
 </div>

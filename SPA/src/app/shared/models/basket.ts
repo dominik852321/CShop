@@ -11,10 +11,12 @@ export interface IBasketItem {
     id: number;
     productName: string;
     price: number;
-    quantity: number ;
+    quantity: number;
     pictureUrl: string;
     room: string;
     type: string;
+    width: number;
+    height: number;
  }
 
 export class Basket implements IBasket{

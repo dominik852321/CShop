@@ -24,6 +24,9 @@ namespace Core.Specifications
             {
                 switch (productParams.Sort)
                 {
+                    case "addAsc":
+                         AddOrderBy(p =>p.Id);
+                         break;
                     case "priceAsc":
                          AddOrderBy(p => p.Price);
                          break;
@@ -31,7 +34,7 @@ namespace Core.Specifications
                          AddOrderByDescending(p => p.Price);
                          break;     
                     default:
-                         AddOrderBy(n => n.Name);
+                          AddOrderByDescending(p =>p.Id);
                          break;     
                 }
             }
@@ -43,6 +46,7 @@ namespace Core.Specifications
             AddInclude(x => x.ProductType);
             AddInclude(x => x.ProductRoom);
         }
+
        
 
       

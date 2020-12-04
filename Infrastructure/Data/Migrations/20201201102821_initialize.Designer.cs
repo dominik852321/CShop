@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20201126112025_initialize")]
+    [Migration("20201201102821_initialize")]
     partial class initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,9 +25,6 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("DeliveryTime")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
                     b.Property<double>("Price")
@@ -221,7 +218,7 @@ namespace Infrastructure.Data.Migrations
                             b1.Property<string>("LastName")
                                 .HasColumnType("TEXT");
 
-                            b1.Property<string>("State")
+                            b1.Property<string>("Phone")
                                 .HasColumnType("TEXT");
 
                             b1.Property<string>("Street")
@@ -251,6 +248,9 @@ namespace Infrastructure.Data.Migrations
                             b1.Property<int>("OrderItemId")
                                 .HasColumnType("INTEGER");
 
+                            b1.Property<int>("Height")
+                                .HasColumnType("INTEGER");
+
                             b1.Property<string>("PictureUrl")
                                 .HasColumnType("TEXT");
 
@@ -259,6 +259,9 @@ namespace Infrastructure.Data.Migrations
 
                             b1.Property<string>("ProductName")
                                 .HasColumnType("TEXT");
+
+                            b1.Property<int>("Width")
+                                .HasColumnType("INTEGER");
 
                             b1.HasKey("OrderItemId");
 

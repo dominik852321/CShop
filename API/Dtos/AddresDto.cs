@@ -21,5 +21,10 @@ namespace API.Dtos
 
         [Required(ErrorMessage = "Kod pocztowy jest wymagany")]
         public string Zipcode { get; set; }
+
+        [Required(ErrorMessage = "Kod pocztowy jest wymagany")]
+        public string Phone { get; set; }
+
+
     }
 }

@@ -51,6 +51,15 @@ namespace API.Controllers
             return Ok(new Pagination<ProductToListDto>(productParams.PageIndex, productParams.PageSize, totalItems, data));
         }
 
+        [Cached(600)]
+        [HttpGet("4products")]
+        public async Task<ActionResult<IReadOnlyList<ProductToListDto>>> Get4Products()
+        {
+            var products = await _productRepo.Get4Products();
+
+            return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToListDto>>(products));
+        }
+
 
         [Cached(600)]
         [HttpGet("{id}")]

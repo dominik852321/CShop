@@ -1,5 +1,6 @@
+import { ChangeDefaultComponent } from './../../shared/components/change-default/change-default.component';
 import { IProduct } from './../../shared/models/product';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BasketService } from 'src/app/basket/basket.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
@@ -12,16 +13,16 @@ import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from 'ngx-gal
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent implements OnInit {
+
   product: IProduct;
-  quantity = 1;
+
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
   constructor(
     private shopService: ShopService,
     private activateRoute: ActivatedRoute,
-    private bcService: BreadcrumbService,
-    private basketService: BasketService
+    private bcService: BreadcrumbService
   ) {
     this.bcService.set('@productDetails', ' ');
   }
@@ -31,7 +32,6 @@ export class ProductDetailsComponent implements OnInit {
     this.gallerySettings();
   }
 
-
   loadProduct() {
     this.shopService
       .getProduct(+this.activateRoute.snapshot.paramMap.get('id'))
@@ -39,7 +39,7 @@ export class ProductDetailsComponent implements OnInit {
         (response) => {
           this.product = response;
           this.bcService.set('@productDetails', this.product.name);
-          if (this.product.photos.length > 1)
+          if (this.product.photos.length > 0 || this.product.pictureUrl.length > 0)
           {
             this.galleryImages = this.getImages();
           }
@@ -49,21 +49,6 @@ export class ProductDetailsComponent implements OnInit {
         }
       );
   }
-
-  incrementQuantity() {
-    this.quantity++;
-  }
-
-  decrementQuantity() {
-    if (this.quantity > 1) {
-      this.quantity--;
-    }
-  }
-
-  addItemToBasket() {
-    this.basketService.addItemToBasket(this.product, this.quantity);
-  }
-
   getImages() {
     const imageUrls = [];
 
@@ -100,4 +85,6 @@ export class ProductDetailsComponent implements OnInit {
       }
     ];
   }
+
+
 }

@@ -13,6 +13,10 @@ import { CdkStepperModule } from '@angular/cdk/stepper';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { BasketSummaryComponent } from './components/basket-summary/basket-summary.component';
 import { NgxGalleryModule } from 'ngx-gallery-9';
+import { ChangeDefaultComponent } from './components/change-default/change-default.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+
+
 
 
 
@@ -23,7 +27,8 @@ import { NgxGalleryModule } from 'ngx-gallery-9';
     OrderTotalsComponent,
     TextInputComponent,
     StepperComponent,
-    BasketSummaryComponent
+    BasketSummaryComponent,
+    ChangeDefaultComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +39,8 @@ import { NgxGalleryModule } from 'ngx-gallery-9';
     FormsModule,
     CdkStepperModule,
     RouterModule,
-    NgxGalleryModule
+    NgxSliderModule
+
   ],
   exports: [
     PaginationModule,
@@ -49,7 +55,8 @@ import { NgxGalleryModule } from 'ngx-gallery-9';
     CdkStepperModule,
     StepperComponent,
     BasketSummaryComponent,
-    NgxGalleryModule
+    NgxGalleryModule,
+    ChangeDefaultComponent
   ]
 })
 export class SharedModule { }

@@ -1,8 +1,9 @@
+import { Basket } from './../shared/models/basket';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, from } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Basket, IBasket, IBasketItem, IBasketTotals } from '../shared/models/basket';
+import { IBasket, IBasketItem, IBasketTotals } from '../shared/models/basket';
 import { IProduct } from '../shared/models/product';
 import { map, reduce } from 'rxjs/operators';
 import { IDeliveryMethod } from '../shared/models/deliveryMethod';
@@ -62,7 +63,6 @@ export class BasketService {
     if (basket === null){
       basket = this.createBasket();
     }
-    console.log(basket);
     basket.items = this.addOrUpdateItem(basket.items, itemToAdd, quantity);
     this.setBasket(basket);
   }
@@ -89,7 +89,7 @@ export class BasketService {
   removeItemFromBasket(item: IBasketItem) {
     const basket = this.getCurrentBasketValue();
     if(basket.items.some(x => x.id === item.id)){
-      basket.items = basket.items.filter(i => i.id !== item.id);
+      basket.items = basket.items.filter(i => i !== item);
       if(basket.items.length > 0){
         this.setBasket(basket);
       }
@@ -102,6 +102,7 @@ export class BasketService {
   deleteLocalBasket(id: string) {
     this.basketSource.next(null);
     this.basketTotalSource.next(null);
+    this.shipping = 0;
     localStorage.removeItem('basket_id');
   }
 
@@ -109,7 +110,8 @@ export class BasketService {
     return this.http.delete(this.baseUrl + 'basket?id=' + basket.id).subscribe(() => {
       this.basketSource.next(null);
       this.basketTotalSource.next(null);
-      localStorage.removeItem('basket');
+      this.shipping = 0;
+      localStorage.removeItem('basket_id');
     }, error => {
       console.log(error);
     });
@@ -125,14 +127,9 @@ export class BasketService {
 
 
   private addOrUpdateItem(items: IBasketItem[], itemToAdd: IBasketItem, quantity: number): IBasketItem[] {
-    const index = items.findIndex(i => i.id === itemToAdd.id);
-    if(index === -1) {
-      itemToAdd.quantity = quantity;
-      items.push(itemToAdd);
-    }
-    else {
-      items[index].quantity += quantity;
-    }
+    itemToAdd.quantity = quantity;
+    items.push(itemToAdd);
+
     return items;
   }
 
@@ -150,7 +147,9 @@ export class BasketService {
       pictureUrl: item.pictureUrl,
       quantity,
       room: item.productRoom,
-      type: item.productType
+      type: item.productType,
+      width: item.width,
+      height: item.height
     }
   }
 

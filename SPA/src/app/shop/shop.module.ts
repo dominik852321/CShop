@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ShopRoutingModule } from './shop-routing.module';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 
 @NgModule({
@@ -13,6 +14,10 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     CommonModule,
     SharedModule,
     ShopRoutingModule,
+    CollapseModule.forRoot(),
+  ],
+  exports: [
+    ProductItemComponent
   ]
 })
 export class ShopModule { }

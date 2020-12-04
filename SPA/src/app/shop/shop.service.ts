@@ -18,6 +18,7 @@ export class ShopService {
 
   baseUrl = 'https://localhost:5001/api/';
   products: IProduct[] = [];
+  lastProducts: IProduct[] = [];
   rooms: IRoom[] = [];
   types: IType[] = [];
   pagination = new Pagination();
@@ -70,16 +71,17 @@ export class ShopService {
        );
   }
 
-  setShopParams(params: ShopParams) {
-    this.shopParams = params;
-  }
-  
-  getShopParams() {
-    return this.shopParams;
-  }
-
-  getProduct(id: number) {
-    return this.http.get<IProduct>(this.baseUrl + 'product/' + id);
+  get4Products(){
+    if (this.lastProducts.length > 0){
+      return of(this.lastProducts);
+    }
+    return this.http.get<IProduct[]>(this.baseUrl + 'product/4products').pipe(
+      map(response => {
+        this.lastProducts = response ;
+        console.log(this.lastProducts);
+        return response;
+        })
+    );
   }
 
   getTypes() {
@@ -91,7 +93,7 @@ export class ShopService {
         this.types = response;
         return response;
       })
-    );;
+    );
   }
 
   getRooms() {
@@ -104,6 +106,18 @@ export class ShopService {
         return response;
       })
     );
+  }
+
+  setShopParams(params: ShopParams) {
+    this.shopParams = params;
+  }
+  
+  getShopParams() {
+    return this.shopParams;
+  }
+
+  getProduct(id: number) {
+    return this.http.get<IProduct>(this.baseUrl + 'product/' + id);
   }
 }
 

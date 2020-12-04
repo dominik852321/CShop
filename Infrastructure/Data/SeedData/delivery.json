@@ -1,30 +1,14 @@
 [
     {
       "Id": 1,
-      "ShortName": "Poczta Polska",
-      "Description": "Wysyłka na terenie polski",
-      "DeliveryTime": "1-2 dni",
+      "ShortName": "Wysyłka na terenie polski",
+      "DeliveryTime": "Około 45 dni roboczych",
       "Price": 20
     },
     {
       "Id": 2,
-      "ShortName": "Wysyłka zagranice ",
-      "Description": "Wysyłki zagraniczne",
-      "DeliveryTime": "5-10 Dni",
-      "Price": 50
-    },
-    {
-      "Id": 3,
-      "ShortName": "UPS3",
-      "Description": "Slower but cheap",
-      "DeliveryTime": "5-10 Days",
-      "Price": 2
-    },
-    {
-      "Id": 4,
-      "ShortName": "FREE",
-      "Description": "Free! You get what you pay for",
-      "DeliveryTime": "1-2 Weeks",
-      "Price": 0
+      "ShortName": "Wysyłka zagranice",
+      "DeliveryTime": "Około 55 dni roboczych",
+      "Price": 70
     }
   ]

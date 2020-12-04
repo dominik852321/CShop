@@ -15,7 +15,6 @@ namespace Infrastructure.Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     ShortName = table.Column<string>(nullable: true),
                     DeliveryTime = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
                     Price = table.Column<double>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
@@ -60,10 +59,10 @@ namespace Infrastructure.Data.Migrations
                     ShipToAddress_FirstName = table.Column<string>(nullable: true),
                     ShipToAddress_LastName = table.Column<string>(nullable: true),
                     ShipToAddress_Street = table.Column<string>(nullable: true),
-                    ShipToAddress_State = table.Column<string>(nullable: true),
                     ShipToAddress_City = table.Column<string>(nullable: true),
                     ShipToAddress_Country = table.Column<string>(nullable: true),
                     ShipToAddress_Zipcode = table.Column<string>(nullable: true),
+                    ShipToAddress_Phone = table.Column<string>(nullable: true),
                     DeliveryMethodId = table.Column<int>(nullable: true),
                     Subtotal = table.Column<double>(type: "decimal(18,2)", nullable: false),
                     Status = table.Column<string>(nullable: false),
@@ -126,6 +125,8 @@ namespace Infrastructure.Data.Migrations
                     ItemOrdered_ProductItemId = table.Column<int>(nullable: true),
                     ItemOrdered_ProductName = table.Column<string>(nullable: true),
                     ItemOrdered_PictureUrl = table.Column<string>(nullable: true),
+                    ItemOrdered_Width = table.Column<int>(nullable: true),
+                    ItemOrdered_Height = table.Column<int>(nullable: true),
                     Price = table.Column<double>(type: "decimal(18,2)", nullable: false),
                     Quantity = table.Column<int>(nullable: false),
                     OrderId = table.Column<int>(nullable: true)

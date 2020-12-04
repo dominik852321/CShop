@@ -4,9 +4,9 @@
     </div>
     
     <div *ngIf="basket$ | async">
-        <div class="pb-5">
+        <div class="pb-3">
             <div class="row">
-                <div class="col-12 py-5 mb-1">
+                <div class="col-12  mb-1">
                      <app-basket-summary
                          (decrement)="decrementItemQuantity($event)"
                          (increment)="incrementItemQuantity($event)"
@@ -17,7 +17,7 @@
             </div>
 
             <div class="row">
-                <div class="col-6 offset-6">
+                <div class="col-lg-6 ml-auto">
                    <app-order-totals
                    *ngIf="(basketTotal$ | async)"
                    [Shipping]="(basketTotal$ | async).shipping"

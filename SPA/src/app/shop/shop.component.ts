@@ -20,10 +20,12 @@ export class ShopComponent implements OnInit {
   shopParams: ShopParams;
   totalCount: number;
   sortOptions = [
-   {name: 'Alfabetycznie', value: 'name'},
-   {name: 'Od najtańszego', value: 'priceAsc'},
-   {name: 'Od najdroższego', value: 'priceDesc'}
+   {name: 'Najnowszę', value: 'addDesc'},
+   {name: 'Najstarsze', value: 'addAsc'},
+   {name: 'Najtańsze', value: 'priceAsc'},
+   {name: 'Najdroższe', value: 'priceDesc'}
   ];
+  isCollapsed = true;
 
   constructor(private shopService: ShopService) {
     this.shopParams = shopService.getShopParams();

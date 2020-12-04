@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Authorize]
     public class OrderController : BaseApiController
     {
         private readonly IOrderService _orderService;
@@ -39,6 +38,7 @@ namespace API.Controllers
             return Ok(order);
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IReadOnlyList<OrderToReturnDto>>> GetOrdersForUser()
         {
@@ -48,7 +48,8 @@ namespace API.Controllers
 
             return Ok(_mapper.Map<IReadOnlyList<Order>, IReadOnlyList<OrderToReturnDto>>(orders));
         }
-
+        
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<OrderToReturnDto>> GetOrderByIdForUser(int id)
         {

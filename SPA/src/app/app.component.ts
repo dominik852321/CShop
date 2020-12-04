@@ -1,6 +1,7 @@
 import { AccountService } from './account/account.service';
 import { Component, OnInit } from '@angular/core';
 import { BasketService } from './basket/basket.service';
+import { FacebookService, InitParams } from 'ngx-facebook';
 
 
 
@@ -18,7 +19,10 @@ export class AppComponent {
   ngOnInit(): void {
    this.loadBasket();
    this.loadCurrentUser();
+  
   }
+
+
 
   loadCurrentUser() {
     const token = localStorage.getItem('token');

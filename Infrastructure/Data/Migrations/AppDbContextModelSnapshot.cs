@@ -25,9 +25,6 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("DeliveryTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("TEXT");
-
                     b.Property<double>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -219,7 +216,7 @@ namespace Infrastructure.Data.Migrations
                             b1.Property<string>("LastName")
                                 .HasColumnType("TEXT");
 
-                            b1.Property<string>("State")
+                            b1.Property<string>("Phone")
                                 .HasColumnType("TEXT");
 
                             b1.Property<string>("Street")
@@ -249,6 +246,9 @@ namespace Infrastructure.Data.Migrations
                             b1.Property<int>("OrderItemId")
                                 .HasColumnType("INTEGER");
 
+                            b1.Property<int>("Height")
+                                .HasColumnType("INTEGER");
+
                             b1.Property<string>("PictureUrl")
                                 .HasColumnType("TEXT");
 
@@ -257,6 +257,9 @@ namespace Infrastructure.Data.Migrations
 
                             b1.Property<string>("ProductName")
                                 .HasColumnType("TEXT");
+
+                            b1.Property<int>("Width")
+                                .HasColumnType("INTEGER");
 
                             b1.HasKey("OrderItemId");
 

@@ -37,6 +37,11 @@ namespace Infrastructure.Repository
             return await ApplySpecification(spec).ToListAsync();
         }
 
+        public async Task<IReadOnlyList<T>> Get4Products()
+        {
+            return await _context.Set<T>().OrderByDescending(x => x.Id).Take(4).ToListAsync();
+        }
+
         
 
         public async Task<int> CountAsync(ISpecification<T> spec)
@@ -65,5 +70,7 @@ namespace Infrastructure.Repository
         {
             _context.Set<T>().Remove(entity);
         }
+
+        
     }
 }

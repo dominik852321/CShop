@@ -1,33 +1,48 @@
-<div class="d-flex flex-column flex-md-row align-items-center justify-content-between p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm fixed-top">
-    
-    <img src="/assets/images/logo.png" style="max-height: 70px;" alt="logo" class="logo" routerLink="/">
-    
-    <nav class="navbar my-2 my-md-0 mr-md-3 " >
-      <a class="p-2 link" [routerLink]="['/']" routerLinkActive="active"
-      [routerLinkActiveOptions]="{exact: true}"   >Strona główna</a>
-      <a class="p-2 link" routerLink="/shop" routerLinkActive="active" >Sklep</a>
-      <a class="p-2 link" routerLink="/test-error" routerLinkActive="active" >Errors</a>
-    </nav>
+  <nav ngxNavbarDynamicExpand class=" navbar-light bg-white border-bottom shadow-sm ">
+  
+  
+    <img src="/assets/images/logo4.png" routerLink="/" class="logo" style="max-height: 70px;" alt="logo" class="d-none d-lg-block" >
 
-    <div class="d-flex align-items-center basket">
-      <a routerLink="/basket" class="position-relative">
-        <i class="fa fa-shopping-cart fa-2x mr-5 text-dark"></i>
+    <button
+    class="navbar-toggler"
+    type="button"
+    (click)="collapse.toggle()"
+    aria-controls="main-nav"
+    aria-expanded="false">
+    <span
+      class="navbar-toggler-icon d-flex align-items-center justify-content-center" >
+      
+    </span>
+   </button>
+
+   <div class="d-lg-none d-flex align-items-center">
+    <div style="border-right: 1px solid #aaa;" class="mr-3">
+      <a routerLink="/basket" class="position-relative mr-4">
+        <i class="fa fa-shopping-cart icon-basket" style="color: #008CBA;"></i>
         <div *ngIf="(basket$ | async)" class="cart-no">{{(basket$ | async).items.length}}</div>
       </a>
-
+    </div>
+ 
       <ng-container *ngIf="(currentUser$ | async) === null">
-        <a routerLink="/account/login" class="btn btn-outline-secondary mr-2">Zaloguj</a>
-        <a routerLink="/account/register" class="btn btn-outline-secondary mr-3">Rejestracja</a>
+        <div class="dropdown" dropdown>
+          <a class="dropdown-toggle" style="cursor: pointer;" dropdownToggle>
+            <a><i class="fa fa-user-o fa-2x icon-user" style="color: #0791b7;"></i></a>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu>
+            <a routerLink="/account/login" class="dropdown-item d-flex align-items-center">Zaloguj</a>
+            <a routerLink="/account/register" class="dropdown-item d-flex align-items-center">Rejestracja</a>
+          </div>
+        </div>
       </ng-container>
-
+  
       <ng-container *ngIf="currentUser$ | async">
-        <div class="dropdown ml-3 mr-5" dropdown>
+        <div class="dropdown" dropdown>
           <a class="dropdown-toggle" style="cursor: pointer" dropdownToggle>
-            Hej {{(currentUser$ | async).displayName}}
+            <a><i style="color:cornflowerblue;" class="fa fa-user-o fa-2x"></i></a>
           </a>
           <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu>
             <a routerLink="/basket" class="dropdown-item d-flex align-items-center py-2">
-              <i class="fa fa-shopping-cart mr-3"></i> Koszyk
+              <i class="fa fa-shopping-cart mr-5"></i> Koszyk
             </a>
             <a routerLink="/orders" class="dropdown-item d-flex align-items-center py-2 ">
               <i class="fa fa-history mr-3"></i> Zamówienia
@@ -39,8 +54,66 @@
           </div>
         </div>
       </ng-container>
-      
-    </div>
-    
+  
   </div>
+
+   
+    
+    <ngx-navbar-collapse id="main-nav" #collapse="ngxNavbarCollapse" >
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item ">
+          <a class="nav-link" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Strona główna</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">Sklep</a>
+        </li>
+        <li class="nav-item dropdown" dropdown>
+          <a class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbardrop" data-toggle="dropdown" dropdownToggle>Informacje</a>
+          <div class="dropdown-menu" *dropdownMenu>
+            <a class="dropdown-item" routerLink="/information/aboutme" >O mnie</a>
+            <a class="dropdown-item" routerLink="/information/delivery-payments">Płatność</a>
+            <a class="dropdown-item" routerLink="/information/regulations">Regulamin</a>
+            <a class="dropdown-item" routerLink="/information/privacypolicy">Polityka prywatności</a>
+          </div>
+        </li>
+      </ul>
+     
+    </ngx-navbar-collapse>
+
+    <div class="d-none d-lg-flex align-items-center">
+      <div style="border-right: 1px solid #aaa;" class="mr-3">
+        <a routerLink="/basket" class="position-relative mr-4">
+          <i class="fa fa-shopping-cart icon-basket" style="color: #008CBA;"></i>
+          <div *ngIf="(basket$ | async)" class="cart-no">{{(basket$ | async).items.length}}</div>
+        </a>
+      </div>
+     
+        <ng-container *ngIf="(currentUser$ | async) === null">
+            <button routerLink="/account/login" type="button" class="btn btn-info  mr-2">Zaloguj</button>
+            <button routerLink="/account/register" type="button" class="btn btn-info mr-3">Rejestracja</button>
+        </ng-container>
+    
+        <ng-container *ngIf="currentUser$ | async">
+          <div class="dropdown" dropdown>
+            <a class="dropdown-toggle" style="cursor: pointer" dropdownToggle>
+              <a><i style="color:cornflowerblue;" class="fa fa-user-o fa-2x"></i></a>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu>
+              <a routerLink="/basket" class="dropdown-item d-flex align-items-center py-2">
+                <i class="fa fa-shopping-cart mr-5"></i> Koszyk
+              </a>
+              <a routerLink="/orders" class="dropdown-item d-flex align-items-center py-2 ">
+                <i class="fa fa-history mr-3"></i> Zamówienia
+              </a>
+              <div class="dropdown-divider"></div>
+              <a (click)="logout()" class="dropdown-item d-flex align-items-center py-2">
+                <i class="fa fa-sign-out mr-3"></i> Wyloguj
+              </a>
+            </div>
+          </div>
+        </ng-container>
+    
+    </div>
+  </nav>
+
 

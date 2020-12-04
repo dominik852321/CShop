@@ -3,9 +3,9 @@ using System.Collections;
 using System.Threading.Tasks;
 using Core.Entities;
 using Core.Interface;
-using Infrastructure.Repository;
+using Infrastructure.Data;
 
-namespace Infrastructure.Data
+namespace Infrastructure.Repository
 {
     public class UnitOfWork : IUnitOfWork
     {

@@ -30,17 +30,20 @@ export class CheckoutPaymentComponent implements OnInit {
       const navigationExtras: NavigationExtras = {state: order};
       this.router.navigate(['checkout/success'], navigationExtras);
     }, error => {
-      this.toastr.error(error.message);
-      console.log(error);
+      this.toastr.error('Wypełnij poprawnie Dane odbiorcy / Dostarczanie');
     });
   }
 
   private getOrderToCreate(basket: IBasket) {
-    return {
-      basketId: basket.id,
-      deliveryMethodId: + this.checkoutForm.get('deliveryForm').get('deliveryMethod').value,
-      shipToAddress: this.checkoutForm.get('addressForm').value
-    };
+    const delivery = this.checkoutForm.get('deliveryForm').get('deliveryMethod').value;
+    if (delivery !== null){
+      return {
+        basketId: basket.id,
+        deliveryMethodId: +this.checkoutForm.get('deliveryForm').get('deliveryMethod').value,
+        shipToAddress: this.checkoutForm.get('addressForm').value
+      };
+    }
   }
-
 }
+
+
