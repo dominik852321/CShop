@@ -1,0 +1,54 @@
+[
+    {
+      "PictureUrl": "images/productphotos/img.jpg",
+      "productId": 1
+    },
+    {
+      "PictureUrl": "images/productphotos/boot-ang1.png",
+      "productId": 1
+    },
+    {
+      "PictureUrl": "images/productphotos/boot-ang2.png",
+      "productId": 1
+    },
+    {
+      "PictureUrl": "images/productphotos/boot-core1.png",
+      "productId": 1
+    },
+    {
+      "PictureUrl": "images/productphotos/boot-core2.png",
+      "productId": 2
+    },
+    {
+      "PictureUrl": "images/productphotos/img.jpg",
+      "productId": 3
+    },
+    {
+      "PictureUrl": "images/productphotos/img.jpg",
+      "productId": 4
+    },
+    {
+      "PictureUrl": "images/productphotos/img.jpg",
+      "productId": 5
+    },
+    {
+      "PictureUrl": "images/productphotos/img.jpg",
+      "productId": 6
+    },
+    {
+      "PictureUrl": "images/productphotos/img.jpg",
+      "productId": 7
+    },
+    {
+      "PictureUrl": "images/productphotos/img.jpg",
+      "productId": 8
+    },
+    {
+      "PictureUrl": "images/productphotos/img.jpg",
+      "productId": 9
+    },
+    {
+      "PictureUrl": "images/productphotos/img.jpg",
+      "productId": 10
+    }
+  ]

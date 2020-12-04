@@ -1,0 +1,14 @@
+[
+    {
+      "Id": 1,
+      "ShortName": "Wysyłka na terenie polski",
+      "DeliveryTime": "Około 45 dni roboczych",
+      "Price": 20
+    },
+    {
+      "Id": 2,
+      "ShortName": "Wysyłka zagranice",
+      "DeliveryTime": "Około 55 dni roboczych",
+      "Price": 70
+    }
+  ]

@@ -1,0 +1,68 @@
+<ng-container *ngIf="items.length > 0">
+    <div class="table-responsive">
+        <table class="table table-borderless">
+            <thead [class.bg-light]="isBasket || isOrder">
+                <tr>
+                    <th class="border-0" >
+                        <div class="p-2 px-3 text uppercase">Produkt</div>
+                    </th>
+                    <th scope="col" class="border-0 " >
+                         <div class="py-2 text-uppercase">Rozmiar</div>
+                    </th>
+                    <th scope="col" class="border-0 " >
+                        <div class="py-2 text-uppercase">Ilość</div>
+                    </th>
+                    
+                    <th scope="col" class="border-0 " >
+                       <div class="py-2 text-uppercase">Cena</div>
+                    </th>
+                    <th *ngIf="isBasket" scope="col" class="border-0 bg-light">
+                        <div class="py-2 text-uppercase">Usuń</div>
+                   </th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor="let item of items" class="border-bottom">
+                   <th scope="row">
+                       <div class="p-2">
+                           <img src="{{item.pictureUrl}}" alt="{{item.productName}}" class="img-fluid" style="max-height: 50px;">
+                           <div class="ml-3 d-inline-block align-middle">
+                               <h5 class="mb-0">
+                                   <a routerLink="/shop/{{item.id}}" class="text-dark">{{item.productName}}</a>
+                               </h5>
+                            <span *ngIf="item.type" class="text-muted font-weight-normal font-italic d-block">
+                                Rodzaj: {{item.type}}
+                            </span>
+                           </div>
+                       </div>
+                   </th>
+                   <td class="align-middle">
+                       <span> 
+                           Wysokość: {{item.height}}cm
+                           <br>
+                           <br>
+                           Szerokość: {{item.width}}cm
+                       </span>
+                   </td>
+                    <td class="align-middle">
+                        <div class="d-flex align-items-center" [class.justify-content-center]="!isBasket">
+                           
+                            <span class="font-weight-bold" style="font-size: 1.5em;">
+                                {{item.quantity}}
+                            </span>
+                          
+                        </div>
+                    </td>
+                    <td class="align-middle">
+                        <strong>{{item.price * item.quantity}}.00 zł</strong>
+                    </td>
+                    <td class="align-middle text-center">
+                        <a class="text-danger">
+                            <i *ngIf="isBasket" (click)="removeBasketItem(item)" class="fa fa-trash" style="font-size: 2em; cursor: pointer;"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>

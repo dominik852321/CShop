@@ -1,0 +1,19 @@
+<div class="container">
+    <ul class="nav nav-pills nav-justified">
+        <li class="nav-item" *ngFor="let step of steps; let i = index">
+            <button *ngIf="!step.completed " (click)="onClick(i)" [class.active]="selectedIndex === i" class="nav-link py-3  btn-block border">
+                {{step.label}}
+            </button>
+            <button *ngIf="step.completed && step.label !== 'Potwierdzenie'" (click)="onClick(i)" [class.active]="selectedIndex === i" class="nav-link py-3  btn-block border ">
+                {{step.label}} <i class="i fa fa-check-circle" style="color: green;"></i>
+            </button>
+            <button *ngIf="step.completed && step.label === 'Potwierdzenie'  " (click)="onClick(i)" [class.active]="selectedIndex === i" class="nav-link py-3 btn-block border">
+                {{step.label}}
+            </button>
+          
+        </li>
+    </ul>
+    <div>
+        <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
+    </div>
+</div>

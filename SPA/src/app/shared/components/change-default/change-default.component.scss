@@ -1,0 +1,17 @@
+.price::before {
+    content: '';
+    display: inline-block;
+    border-top: 1.5px solid #DDD;
+    width: 60px;
+    padding-top: 8px;
+    margin: 0px 9px 0px 0px ;
+}
+
+.price::after {
+    content: '';
+    display: inline-block;
+    border-top: 1.5px solid #DDD;
+    width: 60px;
+    padding-top: 8px;
+    margin: 0px 0px 0px 9px ;
+}

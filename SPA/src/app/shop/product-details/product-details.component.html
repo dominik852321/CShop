@@ -1,0 +1,66 @@
+<div class="container row mx-auto" *ngIf="product">
+        <div class="col-md-7 p-0 ">
+                <ngx-gallery class="shadow " [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+        </div>
+        <div class="col-md-5 shadow-sm">
+            <app-change-default [product]="product" ></app-change-default>
+        </div>
+    
+        <div class="col-md-12 my-3  mx-auto mb-4 shadow-sm  ">
+    
+            <div class="mb-3 mt-3">
+                <h2>Opis</h2>
+                <p>{{product.description}}</p>
+            </div>
+        
+            <div>
+                <h2>Szczegóły</h2>
+                <table class="h6 table table-bordered ">
+                    <tbody>
+                        <tr>
+                            <td>
+                                Wysokość
+                            </td>
+                            <th>
+                                {{product.height}} cm
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Szerokość
+                            </td>
+                            <th>
+                                {{product.width}} cm
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Rodzaj pokoju
+                            </td>
+                            <th>
+                                {{product.productRoom}}
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Materiał
+                            </td>
+                            <th>
+                                {{product.material1}}, {{product.material2}}
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                Kolor
+                            </td>
+                            <th>
+                                {{product.color1}}, {{product.color2}}
+                            </th>
+                        </tr>
+                    </tbody>
+        
+                </table>
+            </div>
+        
+        </div>
+</div>
