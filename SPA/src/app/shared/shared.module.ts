@@ -15,6 +15,7 @@ import { BasketSummaryComponent } from './components/basket-summary/basket-summa
 import { NgxGalleryModule } from 'ngx-gallery-9';
 import { ChangeDefaultComponent } from './components/change-default/change-default.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 
@@ -39,7 +40,8 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     FormsModule,
     CdkStepperModule,
     RouterModule,
-    NgxSliderModule
+    NgxSliderModule,
+    ModalModule.forRoot()
 
   ],
   exports: [
@@ -56,7 +58,8 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     StepperComponent,
     BasketSummaryComponent,
     NgxGalleryModule,
-    ChangeDefaultComponent
+    ChangeDefaultComponent,
+    ModalModule
   ]
 })
 export class SharedModule { }

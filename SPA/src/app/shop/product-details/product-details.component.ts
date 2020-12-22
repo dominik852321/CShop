@@ -1,11 +1,9 @@
-import { ChangeDefaultComponent } from './../../shared/components/change-default/change-default.component';
 import { IProduct } from './../../shared/models/product';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BasketService } from 'src/app/basket/basket.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { ShopService } from '../shop.service';
-import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from 'ngx-gallery-9';
+import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryImageSize, NgxGalleryOptions } from 'ngx-gallery-9';
 
 @Component({
   selector: 'app-product-details',
@@ -18,6 +16,7 @@ export class ProductDetailsComponent implements OnInit {
 
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
+  gallerySize: NgxGalleryImageSize[];
 
   constructor(
     private shopService: ShopService,
@@ -76,12 +75,13 @@ export class ProductDetailsComponent implements OnInit {
         thumbnails: false,
         imageAnimation: NgxGalleryAnimation.Slide,
         previewZoom: true,
+        imageSwipe: true,
+        previewZoomStep: 0.4,
       },
        // max-width 500
       {
-        breakpoint: 780,
-        width: '100%',
-        height: '280px'
+        breakpoint: 500,
+        height: '200px'
       }
     ];
   }

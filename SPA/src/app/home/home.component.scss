@@ -4,9 +4,16 @@
 
 
 img {
-    width: 100%;
-    height: auto;
+    @media (max-width: 600px){
+        height: 200px;
+        background-size:cover ;
+    }
+    @media (min-width: 600px){
+        height: auto;
+        width: 100%;
+    }
 }
+
 a img{border:none;}
 
 .line::before {

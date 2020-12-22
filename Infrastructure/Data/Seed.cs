@@ -17,11 +17,12 @@ namespace Infrastructure.Data
         {
             try
             {
+                var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
                 if (!context.ProductRooms.Any())
                 {
                     var roomsData =
-                        File.ReadAllText("../Infrastructure/Data/SeedData/rooms.json");
+                        File.ReadAllText(path + @"/Data/SeedData/rooms.json");
 
                     var rooms = JsonSerializer.Deserialize<List<ProductRoom>>(roomsData);
 
@@ -36,7 +37,7 @@ namespace Infrastructure.Data
                 if (!context.ProductTypes.Any())
                 {
                     var typesData =
-                        File.ReadAllText("../Infrastructure/Data/SeedData/types.json");
+                        File.ReadAllText(path + @"/Data/SeedData/types.json");
 
                     var types = JsonSerializer.Deserialize<List<ProductType>>(typesData);
 
@@ -51,7 +52,7 @@ namespace Infrastructure.Data
                 if (!context.Products.Any())
                 {
                     var productsData =
-                        File.ReadAllText("../Infrastructure/Data/SeedData/products.json");
+                        File.ReadAllText(path + @"/Data/SeedData/products.json");
 
                     var products = JsonSerializer.Deserialize<List<Product>>(productsData);
 
@@ -66,7 +67,7 @@ namespace Infrastructure.Data
                 if (!context.ProductPhotos.Any())
                 {
                     var productPhotosData =
-                       File.ReadAllText("../Infrastructure/Data/SeedData/photos.json");
+                       File.ReadAllText(path + @"/Data/SeedData/photos.json");
 
                     var productPhotos = JsonSerializer.Deserialize<List<ProductPhotos>>(productPhotosData);   
 
@@ -81,7 +82,7 @@ namespace Infrastructure.Data
                 if (!context.DeliveryMethods.Any())
                 {
                     var deliveryData =
-                        File.ReadAllText("../Infrastructure/Data/SeedData/delivery.json");
+                        File.ReadAllText(path + @"/Data/SeedData/delivery.json");
 
                     var delivery = JsonSerializer.Deserialize<List<DeliveryMethod>>(deliveryData);
 

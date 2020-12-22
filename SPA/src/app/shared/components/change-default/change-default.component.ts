@@ -1,8 +1,9 @@
 import { IProduct } from './../../models/product';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, TemplateRef } from '@angular/core';
 import { Options } from '@angular-slider/ngx-slider';
 import { BasketService } from 'src/app/basket/basket.service';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-change-default',
@@ -30,7 +31,6 @@ export class ChangeDefaultComponent implements OnInit {
     ceil: 500,
     step: 10
   };
-
 
   changeModeSize = false;
 
@@ -84,4 +84,6 @@ export class ChangeDefaultComponent implements OnInit {
   addItemToBasket() {
     this.basketService.addItemToBasket(this.product, this.quantity);
   }
+
+  
 }

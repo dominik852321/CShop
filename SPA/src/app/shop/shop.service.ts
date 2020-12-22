@@ -1,3 +1,5 @@
+
+import { environment } from './../../environments/environment';
 import { IProduct } from './../shared/models/product';
 import { Pagination } from './../shared/models/pagination';
 import { Injectable } from '@angular/core';
@@ -16,7 +18,7 @@ import { map } from 'rxjs/operators';
 })
 export class ShopService {
 
-  baseUrl = 'https://localhost:5001/api/';
+  baseUrl = environment.apiUrl;
   products: IProduct[] = [];
   lastProducts: IProduct[] = [];
   rooms: IRoom[] = [];
@@ -75,10 +77,10 @@ export class ShopService {
     if (this.lastProducts.length > 0){
       return of(this.lastProducts);
     }
+    
     return this.http.get<IProduct[]>(this.baseUrl + 'product/4products').pipe(
       map(response => {
-        this.lastProducts = response ;
-        console.log(this.lastProducts);
+        this.lastProducts = response;
         return response;
         })
     );

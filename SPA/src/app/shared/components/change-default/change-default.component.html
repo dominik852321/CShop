@@ -1,10 +1,10 @@
 <div class="card border-0">
-    <div class="d-flex flex-column card-body p-3">
+    <div class="d-flex flex-column card-body">
 
         <h3 class="card-title text-center">{{product.name}}</h3>
-        <h3 class="text-warning price text-center"><strong>{{product.price}}.00 zł</strong></h3>
+        <h3 class="text-primary price text-center"><strong>{{product.price}}.00 zł</strong></h3>
         <h5 class="card-subtitle text-muted mt-3">Powyższa cena jest dostosowana to wymiarów:</h5>
-        <div class="d-flex justify-content-between  mt-2">
+        <div class="d-flex justify-content-between  mt-2 mb-3">
             <p class="card-text">Szerokość <strong>{{product.width}}cm</strong></p>
             <p class="card-text">Wysokość <strong>{{product.height}}cm</strong></p>
         </div>
@@ -20,7 +20,7 @@
                     <ngx-slider class="col-10" [(value)]="newHeight" formControlName="height" [options]="options"></ngx-slider>
                 </div>
         
-                <div class="btn-group d-flex mt-4">
+                <div class="btn-group d-flex mt-4 mb-3">
                     <button class="btn btn-secondary" (click)="cancel()">Przywróć domyślne</button>
                     <button class="btn btn-success" type="submit" [disabled]="!sizeForm.valid">Zapisz rozmiar</button>
                 </div>
@@ -28,12 +28,37 @@
         </ng-container>
 
         <ng-container *ngIf="!changeModeSize">
-            <button class="btn btn-block btn-warning " (click)="changeSize()">Ustaw swój rozmiar</button>
+            <button class="btn btn-block btn-success " (click)="changeSize()">Ustaw swój rozmiar</button>
         </ng-container>
 
 
-        <button (click)="addItemToBasket()" class="mt-2 btn btn-block btn-primary btn-lg ">Dodaj do
-            koszyka  <i class="fa fa-shopping-cart"></i></button>
-
+        <button (click)="addItemToBasket()" (click)="staticModal.show()" class="mt-2 btn btn-block btn-primary">Dodaj do
+            koszyka  <i class="fa fa-shopping-cart"></i>
+        </button>
     </div>
+</div>
+
+
+
+<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="dialog-static-name">
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Dodałeś przedmiot do koszyka</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-4">
+        <h5>Dodałeś {{product.name}} o szerokości <strong class="text-primary">{{product.width}}cm</strong> i wysokości <strong class="text-success">{{product.height}}cm</strong> do koszyka!</h5>
+      </div>
+      <div class="modal-footer">
+        <a routerLink="/basket" class="btn btn-warning mr-auto" aria-label="Close" (click)="staticModal.hide()">Przejdz
+            do koszyka</a>
+        <a routerLink="/shop" class="btn btn-primary" aria-label="Close" (click)="staticModal.hide()">Kontynuuj
+            zakupy</a>
+    </div>
+    </div>
+  </div>
 </div>

@@ -19,7 +19,6 @@ export class AppComponent {
   ngOnInit(): void {
    this.loadBasket();
    this.loadCurrentUser();
-  
   }
 
 

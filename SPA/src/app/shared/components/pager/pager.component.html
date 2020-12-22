@@ -4,9 +4,10 @@
   [ngModel]="pageNumber"
   (pageChanged)="onPagerChange($event)"
   [itemsPerPage]="pageSize"
-  [maxSize]="5"
+  [maxSize]="3"
   previousText="&lsaquo;" 
   nextText="&rsaquo;"
   firstText="&laquo;" 
-  lastText="&raquo;">
+  lastText="&raquo;"
+  class="shadow-sm">
 </pagination>

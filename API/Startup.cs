@@ -1,26 +1,16 @@
 using System.IO;
-using System.Linq;
-using System.Text;
-using API.Errors;
 using API.Extensions;
 using API.Helpers;
 using API.Middleware;
 using AutoMapper;
-using Core.Interface;
 using Infrastructure.Data;
 using Infrastructure.Identity;
-using Infrastructure.Repository;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
 using StackExchange.Redis;
 
 namespace API
@@ -33,14 +23,32 @@ namespace API
             Configuration = configuration;
         }
 
+        public void ConfigureDevelopmentServices(IServiceCollection services)
+        {
+            services.AddDbContext<AppDbContext>(z => z.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppIdentityDbContext>(z =>  z.UseSqlite(Configuration.GetConnectionString("IdentityConnection")));
+
+            ConfigureServices(services);
+        }
+
+        public void ConfigureProductionServices(IServiceCollection services)
+        {
+            string contextString = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContextPool<AppDbContext>(options => options.UseMySql(contextString , ServerVersion.AutoDetect(contextString)));
+
+            string identityString = Configuration.GetConnectionString("IdentityConnection");
+            services.AddDbContextPool<AppIdentityDbContext>(options => options.UseMySql(identityString ,ServerVersion.AutoDetect(identityString)));
+
+
+
+            ConfigureServices(services);
+        }
+
        
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(z => z.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<AppIdentityDbContext>(z =>  z.UseSqlite(Configuration.GetConnectionString("IdentityConnection")));
-            
             services.AddAutoMapper(typeof(MappingProfiles));
          
             services.AddSingleton<IConnectionMultiplexer>(c => {
@@ -91,6 +99,7 @@ namespace API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToController("Index","Fallback");
             });
         }
     }

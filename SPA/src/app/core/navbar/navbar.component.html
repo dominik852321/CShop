@@ -3,17 +3,9 @@
   
     <img src="/assets/images/logo4.png" routerLink="/" class="logo" style="max-height: 70px;" alt="logo" class="d-none d-lg-block" >
 
-    <button
-    class="navbar-toggler"
-    type="button"
-    (click)="collapse.toggle()"
-    aria-controls="main-nav"
-    aria-expanded="false">
-    <span
-      class="navbar-toggler-icon d-flex align-items-center justify-content-center" >
-      
-    </span>
-   </button>
+    <button class="navbar-toggler" type="button" (click)="collapse.toggle()" aria-controls="main-nav" aria-expanded="false">
+      <span class="navbar-toggler-icon d-flex align-items-center justify-content-center"></span>
+    </button>
 
    <div class="d-lg-none d-flex align-items-center">
     <div style="border-right: 1px solid #aaa;" class="mr-3">
@@ -26,7 +18,7 @@
       <ng-container *ngIf="(currentUser$ | async) === null">
         <div class="dropdown" dropdown>
           <a class="dropdown-toggle" style="cursor: pointer;" dropdownToggle>
-            <a><i class="fa fa-user-o fa-2x icon-user" style="color: #0791b7;"></i></a>
+            <a><i class="fa fa-user-o  icon-user" ></i></a>
           </a>
           <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu>
             <a routerLink="/account/login" class="dropdown-item d-flex align-items-center">Zaloguj</a>
@@ -38,11 +30,11 @@
       <ng-container *ngIf="currentUser$ | async">
         <div class="dropdown" dropdown>
           <a class="dropdown-toggle" style="cursor: pointer" dropdownToggle>
-            <a><i style="color:cornflowerblue;" class="fa fa-user-o fa-2x"></i></a>
+            <a><i style="color: #0791b7;"class="fa fa-user-o icon-user"></i></a>
           </a>
           <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu>
             <a routerLink="/basket" class="dropdown-item d-flex align-items-center py-2">
-              <i class="fa fa-shopping-cart mr-5"></i> Koszyk
+              <i class="fa fa-shopping-cart mr-3"></i> Koszyk
             </a>
             <a routerLink="/orders" class="dropdown-item d-flex align-items-center py-2 ">
               <i class="fa fa-history mr-3"></i> Zamówienia
@@ -60,7 +52,7 @@
    
     
     <ngx-navbar-collapse id="main-nav" #collapse="ngxNavbarCollapse" >
-      <ul class="navbar-nav mx-auto">
+      <ul class="navbar-nav ml-3">
         <li class="nav-item ">
           <a class="nav-link" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Strona główna</a>
         </li>
@@ -77,7 +69,6 @@
           </div>
         </li>
       </ul>
-     
     </ngx-navbar-collapse>
 
     <div class="d-none d-lg-flex align-items-center">
@@ -96,11 +87,11 @@
         <ng-container *ngIf="currentUser$ | async">
           <div class="dropdown" dropdown>
             <a class="dropdown-toggle" style="cursor: pointer" dropdownToggle>
-              <a><i style="color:cornflowerblue;" class="fa fa-user-o fa-2x"></i></a>
+              <a class="h4 text-primary" >{{(currentUser$ | async).displayName}}</a>
             </a>
             <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu>
               <a routerLink="/basket" class="dropdown-item d-flex align-items-center py-2">
-                <i class="fa fa-shopping-cart mr-5"></i> Koszyk
+                <i class="fa fa-shopping-cart mr-3"></i> Koszyk
               </a>
               <a routerLink="/orders" class="dropdown-item d-flex align-items-center py-2 ">
                 <i class="fa fa-history mr-3"></i> Zamówienia

@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center mt-5">
-    <div class="col-3">
+    <div class="col-lg-3">
         <div class="container-login">
 
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="mb-3">
@@ -10,9 +10,6 @@
                 <app-text-input formControlName="displayName" [label]="'Nazwa użytkownika'"></app-text-input>
                 <app-text-input formControlName="email" [label]="'Adres Email'"></app-text-input>
                 <app-text-input formControlName="password" [label]="'Hasło'" [type]="'password'"></app-text-input>
-                
-                
-                 
                 <button [disabled]="registerForm.invalid" class="btn btn-primary my-2 btn-block btn-lg" type="submit">Rejestracja</button>
             </form>
             <div class="text-center">
