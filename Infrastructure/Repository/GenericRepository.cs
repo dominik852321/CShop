@@ -37,9 +37,9 @@ namespace Infrastructure.Repository
             return await ApplySpecification(spec).ToListAsync();
         }
 
-        public async Task<IReadOnlyList<T>> Get4Products()
+        public async Task<IReadOnlyList<T>> Get3Products()
         {
-            return await _context.Set<T>().OrderByDescending(x => x.Id).Take(4).ToListAsync();
+            return await _context.Set<T>().OrderByDescending(x => x.Id).Take(3).ToListAsync();
         }
 
         

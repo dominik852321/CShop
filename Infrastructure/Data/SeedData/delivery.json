@@ -1,14 +1,20 @@
 [
     {
       "Id": 1,
-      "ShortName": "Wysyłka na terenie polski",
-      "DeliveryTime": "Około 45 dni roboczych",
-      "Price": 20
+      "ShortName": "Kurier DPD",
+      "DeliveryTime": "Około 30 dni roboczych",
+      "Price": 17
     },
     {
       "Id": 2,
-      "ShortName": "Wysyłka zagranice",
-      "DeliveryTime": "Około 55 dni roboczych",
-      "Price": 70
+      "ShortName": "Kurier DPD z pobraniem",
+      "DeliveryTime": "Około 30 dni roboczych",
+      "Price": 25
+    },
+    {
+      "Id": 3,
+      "ShortName": "Wysyłka zagranice Kurier DPD",
+      "DeliveryTime": "Około 35 dni roboczych",
+      "Price": 75
     }
   ]

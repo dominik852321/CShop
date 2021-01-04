@@ -1,3 +1,4 @@
+
 .button {
     width: 30%;
     height: 40px;
@@ -32,5 +33,16 @@
     & button:last-of-type {
         transform: translateX(20px);
     }
+ }
 }
+
+.price {
+    font-size: 1.4em;
+    font-weight: 400;
+    color: #0791b7;
+    font-family:'Times New Roman', Times, serif
+}
+
+.size {
+    font-size: 0.8em;
 }

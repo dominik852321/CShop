@@ -73,12 +73,12 @@ export class ShopService {
        );
   }
 
-  get4Products(){
+  get3Products(){
     if (this.lastProducts.length > 0){
       return of(this.lastProducts);
     }
     
-    return this.http.get<IProduct[]>(this.baseUrl + 'product/4products').pipe(
+    return this.http.get<IProduct[]>(this.baseUrl + 'product/3products').pipe(
       map(response => {
         this.lastProducts = response;
         return response;

@@ -52,10 +52,10 @@ namespace API.Controllers
         }
 
         [Cached(600)]
-        [HttpGet("4products")]
-        public async Task<ActionResult<IReadOnlyList<ProductToListDto>>> Get4Products()
+        [HttpGet("3products")]
+        public async Task<ActionResult<IReadOnlyList<ProductToListDto>>> Get3Products()
         {
-            var products = await _productRepo.Get4Products();
+            var products = await _productRepo.Get3Products();
 
             return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToListDto>>(products));
         }

@@ -1,15 +1,17 @@
-<div class="mt-4">
+<div class="p-4">
     <div>
-        <h3 class="text-primary">W jaki sposób odbywa się płatność?</h3>
-        <p class="lead">
-            Po zatwierdzeniu, twoję zamówienię trafi na moją tablicę 
-            zleceń, gdzię postaram się zabrać za nie najszybciej jak tylko mogę. 
-            Dziękuje że pozwalasz mi stworzyć aranżację dla twoich okien. Pozdrawiam! <span class="text-success text-uppercase"> Panienka z okienka :)</span>
+        <h4 class="text-primary mb-3 font-weight-normal">W jaki sposób odbywa się płatność?</h4>
+        <hr>
+        <p>
+            Po zatwierdzeniu, twoję zamówienię trafi na listę zleceń.<br>
+            Przed rozpoczęciem pracy skontaktuje się z tobą aby potwierdzić oraz pobrać zaliczkę. <br>
+            Dziękuje że pozwalasz mi stworzyć aranżację dla twoich okien. Pozdrawiam!
         </p>
-
-        <p class="h4 ">
-           Jeśli jeszcze nie wiesz jak wygląda proces zamawiania.   <button type="button" class="btn btn-outline-info btn-lg mt" routerLink="/information/delivery-payments">Opis płatności</button>
+       
+        <p>
+           Jeśli jeszcze nie wiesz jak wygląda proces zamawiania, przejdź do  <a style="font-size: large; font-weight: 400;" class="text-primary text-decoration-none" routerLink="/information/delivery-payments">Opis płatności</a> 
         </p>
+        <hr>
     </div>
 </div>
 
@@ -20,7 +22,7 @@
     <button class="btn btn-outline-primary m-2" cdkStepperPrevious>
         <i class="fa fa-angle-left"></i> Wybrane przedmioty
     </button>
-    <button  class="btn btn-lg btn-success m-2" (click)="submitOrder()" >
+    <button  class="btn btn-success m-2" (click)="submitOrder()" >
         Potwierdź zamówienie
     </button>
 </div>

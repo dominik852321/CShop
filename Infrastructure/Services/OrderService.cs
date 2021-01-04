@@ -19,7 +19,7 @@ namespace Infrastructure.Services
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<Order> CreateOrderAsync(string buyerEmail, int deliveryMethodId, string basketId, Address shippingAddress)
+        public async Task<Order> CreateOrderAsync(int deliveryMethodId, string basketId, Address shippingAddress)
         {
             // Get all items from basket
              var basket = await _basketRepo.GetBasketAsync(basketId);
@@ -41,7 +41,7 @@ namespace Infrastructure.Services
              var subtotal = items.Sum(item => item.Price * item.Quantity);
 
              // create order
-             var order = new Order(items, buyerEmail, shippingAddress, deliveryMethod, subtotal);
+             var order = new Order(items, shippingAddress, deliveryMethod, subtotal);
              
              // Save to db  
              _unitOfWork.Repository<Order>().Add(order);

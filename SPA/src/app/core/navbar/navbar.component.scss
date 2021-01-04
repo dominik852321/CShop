@@ -1,13 +1,11 @@
 .navbar {
     font-size: 1.3em;
     font-weight: 350;
-    
 }
 
 a {
     text-decoration: none;
-    color:#6c757d;
-
+    font-weight: normal;
     &.active {
         color: black;
     }
@@ -56,9 +54,18 @@ img {
         }
     
     @media (min-width: 680px) {
-        font-size: 40px;
+        font-size: 35px;
     }
     
+}
+
+.nav-link {
+    font-size: medium;
+    font-weight: 400;
+}
+
+.dropdown-menu {
+    border-radius: 5% ;
 }
 
 

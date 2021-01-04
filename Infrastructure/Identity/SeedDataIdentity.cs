@@ -26,22 +26,6 @@ namespace Infrastructure.Identity
                     }
                 };
                 await userManager.CreateAsync(user, "Pa$$w0rd");
-                
-                var user1 = new AppUser 
-                {
-                    DisplayName = "Michael",
-                    Email = "Michael@test.com",
-                    UserName = "Steave@test.com",
-                    Address = new Address
-                    {
-                        FirstName = "Stevae",
-                        LastName = "Steavy",
-                        Street = "New Yaork",
-                        State = "NaY",
-                        Zipcode = "930-230"
-                    }
-                };
-                await userManager.CreateAsync(user1, "Pa$$w0rd");
             }
         }
     }

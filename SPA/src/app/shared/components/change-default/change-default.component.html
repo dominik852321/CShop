@@ -1,41 +1,40 @@
-<div class="card border-0">
-    <div class="d-flex flex-column card-body">
-
-        <h3 class="card-title text-center">{{product.name}}</h3>
-        <h3 class="text-primary price text-center"><strong>{{product.price}}.00 zł</strong></h3>
-        <h5 class="card-subtitle text-muted mt-3">Powyższa cena jest dostosowana to wymiarów:</h5>
-        <div class="d-flex justify-content-between  mt-2 mb-3">
-            <p class="card-text">Szerokość <strong>{{product.width}}cm</strong></p>
-            <p class="card-text">Wysokość <strong>{{product.height}}cm</strong></p>
-        </div>
-
-        <ng-container *ngIf="changeModeSize">
-            <form [formGroup]="sizeForm" (ngSubmit)="saveSize()">
-                <div class="from-group row mb-3">
-                    <h4 class="col-2 my-auto card-subtitle text-muted text-center"><i class="fa fa-arrows-h"></i></h4>
-                    <ngx-slider class="col-10" [(value)]="newWidth" formControlName="width" [options]="options"></ngx-slider>
-                </div>
-                <div class="from-group row">
-                    <h4 class="col-2 my-auto card-subtitle text-muted text-center"><i class="fa fa-arrows-v"></i></h4>
-                    <ngx-slider class="col-10" [(value)]="newHeight" formControlName="height" [options]="options"></ngx-slider>
-                </div>
-        
-                <div class="btn-group d-flex mt-4 mb-3">
-                    <button class="btn btn-secondary" (click)="cancel()">Przywróć domyślne</button>
-                    <button class="btn btn-success" type="submit" [disabled]="!sizeForm.valid">Zapisz rozmiar</button>
-                </div>
-            </form>
-        </ng-container>
-
-        <ng-container *ngIf="!changeModeSize">
-            <button class="btn btn-block btn-success " (click)="changeSize()">Ustaw swój rozmiar</button>
-        </ng-container>
-
-
-        <button (click)="addItemToBasket()" (click)="staticModal.show()" class="mt-2 btn btn-block btn-primary">Dodaj do
-            koszyka  <i class="fa fa-shopping-cart"></i>
-        </button>
+<div class="d-flex flex-column h-100 p-3">
+   
+    <h3 class="card-title text-center">{{product.name}}</h3>
+    <h3 class="text-primary price text-center"><strong>{{product.price}}.00 zł</strong></h3>
+    <h6 class="card-subtitle text-muted mt-3">Powyższa cena jest dostosowana pod wymiar:</h6>
+    <div class="d-flex justify-content-between  mt-2 mb-3">
+        <p>Szerokość <strong>{{product.width}}cm</strong></p>
+        <p>Wysokość <strong>{{product.height}}cm</strong></p>
     </div>
+
+    <ng-container *ngIf="changeModeSize">
+        <form [formGroup]="sizeForm" (ngSubmit)="saveSize()">
+            <div class="from-group row mb-3">
+                <h4 class="col-2 my-auto card-subtitle text-muted text-center"><i class="fa fa-arrows-h"></i></h4>
+                <ngx-slider class="col-10" [(value)]="newWidth" formControlName="width" [options]="options">
+                </ngx-slider>
+            </div>
+            <div class="from-group row">
+                <h4 class="col-2 my-auto card-subtitle text-muted text-center"><i class="fa fa-arrows-v"></i></h4>
+                <ngx-slider class="col-10" [(value)]="newHeight" formControlName="height" [options]="options">
+                </ngx-slider>
+            </div>
+
+            <div class="btn-group d-flex mt-2 mb-3">
+                <button class="btn btn-secondary" (click)="cancel()">Przywróć domyślne</button>
+                <button class="btn btn-success" type="submit" [disabled]="!sizeForm.valid">Zapisz rozmiar</button>
+            </div>
+        </form>
+    </ng-container>
+
+    
+    <ng-container *ngIf="!changeModeSize" >
+        <h6 class="mt-auto mb-3">Jeśli masz pytania, proszę zadzwoń <strong class="text-success">601956515</strong></h6>
+        <button class="btn btn-success mb-2 " (click)="changeSize()">Zmień rozmiar</button>
+        <button (click)="addItemToBasket()" (click)="staticModal.show()" class=" btn btn-block btn-primary">Dodaj do koszyka <i class="fa fa-shopping-cart"></i>
+        </button>
+    </ng-container>
 </div>
 
 

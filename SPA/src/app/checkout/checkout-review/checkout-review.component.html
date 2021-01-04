@@ -1,5 +1,4 @@
-<div class="mt-4">
-    <h3 class="text-primary">Twoje zamówienie</h3>
+<div class="p-4">
     <app-basket-summary 
     [isBasket]=false
     [items]="(basket$ | async).items"
@@ -8,10 +7,10 @@
 <div class="dropdown-divider mt-5"></div>
 
 <div class="float-none d-flex justify-content-between flex-column flex-lg-row mb-5">
-    <button class="btn btn-lg btn-outline-primary m-2" cdkStepperPrevious>
+    <button class="btn btn-outline-primary m-2" cdkStepperPrevious>
         <i class="fa fa-angle-left"></i> Sposób dostarczenia
     </button>
-    <button  class="btn btn-lg btn-primary m-2" cdkStepperNext>
+    <button  class="btn btn-primary m-2" cdkStepperNext>
         Potwierdzenie zamówienia <i class="fa fa-angle-right"></i> 
     </button>
 </div>

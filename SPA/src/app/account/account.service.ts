@@ -16,6 +16,8 @@ export class AccountService {
   private currentUserSource = new ReplaySubject<IUser>(1);
   currentUser$ = this.currentUserSource.asObservable();
 
+  email: string;
+
   constructor(private http: HttpClient, private router: Router) { }
 
   loadCurrentUser(token: string) {
@@ -31,6 +33,7 @@ export class AccountService {
         if (user) {
           localStorage.setItem('token', user.token);
           this.currentUserSource.next(user);
+          this.email = user.email;
         }
       })
     );
@@ -62,6 +65,10 @@ export class AccountService {
 
   checkEmailExists(email: string) {
     return this.http.get(this.baseUrl + 'account/emailexists?email=' + email);
+  }
+
+  getCurrentUserEmail() {
+    return this.email;
   }
   
 }

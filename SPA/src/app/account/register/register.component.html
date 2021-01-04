@@ -1,17 +1,18 @@
-<div class="d-flex justify-content-center mt-5">
-    <div class="col-lg-3">
+<div class="d-flex justify-content-center mt-2">
+    <div class="col-lg-3 ">
         <div class="container-login">
 
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="mb-3">
                 <div class=" text-center m-2 mb-4">
-                    <div class="h3">Rejestracja</div>
+                    <h1>Rejestracja</h1>
                 </div>
 
                 <app-text-input formControlName="displayName" [label]="'Nazwa użytkownika'"></app-text-input>
-                <app-text-input formControlName="email" [label]="'Adres Email'"></app-text-input>
+                <app-text-input formControlName="email" [label]="'Adres Email'" [type]="'email'"></app-text-input>
                 <app-text-input formControlName="password" [label]="'Hasło'" [type]="'password'"></app-text-input>
-                <button [disabled]="registerForm.invalid" class="btn btn-primary my-2 btn-block btn-lg" type="submit">Rejestracja</button>
+                <button [disabled]="registerForm.invalid" class="btn btn-success my-2 btn-block mt-4" type="submit">Rejestracja</button>
             </form>
+
             <div class="text-center">
                 <p>Masz już konto? <a [routerLink]="['/account/login']">Zaloguj się!</a></p>
             </div>

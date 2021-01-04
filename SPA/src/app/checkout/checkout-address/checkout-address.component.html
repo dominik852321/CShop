@@ -1,12 +1,11 @@
-<div class="mt-4" [formGroup]="checkoutForm">
-        <h3 class="text-primary">Dane odbiorcy</h3>
+<div class="p-4 " [formGroup]="checkoutForm">
 
-    <div class="row mt-3" formGroupName="addressForm">
+    <div class="row " formGroupName="addressForm">
         <div class="form-group col-6">
-            <app-text-input [label]="'Imię'" formControlName="firstName"></app-text-input>
+            <app-text-input [label]="'Imię'" formControlName="firstName" [type]="'firstName'"></app-text-input>
         </div>
         <div class="form-group col-6">
-            <app-text-input [label]="'Nazwisko'" formControlName="lastName"></app-text-input>
+            <app-text-input [label]="'Nazwisko'" formControlName="lastName" [type]="'lastName'"></app-text-input>
         </div>
         <div class="form-group col-6">
             <app-text-input [label]="'Ulica i numer domu'" formControlName="street"></app-text-input>
@@ -21,7 +20,10 @@
             <app-text-input [label]="'Kod pocztowy'" formControlName="zipcode"></app-text-input>
         </div>
         <div class="form-group col-6">
-            <app-text-input [label]="'Numer telefonu'" formControlName="phone"></app-text-input>
+                <app-text-input [label]="'E-mail'" formControlName="email" [type]="'email'"></app-text-input>
+        </div>
+        <div class="form-group col-6">
+            <app-text-input [label]="'Numer telefonu'" formControlName="phone" [type]="'phone'"></app-text-input>
         </div>
     </div>
 </div>
@@ -29,10 +31,10 @@
 <div class="dropdown-divider mt-5"></div>
 
 <div class="float-none d-flex justify-content-between flex-column flex-lg-row mb-5">
-    <button class="btn btn-lg btn-outline-primary m-2" routerLink="/basket">
+    <button class="btn btn-outline-primary m-2" routerLink="/basket">
         <i class="fa fa-angle-left"></i> Wróć do koszyka
     </button>
-    <button  class="btn btn-lg btn-primary m-2" cdkStepperNext>
+    <button  class="btn btn-primary m-2" cdkStepperNext>
         Sposób doręczenia <i class="fa fa-angle-right"></i> 
     </button>
 </div>

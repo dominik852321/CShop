@@ -10,15 +10,19 @@ import { ShopService } from '../shop/shop.service';
 export class HomeComponent implements OnInit {
 
   products: IProduct[];
+  mobile = false;
 
   constructor(private shopService: ShopService) { }
 
   ngOnInit(): void {
-    this.load4product();
+    this.load3product();
+    if(window.innerWidth <= 800){
+      this.mobile = true
+    }
   }
 
-  load4product() {
-    this.shopService.get4Products().subscribe(response => {
+  load3product() {
+    this.shopService.get3Products().subscribe(response => {
       this.products = response;
     }, error => {
       console.log(error);

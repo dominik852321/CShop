@@ -1,35 +1,51 @@
-<div class="mx-auto">
+<div class="mx-auto" >
 
-    <carousel [isAnimated]="true" class="shadow-lg carousel" style="cursor: pointer; outline: none;">
+   
+    <carousel *ngIf="!mobile" [isAnimated]="true" class="carousel">
+
         <slide class="slide">
-            <img src="../../assets/images/1920x600xmain.jpg" alt="first slide" class="img">
+            <img src="../../assets/images/1920x6001.png" alt="first slide" class="img">
         </slide>
         <slide class="slide">
-            <img src="../../assets/images/1920x600xsecond.jpg" alt="first slide" class=" img">
+            <img src="../../assets/images/1920x6002.png" alt="second slide" class="img">
         </slide>
         <slide class="slide">
-            <img src="../../assets/images/1920x600xthird.jpg" alt="first slide" class=" img">
+            <img src="../../assets/images/1920x6003.png" alt="third slide" class=" img">
         </slide>
     </carousel>
 
+    <carousel *ngIf="mobile" [isAnimated]="true" class="carousel">
+        <slide class="slide">
+            <img src="../../assets/images/800x4001.jpg" alt="first slide" class="img">
+        </slide>
+        <slide class="slide">
+            <img src="../../assets/images/800x4002.jpg" alt="second slide" class="img">
+        </slide>
+        <slide class="slide">
+            <img src="../../assets/images/800x4003.jpg" alt="third slide" class=" img">
+        </slide>
+    </carousel>
+
+
    
-        <section class="featured mt-4  mb-5 p-4">
+        <section class="featured mt-3  mb-5 p-4">
             <div class="col-lg-10 mx-auto" *ngIf="products">
-                <div class="text-center mb-4">
-                    <h2 class="text-primary">Najnowsze firany</h2>
-                    <h4 class="lead line" routerLink="/shop" style="cursor: pointer; outline: none;">Zobacz więcej</h4>
+                <div class="text-center mb-4" routerLink="/shop" style="cursor: pointer; outline: none;">
+                    <a class="newc text-primary">Najnowsze firany</a>
+                    <h6 class="line" >Zobacz więcej</h6>
                 </div>
                 <div class="row mb-5">
-                    <div *ngFor="let product of products" class="col-lg-3 mb-4 ">
+                    <div *ngFor="let product of products" class="col-lg-4 mb-4 ">
                         <app-product-item [product]="product"></app-product-item>
                     </div>
                 </div>
             </div>
 
-            <div class="col-12 p-4 mb-4 shadow-sm" style="background-color:#edf5fa;">
-                <div class="text-center ">
-                    <h4>Jeśli chcesz dowiedzieć się więcej jak zamawiać firany, przeczytaj zakładke płatności</h4>
-                    <h3><span class="line text-primary" style="cursor: pointer;" routerLink="/information/delivery-payments">Płatności</span></h3>
+            <div class="col-12 p-3 mb-4 shadow-sm" style="background-color:#5BC0DE;">
+                <div class="text-center text-white">
+                    <a style="font-size: medium; font-weight: 400;">Jeśli chcesz dowiedzieć się więcej jak zamawiać firany, przeczytaj zakładke płatności</a>
+                    <hr>
+                    <a class="line text-white text-decoration-none " style="cursor: pointer; font-size: x-large; " routerLink="/information/delivery-payments">Płatności</a>
                 </div>
             </div>
 

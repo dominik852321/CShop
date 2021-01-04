@@ -36,7 +36,7 @@ export class CheckoutPaymentComponent implements OnInit {
 
   private getOrderToCreate(basket: IBasket) {
     const delivery = this.checkoutForm.get('deliveryForm').get('deliveryMethod').value;
-    if (delivery !== null){
+    if (delivery !== null && this.checkoutForm.valid){
       return {
         basketId: basket.id,
         deliveryMethodId: +this.checkoutForm.get('deliveryForm').get('deliveryMethod').value,

@@ -1,9 +1,8 @@
 <ng-container *ngIf="(breadcrumb$ | async) as breadcrumbs">
    <section *ngIf="breadcrumbs.length > 0 && breadcrumbs[breadcrumbs.length-1].label !== 'Strona główna'" style="cursor: pointer; background-color: #f5f5f5;">
-       <div class="container">
-           <div class="row d-flex align-items-center">
-      
-               <div class="col-12 border-bottom">
+       <div class="container mb-3 ">
+           <div class="row d-flex align-items-center ">
+               <div class="col-12 border-bottom bread" >
                    <xng-breadcrumb></xng-breadcrumb>
                </div>
            </div>

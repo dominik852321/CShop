@@ -1,20 +1,20 @@
 <div class="container row mx-auto" *ngIf="product">
-        <div class="col-lg-7 p-0 ">
+        <div class="col-lg-7 p-2 ">
                 <ngx-gallery class="shadow " [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
         </div>
-        <div class="col-lg-5 shadow-sm">
+        <div class="col-lg-5 p-2 shadow-sm ">
             <app-change-default [product]="product" ></app-change-default>
         </div>
     
-        <div class="col-lg-12 my-3  mx-auto mb-4 shadow-sm  ">
+        <div class="col-lg-12 p-2 my-3  mx-auto mb-4 shadow-sm  ">
     
-            <div class="mb-3 mt-3">
-                <h3 class="text-primary">Opis</h3>
-                <p class="lead">{{product.description}}</p>
+            <div class="mb-4 mt-3">
+                <h4 class="text-primary">Opis</h4>
+                <p>{{product.description}}</p>
             </div>
         
             <div>
-                <h3 class="text-primary">Szczegóły</h3>
+                <h4 class="text-primary">Szczegóły</h4>
                 <table class="h6 table table-bordered ">
                     <tbody>
                         <tr>

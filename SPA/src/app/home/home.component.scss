@@ -4,14 +4,17 @@
 
 
 img {
-    @media (max-width: 600px){
-        height: 200px;
-        background-size:cover ;
-    }
-    @media (min-width: 600px){
-        height: auto;
-        width: 100%;
-    }
+   height: auto;
+   width: 100%;
+   
+    @media (max-width: 680px) {
+         margin-top:55px
+        }
+    
+    @media (min-width: 680px) {
+         margin-top:88px
+        }
+
 }
 
 a img{border:none;}
@@ -32,4 +35,10 @@ a img{border:none;}
     width: 60px;
     padding-top: 4px;
     margin: 0px 0px 0px 9px ;
+}
+
+.newc {
+    font-size: xx-large;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
 }

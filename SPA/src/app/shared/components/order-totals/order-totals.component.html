@@ -1,19 +1,21 @@
-<div class="bg-light px-4 py-3 text-uppercase font-weight-bold">
-    Podsumowanie zamówienia
-</div>
-<div class="p-4">
-    <ul class="list-unstyled mb-4" >
-        <li class="d-flex justify-content-between py-3 border-bottom">
-            <strong class="text-muted">Koszt produktów</strong>
-            <strong>{{Subtotal}}.00 zł</strong>
-        </li>
-        <li class="d-flex justify-content-between py-3 border-bottom">
-            <strong class="text-muted">Wysyłka i doręczenie</strong>
-            <strong>{{Shipping}}.00 zł</strong>
-        </li>
-        <li class="d-flex justify-content-between py-3 border-bottom">
-            <strong class="text-muted">Podsumowanie zamówienia</strong>
-            <strong>{{Total}}.00 zł</strong>
-        </li>
-    </ul>
+<div class="shadow-sm border p-3">
+    <div class="bg-info px-4 py-3">
+        <span class="text-light">Podsumowanie zamówienia</span>
+    </div>
+    <div class="p-3">
+        <ul class="list-unstyled mb-4">
+            <li class="d-flex justify-content-between py-3 border-bottom">
+                <span class="text-muted">Koszt produktów</span>
+                <strong>{{Subtotal}}.00 zł</strong>
+            </li>
+            <li class="d-flex justify-content-between py-3 border-bottom">
+                <span class="text-muted">Wysyłka i doręczenie</span>
+                <strong>{{Shipping}}.00 zł</strong>
+            </li>
+            <li class="d-flex justify-content-between py-3 " style="border-bottom:1px solid black ;">
+                <span class="text-muted">Podsumowanie zamówienia</span>
+                <strong>{{Total}}.00 zł</strong>
+            </li>
+        </ul>
+    </div>
 </div>

@@ -1,7 +1,7 @@
-<div class="container mt-5">
+<div class="container">
     <div class="row">
         <div class="col-lg-8">
-           <app-stepper [linearModeSelector]="false" #appStepper>
+           <app-stepper [linearModeSelector]="false" #appStepper >
                <cdk-step [label]="'Dane odbiorcy'" [completed]="(checkoutForm.get('addressForm')).valid">
                    <app-checkout-address [checkoutForm]="checkoutForm"></app-checkout-address>
                </cdk-step>
@@ -16,7 +16,7 @@
               </cdk-step>
            </app-stepper>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 ">
            <app-order-totals
            *ngIf="(basketTotal$ | async)"
            [Subtotal]="(basketTotal$ | async).subtotal"

@@ -27,11 +27,9 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult<Order>> CreateOrder(OrderDto orderDto)
         {
-            var email = HttpContext.User.RetrieveEmailFromPrincipal();
-
             var address = _mapper.Map<AddresDto, Address>(orderDto.ShipToAddress);
 
-            var order = await _orderService.CreateOrderAsync(email, orderDto.DeliveryMethodId, orderDto.BasketId, address);
+            var order = await _orderService.CreateOrderAsync(orderDto.DeliveryMethodId, orderDto.BasketId, address);
 
             if (order == null) return BadRequest(new ApiResponse(400, "Problem przy tworzeniu zamówienia"));
 

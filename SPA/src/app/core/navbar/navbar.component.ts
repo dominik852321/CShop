@@ -14,6 +14,9 @@ export class NavbarComponent implements OnInit {
   basket$: Observable<IBasket>;
   currentUser$: Observable<IUser>;
 
+  isCollapsed = false;
+
+
   constructor(private basketService: BasketService, private accountService: AccountService) { }
 
   ngOnInit(): void {
