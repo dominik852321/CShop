@@ -5,5 +5,7 @@ export interface IAddress {
   city: string;
   country: string;
   zipcode: string;
+  email: string;
   phone: string;
+ 
 }

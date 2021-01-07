@@ -1,10 +1,14 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using Core.Entities;
 using Core.Entities.OrderAggregate;
+using Core.Entities.SendConfirm;
 using Core.Interface;
 using Core.Specifications;
+using MimeKit;
 
 namespace Infrastructure.Services
 {
@@ -12,11 +16,14 @@ namespace Infrastructure.Services
     {
         public readonly IBasketRepository _basketRepo;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMailService _mailService;
 
-        public OrderService(IBasketRepository basketRepo, IUnitOfWork unitOfWork)
+
+        public OrderService(IBasketRepository basketRepo, IUnitOfWork unitOfWork, IMailService mailService)
         {
             _basketRepo = basketRepo;
             _unitOfWork = unitOfWork;
+            _mailService = mailService;
         }
 
         public async Task<Order> CreateOrderAsync(int deliveryMethodId, string basketId, Address shippingAddress)
@@ -40,8 +47,11 @@ namespace Infrastructure.Services
              // calc subtotal
              var subtotal = items.Sum(item => item.Price * item.Quantity);
 
+             // order numbers
+             var numberOrder = await GetLastOrderNumber() + 1;
+
              // create order
-             var order = new Order(items, shippingAddress, deliveryMethod, subtotal);
+             var order = new Order(items, shippingAddress, deliveryMethod, subtotal, numberOrder);
              
              // Save to db  
              _unitOfWork.Repository<Order>().Add(order);
@@ -49,6 +59,9 @@ namespace Infrastructure.Services
              var result = await _unitOfWork.Complete();
 
              if(result <= 0) return null;
+
+             // Send Mail with confirm order
+              _mailService.SendEmail(order);
 
              // delete basket
              await _basketRepo.DeleteBasketAsync(basketId);
@@ -75,6 +88,13 @@ namespace Infrastructure.Services
         public async Task<IReadOnlyList<DeliveryMethod>> GetDeliveryMethodsAsync()
         {
             return await _unitOfWork.Repository<DeliveryMethod>().ListAllAsync();
+        }
+
+        private async Task<int> GetLastOrderNumber()
+        {
+            var item = await _unitOfWork.Repository<Order>().GetLast();
+
+            return item.NumberOrder;
         }
     }
 }

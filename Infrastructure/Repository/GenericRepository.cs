@@ -37,18 +37,20 @@ namespace Infrastructure.Repository
             return await ApplySpecification(spec).ToListAsync();
         }
 
-        public async Task<IReadOnlyList<T>> Get3Products()
+        public async Task<IReadOnlyList<T>> Get3Items()
         {
             return await _context.Set<T>().OrderByDescending(x => x.Id).Take(3).ToListAsync();
         }
-
+        public async Task<T> GetLast()
+        {
+            return await _context.Set<T>().OrderByDescending(x => x.Id).Take(1).FirstAsync();
+        }
         
 
         public async Task<int> CountAsync(ISpecification<T> spec)
         {
             return await ApplySpecification(spec).CountAsync();
         }
-
         
 
         private IQueryable<T> ApplySpecification(ISpecification<T> spec)
@@ -71,6 +73,6 @@ namespace Infrastructure.Repository
             _context.Set<T>().Remove(entity);
         }
 
-        
+      
     }
 }

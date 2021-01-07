@@ -8,7 +8,6 @@ export interface IOrderToCreate {
 
 export interface IOrder {
     id: number;
-    buyerEmail: string;
     orderDate: string;
     shipToAddress: IAddress;
     deliveryMethod: string;
@@ -17,6 +16,7 @@ export interface IOrder {
     subtotal: number;
     total: number;
     status: string;
+    numberOrder: number;
     
   }
 export interface IOrderItem {

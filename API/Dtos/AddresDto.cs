@@ -25,7 +25,7 @@ namespace API.Dtos
         [Required(ErrorMessage = "Email jest wymagany")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Kod pocztowy jest wymagany")]
+        [Required(ErrorMessage = "Telefon jest wymagany")]
         public string Phone { get; set; }
 
 

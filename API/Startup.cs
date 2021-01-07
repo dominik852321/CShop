@@ -3,6 +3,7 @@ using API.Extensions;
 using API.Helpers;
 using API.Middleware;
 using AutoMapper;
+using Core.Entities.SendConfirm;
 using Infrastructure.Data;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Builder;
@@ -70,6 +71,8 @@ namespace API
             });
 
             services.AddControllers();
+
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
