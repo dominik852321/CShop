@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Entities.Identity;
+using Core.Entities.Settings;
 using Infrastructure.Data;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Hosting;
@@ -31,9 +32,11 @@ namespace API
                    await Seed.SeedAsync(context, loggerFactory);
 
                    var userManager = services.GetRequiredService<UserManager<AppUser>>();
+                   var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                    var identityContext = services.GetRequiredService<AppIdentityDbContext>();
+
                    await identityContext.Database.MigrateAsync();
-                   await SeedDataIdentity.SeedUsersAsync(userManager);
+                   await SeedDataIdentity.SeedUsersAndRolesAsync(userManager, roleManager);
                }
                catch (Exception ex)
                {

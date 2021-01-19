@@ -16,6 +16,8 @@ import { NgxGalleryModule } from 'ngx-gallery-9';
 import { ChangeDefaultComponent } from './components/change-default/change-default.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { TextInputProductsComponent } from './components/text-input-products/text-input-products.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 
 
@@ -29,7 +31,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     TextInputComponent,
     StepperComponent,
     BasketSummaryComponent,
-    ChangeDefaultComponent
+    ChangeDefaultComponent,
+    TextInputProductsComponent
   ],
   imports: [
     CommonModule,
@@ -41,8 +44,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     CdkStepperModule,
     RouterModule,
     NgxSliderModule,
+    ImageCropperModule,
     ModalModule.forRoot()
-
   ],
   exports: [
     PaginationModule,
@@ -54,12 +57,15 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ReactiveFormsModule,
     BsDropdownModule,
     TextInputComponent,
+    TextInputProductsComponent,
     CdkStepperModule,
     StepperComponent,
     BasketSummaryComponent,
     NgxGalleryModule,
     ChangeDefaultComponent,
-    ModalModule
+    ImageCropperModule,
+    ModalModule,
+
   ]
 })
 export class SharedModule { }

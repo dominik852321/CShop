@@ -28,3 +28,13 @@ export interface IOrderItem {
    width: number;
    height: number;
  }
+
+ export interface IOrderAdmin {
+   id: number;
+   orderDate: string;
+   numberOrder: number;
+   name: string;
+   deliveryMethod: string;
+   total: number;
+   shippingPrice: number;
+ }

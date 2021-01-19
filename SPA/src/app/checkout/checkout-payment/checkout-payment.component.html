@@ -15,14 +15,14 @@
     </div>
 </div>
 
-<div class="dropdown-divider mt-5"></div>
+<div class="dropdown-divider mt-3"></div>
 
 <div class="float-none d-flex justify-content-between flex-column flex-lg-row mb-5 ">
    
     <button class="btn btn-outline-primary m-2" cdkStepperPrevious>
         <i class="fa fa-angle-left"></i> Wybrane przedmioty
     </button>
-    <button  class="btn btn-success m-2" (click)="submitOrder()" >
+    <button  class="btn btn-lg btn-success m-2" (click)="submitOrder()" [disabled]="!checkoutForm.valid"> 
         Potwierdź zamówienie
     </button>
 </div>

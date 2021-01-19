@@ -30,34 +30,8 @@
 
     
     <ng-container *ngIf="!changeModeSize" >
-        <h6 class="mt-auto mb-3">Jeśli masz pytania, proszę zadzwoń <strong class="text-success">601956515</strong></h6>
-        <button class="btn btn-success mb-2 " (click)="changeSize()">Zmień rozmiar</button>
-        <button (click)="addItemToBasket()" (click)="staticModal.show()" class=" btn btn-block btn-primary">Dodaj do koszyka <i class="fa fa-shopping-cart"></i>
+        <button class="btn btn-success mb-2  mt-auto" (click)="changeSize()">Zmień rozmiar</button> 
+        <button (click)="addItemToBasket()" class=" btn btn-block btn-primary" routerLink="/shop" >Dodaj do koszyka <i class="fa fa-shopping-cart"></i>
         </button>
     </ng-container>
-</div>
-
-
-
-<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
-     tabindex="-1" role="dialog" aria-labelledby="dialog-static-name">
-  <div class="modal-dialog modal-dialog-centered ">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Dodałeś przedmiot do koszyka</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body p-4">
-        <h5>Dodałeś {{product.name}} o szerokości <strong class="text-primary">{{product.width}}cm</strong> i wysokości <strong class="text-success">{{product.height}}cm</strong> do koszyka!</h5>
-      </div>
-      <div class="modal-footer">
-        <a routerLink="/basket" class="btn btn-warning mr-auto" aria-label="Close" (click)="staticModal.hide()">Przejdz
-            do koszyka</a>
-        <a routerLink="/shop" class="btn btn-primary" aria-label="Close" (click)="staticModal.hide()">Kontynuuj
-            zakupy</a>
-    </div>
-    </div>
-  </div>
 </div>

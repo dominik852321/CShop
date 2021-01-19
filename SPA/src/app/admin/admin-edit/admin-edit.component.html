@@ -1,0 +1,82 @@
+<div class="container mx-auto row">
+
+    <div class="col-lg-6 row p-3 ">
+        <form [formGroup]="editForm" (ngSubmit)="saveProduct(editForm.value)" class="row">
+            <div class="form-group col-6">
+                <app-text-input-products [label]="'Nazwa'" formControlName="name">
+                </app-text-input-products>
+            </div>
+            <div class="form-group col-6">
+                <app-text-input-products [label]="'Cena'" formControlName="price" [type]="'number'">
+                </app-text-input-products>
+            </div>
+            <div class="form-group col-6">
+                <app-text-input-products [label]="'Typ Id'" formControlName="productTypeId" [type]="'number'">
+                </app-text-input-products>
+            </div>
+            <div class="form-group col-6">
+                <app-text-input-products [label]="'Pokój Id'" formControlName="productRoomId" [type]="'number'">
+                </app-text-input-products>
+            </div>
+            <div class="form-group col-6">
+                <app-text-input-products [label]="'Wysokość'" formControlName="height" [type]="'number'">
+                </app-text-input-products>
+            </div>
+            <div class="form-group col-6">
+                <app-text-input-products [label]="'Szerokość'" formControlName="width" [type]="'number'">
+                </app-text-input-products>
+            </div>
+            <div class="form-group col-6">
+                <app-text-input-products [label]="'Kolor 1'" formControlName="color1">
+                </app-text-input-products>
+            </div>
+            <div class="form-group col-6">
+                <app-text-input-products [label]="'Kolor 2'" formControlName="color2">
+                </app-text-input-products>
+            </div>
+            <div class="form-group col-6">
+                <app-text-input-products [label]="'Materiał 1'" formControlName="material1">
+                </app-text-input-products>
+            </div>
+            <div class="form-group col-6">
+                <app-text-input-products [label]="'Materiał 2'" formControlName="material2">
+                </app-text-input-products>
+            </div>
+            <div class="form-group col-12">
+                <app-text-input-products [label]="'Opis'" formControlName="description">
+                </app-text-input-products>
+            </div>
+
+
+            <button class="btn btn-block btn-primary mt-3" [disabled]="!editForm.valid" type="submit">Zapisz</button>
+            <button class="btn btn-block btn-warning " (click)="removeProduct()">Usuń</button>
+            <hr>
+        </form>
+    </div>
+    
+    <div class="col-lg-6 p-3 " *ngIf="product">
+       <form [formGroup]="photoForm" (ngSubmit)="addPhoto()" class="row p-3">
+
+            <img src="{{product.pictureUrl}}" class="img-fluid border">
+            <hr>
+
+            <div *ngFor="let photos of product.photos" class="col-3">
+                 <img src="{{photos.pictureUrl}}" class="img-fluid m-3 border">
+            </div>
+
+            <hr>
+
+            <input type="file" formControlName="photoFile" (change)="fileChangeEvent($event)" class="mx-auto" />
+            
+            <image-cropper 
+                [imageChangedEvent]="imageChangedEvent" 
+                [maintainAspectRatio]="true"
+                [aspectRatio]="5 / 3"
+                format="png" 
+                (imageCropped)="imageCropped($event)" 
+            ></image-cropper>
+            
+          <button class="btn btn-block btn-primary mt-3" [disabled]="!photoForm.valid" type="submit">Dodaj zdjęcie</button>
+       </form>
+    </div>
+</div>

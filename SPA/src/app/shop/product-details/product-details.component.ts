@@ -48,6 +48,7 @@ export class ProductDetailsComponent implements OnInit {
         }
       );
   }
+
   getImages() {
     const imageUrls = [];
 
@@ -85,6 +86,6 @@ export class ProductDetailsComponent implements OnInit {
       }
     ];
   }
-
-
 }
+
+

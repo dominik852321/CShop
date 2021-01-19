@@ -17,7 +17,7 @@ namespace Core.Specifications
             AddInclude(x => x.Photos);
             AddInclude(x => x.ProductType);
             AddInclude(x => x.ProductRoom);
-            AddOrderBy(x => x.Name);
+            AddOrderByDescending(x => x.DateAdded);
             ApplyPaging(productParams.PageSize * (productParams.PageIndex -1), productParams.PageSize);
 
             if (!string.IsNullOrEmpty(productParams.Sort))
@@ -46,6 +46,13 @@ namespace Core.Specifications
             AddInclude(x => x.ProductType);
             AddInclude(x => x.ProductRoom);
         }
+
+        
+        public ProductsWithTypesAndRoomsSpecification(int pageSize, int pageIndex) 
+        {
+            ApplyPaging(pageSize * (pageIndex -1), pageSize);
+        }
+
 
        
 

@@ -16,7 +16,7 @@ import { FacebookModule } from 'ngx-facebook';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

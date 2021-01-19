@@ -18,7 +18,7 @@ namespace Infrastructure.Data
             try
             {
                 var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
+                
                 if (!context.ProductRooms.Any())
                 {
                     var roomsData =
@@ -48,14 +48,14 @@ namespace Infrastructure.Data
 
                     await context.SaveChangesAsync();
                 }
-
-                if (!context.Products.Any())
+                
+            
+               /* if (!context.Products.Any())
                 {
                     var productsData =
                         File.ReadAllText(path + @"/Data/SeedData/products.json");
 
                     var products = JsonSerializer.Deserialize<List<Product>>(productsData);
-
                     foreach (var item in products)
                     {
                         context.Products.Add(item);
@@ -78,6 +78,8 @@ namespace Infrastructure.Data
 
                     await context.SaveChangesAsync();
                 }
+                */
+                
 
                 if (!context.DeliveryMethods.Any())
                 {

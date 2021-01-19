@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Core.Entities.OrderAggregate;
-using Core.Entities.SendConfirm;
+using Core.Entities.Settings;
 using Core.Interface;
 using MailKit.Net.Smtp;
 using MailKit.Security;
@@ -34,7 +34,7 @@ namespace Infrastructure.Services
                                .Replace("[price]", order.GetTotal().ToString());
 
             var mailMessage = new MimeMessage();
-            mailMessage.Sender = MailboxAddress.Parse(_mailSettings.Mail);
+            mailMessage.From.Add(new MailboxAddress(_mailSettings.DisplayName ,_mailSettings.Mail));
             mailMessage.To.Add(MailboxAddress.Parse(order.ShipToAddress.Email));
             mailMessage.Subject = $"Zamówienie nr {order.NumberOrder}";
 

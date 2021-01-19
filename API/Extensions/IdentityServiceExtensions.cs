@@ -13,24 +13,31 @@ namespace API.Extensions
     {
         public static IServiceCollection AddIdentityService(this IServiceCollection services, IConfiguration configuration)
         {
-            var builder = services.AddIdentityCore<AppUser>();
+            services.AddIdentity<AppUser, IdentityRole>()
+                    .AddEntityFrameworkStores<AppIdentityDbContext>()
+                    .AddDefaultTokenProviders();
 
-            builder = new IdentityBuilder(builder.UserType, builder.Services);
-            builder.AddEntityFrameworkStores<AppIdentityDbContext>();
-            builder.AddSignInManager<SignInManager<AppUser>>();
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                    .AddJwtBearer(options =>
-                    {
-                        options.TokenValidationParameters = new TokenValidationParameters
-                        {
-                            ValidateIssuerSigningKey = true,
-                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Token:Key"])),
-                            ValidIssuer = configuration["Token:Issuer"],
-                            ValidateIssuer = true,
-                            ValidateAudience = false
-                        };
-                    });
+
+            services.AddAuthentication(options => 
+                   {
+                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                     options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                   })
+                   .AddJwtBearer(options =>
+                   {
+                       options.SaveToken =true;
+                       options.RequireHttpsMetadata = false;
+                       options.TokenValidationParameters = new TokenValidationParameters()
+                       {
+                           ValidateIssuer = true,
+                           ValidateAudience = false,
+                           ValidateIssuerSigningKey = true,
+                           IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Token:Key"])),
+                           ValidIssuer = configuration["Token:Issuer"]              
+                       };
+                   });
 
             return services;
         }

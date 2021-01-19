@@ -53,7 +53,7 @@ namespace API.Controllers
         {
             var email = HttpContext.User.RetrieveEmailFromPrincipal();
 
-            var order = await _orderService.GetOrderByIdAsync(id, email);
+            var order = await _orderService.GetOrderByIdAndEmailAsync(id, email);
 
             if (order == null) return NotFound(new ApiResponse(404));
 

@@ -5,7 +5,7 @@ using System.Net.Mail;
 using System.Threading.Tasks;
 using Core.Entities;
 using Core.Entities.OrderAggregate;
-using Core.Entities.SendConfirm;
+using Core.Entities.Settings;
 using Core.Interface;
 using Core.Specifications;
 using MimeKit;
@@ -68,7 +68,13 @@ namespace Infrastructure.Services
              
              // return order
              return order; 
-             
+        }
+
+        public async Task<IReadOnlyList<Order>> GetOrders()
+        {
+            var spec = new OrdersWithItemsAndOrderingSpecification();
+
+            return await _unitOfWork.Repository<Order>().ListAsync(spec);
         }
 
         public async Task<IReadOnlyList<Order>> GetOrdersForUserAsync(string buyerEmail)
@@ -78,9 +84,16 @@ namespace Infrastructure.Services
             return await _unitOfWork.Repository<Order>().ListAsync(spec);
         }
 
-        public async Task<Order> GetOrderByIdAsync(int id, string buyerEmail)
+        public async Task<Order> GetOrderByIdAndEmailAsync(int id, string buyerEmail)
         {
             var spec = new OrdersWithItemsAndOrderingSpecification(id, buyerEmail);
+
+            return await _unitOfWork.Repository<Order>().GetEntityWithSpec(spec);
+        }
+
+        public async Task<Order> GetOrderByIdAsync(int id)
+        {
+            var spec = new OrdersWithItemsAndOrderingSpecification(id);
 
             return await _unitOfWork.Repository<Order>().GetEntityWithSpec(spec);
         }

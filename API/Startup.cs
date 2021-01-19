@@ -3,7 +3,7 @@ using API.Extensions;
 using API.Helpers;
 using API.Middleware;
 using AutoMapper;
-using Core.Entities.SendConfirm;
+using Core.Entities.Settings;
 using Infrastructure.Data;
 using Infrastructure.Identity;
 using Microsoft.AspNetCore.Builder;
@@ -86,8 +86,10 @@ namespace API
 
             app.UseHttpsRedirection();
             app.UseRouting();
+            
             app.UseAuthentication();
             app.UseAuthorization();
+
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions 

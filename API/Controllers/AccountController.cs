@@ -16,16 +16,17 @@ namespace API.Controllers
     public class AccountController : BaseApiController
     {
         private readonly UserManager<AppUser> _userManager;
-        private readonly SignInManager<AppUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenService tokenService, IMapper mapper)
+        public AccountController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, ITokenService tokenService, IMapper mapper)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
+            _roleManager = roleManager;
             _tokenService = tokenService;
             _mapper = mapper;
         }
+
 
         [Authorize]
         [HttpGet]
@@ -36,7 +37,7 @@ namespace API.Controllers
             return new UserDto
              {
                  Email = user.Email,
-                 Token = _tokenService.CreateToken(user),
+                 Token = await _tokenService.CreateToken(user),
                  DisplayName = user.DisplayName
              };
         }
@@ -79,14 +80,14 @@ namespace API.Controllers
 
              if(user == null) return Unauthorized(new ApiResponse(401));
            
-             var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
+             var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
 
-             if (!result.Succeeded) return Unauthorized(new ApiResponse(401));
+             if (!result) return Unauthorized(new ApiResponse(401));
 
              return new UserDto
              {
                  Email = user.Email,
-                 Token = _tokenService.CreateToken(user),
+                 Token = await _tokenService.CreateToken(user),
                  DisplayName = user.DisplayName
              };
         }
@@ -104,17 +105,20 @@ namespace API.Controllers
             {
                 DisplayName = registerDto.DisplayName,
                 Email = registerDto.Email,
-                UserName = registerDto.Email
+                UserName = registerDto.Email,
+                
             };
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
 
             if (!result.Succeeded) return BadRequest(new ApiResponse(400));
 
+            await _userManager.AddToRoleAsync(user, "User");
+
             return new UserDto
             {
                 DisplayName = user.DisplayName,
-                Token = _tokenService.CreateToken(user),
+                Token = await _tokenService.CreateToken(user),
                 Email = user.Email
             };
         }

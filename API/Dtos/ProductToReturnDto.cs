@@ -15,6 +15,9 @@ namespace API.Dtos
         public string ProductType { get; set; }
         public string ProductRoom { get; set; } 
 
+        public int ProductTypeId { get; set; }
+        public int ProductRoomId { get; set; }
+
         public int Height { get; set; }
         public int Width { get; set; }
         public string Color1 { get ; set; }

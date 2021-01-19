@@ -1,4 +1,4 @@
-namespace Core.Entities.SendConfirm
+namespace Core.Entities.Settings
 {
     public class MailSettings
     {

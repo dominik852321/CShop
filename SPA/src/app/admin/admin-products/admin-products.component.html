@@ -1,0 +1,32 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <table class="table table-hover" style="cursor: pointer;">
+        <thead class="thead-light">
+          <tr>
+            <th>Produkt</th>
+            <th>Nazwa</th>
+            <th>Rozmiar</th>
+            <th>Cena</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products" routerLink="/admin/products/{{product.id}}">
+            <th><img src="{{product.pictureUrl}}" alt="{{product.name}}" class="img-fluid " style="height: 60px"></th>
+            <td>{{product.name }}</td>
+            <td>Szer {{product.width}}cm
+              <br>
+              <br>
+              Wys {{product.height}}cm
+            </td>
+            <td>{{product.price}}zł</td>
+          </tr>
+        </tbody>
+      </table>
+      <div >
+        <app-pager [pageSize]="shopParams.pageSize" [pageNumber]="shopParams.pageNumber" [totalCount]="totalCount"
+          (pageChanged)="onPageChanged($event)"></app-pager>
+      </div>
+    </div>
+  </div>
+</div>

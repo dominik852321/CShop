@@ -45,11 +45,10 @@ namespace Infrastructure.Repository
         {
             return await _context.Set<T>().OrderByDescending(x => x.Id).Take(1).FirstAsync();
         }
-        
 
-        public async Task<int> CountAsync(ISpecification<T> spec)
+        public async Task<int> CountAsync()
         {
-            return await ApplySpecification(spec).CountAsync();
+             return await _context.Set<T>().CountAsync();
         }
         
 
