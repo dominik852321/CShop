@@ -11,7 +11,7 @@ namespace Infrastructure.Identity
     {
         public static async Task SeedUsersAndRolesAsync(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
-           
+            
         }
     }
 }

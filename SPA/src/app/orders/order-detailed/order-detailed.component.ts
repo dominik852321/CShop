@@ -25,7 +25,7 @@ export class OrderDetailedComponent implements OnInit {
   loadOrder() {
     this.ordersService.getOrderByIdForUser(+this.route.snapshot.paramMap.get('id')).subscribe((order: IOrder) =>{
       this.order = order;
-      this.bcService.set('@orderDetailed', `Zamówienie nr ${order.id} - ${order.status}`);
+      this.bcService.set('@orderDetailed', `Zamówienie nr ${order.numberOrder}`);
       console.log(order);
     }, error => {
       console.log(error);

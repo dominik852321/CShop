@@ -1,16 +1,8 @@
 <div class="p-4" [formGroup]="checkoutForm">
-        <h4 class="text-success font-weight-normal">Opłata za zamówienie jest podzielona na 2 raty.</h4>
-        <hr>
-        <p>
-                <span class="text-primary">Pierwszą ratę</span> płacimy przed rozpoczęciem szycia <br>
-        </p>
-        <p>
-               <span class="text-primary">Drugą ratę</span>  po wykonaniu zamówienia <br>
-        </p>
-      
+    
 
-    <h4 class="mt-5 font-weight-normal text-primary">
-        Proszę wybierz sposób:
+    <h4 class=" font-weight-normal text-primary">
+        Sposób dostarczenia:
     </h4>
     <div class="row px-4 mt-4" formGroupName="deliveryForm">
         <div class="col-12  form-group" *ngFor="let method of deliveryMethods">
@@ -28,10 +20,10 @@
 
 <div class="dropdown-divider mt-3"></div>
 <div class="float-none d-flex justify-content-between flex-column flex-lg-row mb-5 ">
-    <button class="btn btn-outline-primary m-2" cdkStepperPrevious>
+    <button class="btn  btn-outline-primary m-2" cdkStepperPrevious>
         <i class="fa fa-angle-left"></i> Dane odbiorcy
     </button>
-    <button  class="btn btn-primary m-2" cdkStepperNext>
+    <button  class="btn btn-lg btn-success m-2" cdkStepperNext>
         Wybrane przedmioty <i class="fa fa-angle-right"></i> 
     </button>
 </div>

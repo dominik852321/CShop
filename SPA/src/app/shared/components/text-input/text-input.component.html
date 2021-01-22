@@ -16,8 +16,6 @@
         <span *ngIf="controlDir.control.errors?.required">{{label}} jest wymagany</span>
         <span *ngIf="(type == 'password' && controlDir.control.errors?.pattern)">Hasło musi zawierać Dużą litere,  Małe Litere,  liczbę oraz znak specjalny</span>
         <span *ngIf="(type == 'email' && controlDir.control.errors?.pattern)">Nieprawidłowy adres email</span>
-        <span *ngIf="(type == 'firstName' && controlDir.control.errors?.pattern)">Imię powinno zawierać tylko zwykłe litery</span>
-        <span *ngIf="(type == 'lastName' && controlDir.control.errors?.pattern)">Nazwisko powinno zawierać tylko zwykłe litery</span>
         <span *ngIf="(type == 'phone' && controlDir.control.errors?.pattern)">Telefon powinien składać się z samych liczb</span>
 
     </div>

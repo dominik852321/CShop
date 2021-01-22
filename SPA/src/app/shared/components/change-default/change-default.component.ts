@@ -4,6 +4,7 @@ import { Component, Input, OnInit, Output, EventEmitter, TemplateRef } from '@an
 import { Options } from '@angular-slider/ngx-slider';
 import { BasketService } from 'src/app/basket/basket.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { IfStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-change-default',
@@ -22,7 +23,6 @@ export class ChangeDefaultComponent implements OnInit {
   mainPrice: number;
   resultWidth: number;
   resultHeight: number;
-  result: number;
   sizeForm: FormGroup;
   quantity = 1;
 
@@ -47,6 +47,8 @@ export class ChangeDefaultComponent implements OnInit {
     this.product.width = this.mainWidth;
     this.product.height = this.mainHeight;
     this.product.price = this.mainPrice;
+    this.newWidth = this.mainWidth;
+    this.newHeight = this.mainHeight;
     this.changeModeSize = false;
   }
 
@@ -59,14 +61,31 @@ export class ChangeDefaultComponent implements OnInit {
   }
 
   saveSize(){
-    this.resultWidth = Math.abs((this.newWidth / this.mainWidth) * 1.5);
-    this.resultHeight = Math.abs(this.newHeight / this.mainHeight) * 0.5;
+    if(this.newWidth != this.mainWidth && this.newWidth != undefined)
+    {
+      this.resultWidth = Math.abs((this.newWidth / this.mainWidth) * 1.5);
+    }
+    else
+    {
+      this.resultWidth = 1.5;
+    }
 
-    this.result = (this.resultHeight + this.resultWidth) / 2;
-    this.product.price = Math.ceil(this.mainPrice * this.result);
-
+    if(this.newHeight != this.mainHeight && this.newHeight != undefined)
+    {
+      this.resultHeight = Math.abs((this.newHeight / this.mainHeight) * 0.5);
+    }
+    else
+    {
+      this.resultHeight =  0.5;
+    }
+  
+    var result = (this.resultHeight + this.resultWidth) / 2;
+    var resultPrice = Math.ceil(this.mainPrice * result);
+  
+    this.product.price = resultPrice;
     this.product.width = this.newWidth;
     this.product.height = this.newHeight;
+  
 
     this.changeModeSize = false;
   }

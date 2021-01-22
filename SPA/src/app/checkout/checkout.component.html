@@ -5,18 +5,18 @@
                <cdk-step [label]="'Dane odbiorcy'" [completed]="(checkoutForm.get('addressForm')).valid">
                    <app-checkout-address [checkoutForm]="checkoutForm"></app-checkout-address>
                </cdk-step>
-               <cdk-step [label]="'Dostarczenie'" [completed]="(checkoutForm.get('deliveryForm')).valid">
+               <cdk-step  [label]="'Dostarczenie'" [completed]="(checkoutForm.get('deliveryForm')).valid">
                    <app-checkout-delivery [checkoutForm]="checkoutForm"></app-checkout-delivery>
               </cdk-step>
-              <cdk-step [label]="'Zamówienie'">
+              <cdk-step  [label]="'Zamówienie'">
                    <app-checkout-review></app-checkout-review>
               </cdk-step>
-              <cdk-step [label]="'Potwierdzenie'" > 
+              <cdk-step  [label]="'Potwierdzenie'" > 
                    <app-checkout-payment [checkoutForm]="checkoutForm"></app-checkout-payment>
               </cdk-step>
            </app-stepper>
         </div>
-        <div class="col-lg-4 ">
+        <div class="col-lg-4 d-none d-lg-block">
            <app-order-totals
            *ngIf="(basketTotal$ | async)"
            [Subtotal]="(basketTotal$ | async).subtotal"

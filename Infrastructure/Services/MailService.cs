@@ -23,13 +23,13 @@ namespace Infrastructure.Services
 
         public async void SendEmail(Order order)
         {  
-            string FilePath = Directory.GetCurrentDirectory() + "\\Template\\ConfirmMail.html";
+            string FilePath = Directory.GetCurrentDirectory() + "/Template/ConfirmMail.html";
             StreamReader str = new StreamReader(FilePath);
             string MailText = str.ReadToEnd();
             str.Close();
 
             MailText = MailText.Replace("[name]", order.ShipToAddress.FirstName)
-                               .Replace("[date]", order.OrderDate.DateTime.ToString())
+                               .Replace("[date]", order.OrderDate.Date.ToString())
                                .Replace("[numberOrder]", order.NumberOrder.ToString())
                                .Replace("[price]", order.GetTotal().ToString());
 
@@ -52,7 +52,7 @@ namespace Infrastructure.Services
                     await smtp.SendAsync(mailMessage);
                     smtp.Disconnect(true);
                 }
-            }
+            } 
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);

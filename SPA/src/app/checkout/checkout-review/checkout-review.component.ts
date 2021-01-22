@@ -1,6 +1,6 @@
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { BasketService } from './../../basket/basket.service';
-import { IBasket } from './../../shared/models/basket';
+import { IBasket, IBasketTotals } from './../../shared/models/basket';
 import { Observable } from 'rxjs';
 import { CdkStepper } from '@angular/cdk/stepper';
 import { Component, Input, OnInit } from '@angular/core';
@@ -13,11 +13,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CheckoutReviewComponent implements OnInit {
   @Input() appStepper: CdkStepper;
   basket$: Observable<IBasket>;
+  basketTotal$: Observable<IBasketTotals>;
 
   constructor(private basketService: BasketService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.basket$ = this.basketService.basket$;
+    this.basketTotal$ = this.basketService.basketTotal$;
   }
 
 }

@@ -1,4 +1,4 @@
-<nav ngxNavbarDynamicExpand class="fixed-top navbar-light bg-white border-bottom shadow-sm ">
+<nav class="navbar navbar-light navbar-expand-lg border-bottom shadow-sm bg-white" >
 
 
   <img src="/assets/images/logo4.png" routerLink="/" class="logo border" style="height: 60px;" alt="logo"
@@ -20,7 +20,7 @@
     <ng-container *ngIf="(currentUser$ | async) === null">
       <div class="dropdown" dropdown>
         <a class="dropdown-toggle" style="cursor: pointer;" dropdownToggle>
-          <a><i class="fa fa-user-o  icon-user"></i></a>
+          <a><i class="fa fa-user-o  icon-user" style="color:grey;"></i></a>
         </a>
         <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu>
           <a routerLink="/account/login" class="dropdown-item d-flex align-items-center">Zaloguj</a>
@@ -51,9 +51,7 @@
 
   </div>
 
-
-
-  <ngx-navbar-collapse id="main-nav" #collapse="ngxNavbarCollapse">
+  <ngx-navbar-collapse id="main-nav"  #collapse="ngxNavbarCollapse">
     <ul class="navbar-nav ml-3 py-3">
       <li class="d-block d-lg-none nav-item " (click)="collapse.close()">
         <a class="nav-link" [routerLink]="['/']" routerLinkActive="active"
@@ -110,3 +108,5 @@
 
   </div>
 </nav>
+
+

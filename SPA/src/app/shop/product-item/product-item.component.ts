@@ -19,7 +19,7 @@ export class ProductItemComponent implements OnInit {
 
   //Memurai
   addItemToBasket() {
-    this.basketService.addItemToBasket(this.product);
+    this.basketService.addItemToBasket(this.product)
   }
 
 }

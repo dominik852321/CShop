@@ -57,7 +57,7 @@
     <div class="col-lg-6 p-3 " *ngIf="product">
        <form [formGroup]="photoForm" (ngSubmit)="addPhoto()" class="row p-3">
 
-            <img src="{{product.pictureUrl}}" class="img-fluid border">
+            <img src="{{product.pictureUrl}}" class="img-thumbnail w-100 border" style="height: 200px;" >
             <hr>
 
             <div *ngFor="let photos of product.photos" class="col-3">

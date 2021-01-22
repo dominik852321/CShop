@@ -81,8 +81,12 @@ export class ProductDetailsComponent implements OnInit {
       },
        // max-width 500
       {
-        breakpoint: 500,
-        height: '200px'
+        breakpoint: 750,
+        height: '300px'
+      },
+      {
+        breakpoint:550,
+        height: '250px'
       }
     ];
   }

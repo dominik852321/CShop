@@ -50,7 +50,7 @@ namespace Infrastructure.Data
                 }
                 
             
-               /* if (!context.Products.Any())
+                if (!context.Products.Any())
                 {
                     var productsData =
                         File.ReadAllText(path + @"/Data/SeedData/products.json");
@@ -78,7 +78,7 @@ namespace Infrastructure.Data
 
                     await context.SaveChangesAsync();
                 }
-                */
+                
                 
 
                 if (!context.DeliveryMethods.Any())

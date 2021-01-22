@@ -1,18 +1,26 @@
-<div class="py-2">
+<div class="p-4">
+    <h4 class="text-primary font-weight-normal">Podsumowanie zamówienia</h4>
+    <hr>
     <app-basket-summary 
-    [isBasket]=false
+    [isBasket]="false"
     [items]="(basket$ | async).items"
     ></app-basket-summary>
 </div>
+<div class="col-lg-4 d-block d-lg-none">
+    <app-order-totals
+    *ngIf="(basketTotal$ | async)"
+    [Subtotal]="(basketTotal$ | async).subtotal"
+    [Shipping]="(basketTotal$ | async).shipping"
+    [Total]="(basketTotal$ | async).total"
+    ></app-order-totals>
+ </div>
 
-
-<div class="dropdown-divider mt-3"></div>
-
-<div class="float-none d-flex justify-content-between flex-column flex-lg-row mb-3">
-    <button class="btn btn-outline-primary m-2" cdkStepperPrevious>
-        <i class="fa fa-angle-left"></i> Sposób dostarczenia
-    </button>
-    <button  class="btn btn-primary m-2" cdkStepperNext>
-        Podsumowanie <i class="fa fa-angle-right"></i> 
-    </button>
-</div>
+ <div class="dropdown-divider mt-3"></div>
+ <div class="float-none d-flex justify-content-between flex-column flex-lg-row mb-5 ">
+     <button class="btn  btn-outline-primary m-2" cdkStepperPrevious>
+         <i class="fa fa-angle-left"></i> Dostarczenie
+     </button>
+     <button  class="btn btn-lg btn-success m-2" cdkStepperNext>
+         Podsumowanie <i class="fa fa-angle-right"></i> 
+     </button>
+ </div>

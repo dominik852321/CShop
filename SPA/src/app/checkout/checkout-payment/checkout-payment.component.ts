@@ -30,7 +30,8 @@ export class CheckoutPaymentComponent implements OnInit {
       const navigationExtras: NavigationExtras = {state: order};
       this.router.navigate(['checkout/success'], navigationExtras);
     }, error => {
-      this.toastr.error('Wypełnij poprawnie Dane odbiorcy / Dostarczanie');
+      this.toastr.error('Błąd');
+      console.log(error);
     });
   }
 

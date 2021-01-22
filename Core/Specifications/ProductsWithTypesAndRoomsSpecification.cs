@@ -47,6 +47,13 @@ namespace Core.Specifications
             AddInclude(x => x.ProductRoom);
         }
 
+        public ProductsWithTypesAndRoomsSpecification()
+        {
+            AddInclude(x => x.ProductRoom);
+            AddInclude(x => x.ProductType);
+            AddOrderByDescending(x => x.Id);
+        }
+
         
         public ProductsWithTypesAndRoomsSpecification(int pageSize, int pageIndex) 
         {

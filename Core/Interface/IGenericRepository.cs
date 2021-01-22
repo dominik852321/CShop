@@ -14,7 +14,7 @@ namespace Core.Interface
         Task<int> CountAsync();
         Task<T> GetLast();
 
-        Task<IReadOnlyList<T>> Get3Items();
+        Task<IReadOnlyList<T>> Get3Items(ISpecification<T> spec);
 
         void Add(T entity);
         void Update(T entity);

@@ -40,7 +40,7 @@ namespace Infrastructure.Services
                     new Claim(ClaimTypes.Name, user.DisplayName),
                     new Claim(ClaimTypes.Role, role[0])
                 }),
-                Expires = DateTime.Now.AddDays(7),
+                Expires = DateTime.Now.AddMinutes(20),
                 SigningCredentials = creds,
                 Issuer = _config["Token:Issuer"]
             };

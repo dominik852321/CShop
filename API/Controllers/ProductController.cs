@@ -55,7 +55,9 @@ namespace API.Controllers
         [HttpGet("3products")]
         public async Task<ActionResult<IReadOnlyList<ProductToListDto>>> Get3Products()
         {
-            var products = await _productRepo.Get3Items();
+            var spec = new ProductsWithTypesAndRoomsSpecification();
+
+            var products = await _productRepo.Get3Items(spec);
 
             return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToListDto>>(products));
         }

@@ -61,7 +61,7 @@ namespace Infrastructure.Services
              if(result <= 0) return null;
 
              // Send Mail with confirm order
-              _mailService.SendEmail(order);
+             _mailService.SendEmail(order);
 
              // delete basket
              await _basketRepo.DeleteBasketAsync(basketId);

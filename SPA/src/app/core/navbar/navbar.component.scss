@@ -41,6 +41,7 @@ img {
 
 .navbar-toggler-icon {
     background-image: none;
+    font-size: 27px;
   }
 .navbar-toggler-icon::before {
     font-family: FontAwesome;
@@ -49,13 +50,7 @@ img {
 }
 
 .icon-basket, .icon-user {
-    @media (max-width: 680px) {
-        font-size: 30px;
-        }
-    
-    @media (min-width: 680px) {
-        font-size: 35px;
-    }
+  font-size: 40px;
     
 }
 

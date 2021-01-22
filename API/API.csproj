@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\**" CopyToPublishDirectory="PreserveNewest"/>
+    <Content Include="Template\**" CopyToPublishDirectory="PreserveNewest"/>
     <ProjectReference Include="../Infrastructure/Infrastructure.csproj"/>
   </ItemGroup>
 </Project>

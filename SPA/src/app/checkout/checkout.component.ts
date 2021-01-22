@@ -26,8 +26,8 @@ export class CheckoutComponent implements OnInit {
   createCheckoutForm() {
     this.checkoutForm = this.fb.group({
       addressForm: this.fb.group({
-        firstName: [null, [Validators.required, Validators.pattern('^\\s*[a-zA-Z,\\s]+\\s*$')]],
-        lastName: [null, [Validators.required, Validators.pattern('^\\s*[a-zA-Z,\\s]+\\s*$')]],
+        firstName: [null, [Validators.required]],
+        lastName: [null, [Validators.required]],
         street: [null, Validators.required],
         city: [null, Validators.required],
         country: [null, Validators.required],
