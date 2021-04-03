@@ -62,10 +62,12 @@ namespace API.Controllers
         public async Task<ActionResult<Pagination<ProductToListDto>>> GetProducts([FromQuery]ProductSpecParams productParams)
         {
             var spec = new ProductsWithTypesAndRoomsSpecification(productParams);
+
+            var countSpec = new ProductWithFiltersForCountSpecification(productParams);
+
+            var totalItems = await _productRepo.CountAsync(countSpec);
             
             var products = await _productRepo.ListAsync(spec);
-
-            var totalItems = await _productRepo.CountAsync();
 
             var productToList = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToListDto>>(products);
 
@@ -98,12 +100,14 @@ namespace API.Controllers
                 {
                     image.Mutate(x => x.Resize(1280, 768));
                     
+                    
                     var pathToDB = "images/productphotos/" + productDto.PhotoFile.FileName; 
 
                     var path = Path.Combine(Directory.GetCurrentDirectory() + "/Content/" + pathToDB);
 
                     fileName = pathToDB;
-                    image.Save(path);
+                    await image.SaveAsync(path);
+                    
                 }
             }
 

@@ -21,13 +21,7 @@
                 <tr *ngFor="let item of items" class="border-bottom">
                    <th scope="row">
                        <div class="p-0">
-                           <img src="{{item.pictureUrl}}" alt="{{item.productName}}" class="img-fluid " style="width: 100px" >
-                           <div class="ml-3 d-inline-block align-middle">
-                               <h6 class="mb-0">
-                                   <a routerLink="/shop/{{item.id}}" class="text-dark">{{item.productName}}</a>
-                               </h6>
-                          
-                           </div>
+                           <img src="{{item.pictureUrl}}" alt="{{item.productName}}" class="img-fluid " style="width: 100px; cursor: pointer;" routerLink="/firany/{{item.id}}">
                        </div>
                    </th>
                    <td class="align-middle">

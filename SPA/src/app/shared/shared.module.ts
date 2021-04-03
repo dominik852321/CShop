@@ -18,6 +18,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TextInputProductsComponent } from './components/text-input-products/text-input-products.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { AngularDropdownModule } from 'angular-dropdown';
 
 
 
@@ -45,7 +46,8 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     RouterModule,
     NgxSliderModule,
     ImageCropperModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    AngularDropdownModule
   ],
   exports: [
     PaginationModule,
@@ -65,6 +67,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     ChangeDefaultComponent,
     ImageCropperModule,
     ModalModule,
+    AngularDropdownModule
 
   ]
 })

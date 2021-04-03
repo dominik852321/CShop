@@ -169,7 +169,6 @@ namespace Infrastructure.Data.Migrations
             modelBuilder.Entity("Core.Entities.ProductRoom", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -183,7 +182,6 @@ namespace Infrastructure.Data.Migrations
             modelBuilder.Entity("Core.Entities.ProductType", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Name")

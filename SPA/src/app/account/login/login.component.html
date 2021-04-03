@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center mt-2">
-    <div class="col-lg-3">
+    <div class="col-lg-3 col-8">
         <div class="container-login">
 
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mb-3">
@@ -13,7 +13,7 @@
                 <button [disabled]="loginForm.invalid" class="btn btn-success my-2 btn-block mt-4" type="submit">Zaloguj</button>
             </form>
             <div class="text-center">
-                <p>Nie masz jeszcze konta? <a [routerLink]="['/account/register']">Zarejestruj się!</a></p>
+                <p>Nie masz jeszcze konta? <a [routerLink]="['/konto/rejestracja']">Zarejestruj się!</a></p>
             </div>
         </div>
     </div>

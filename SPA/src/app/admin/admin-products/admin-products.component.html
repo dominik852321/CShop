@@ -11,7 +11,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of products" routerLink="/admin/products/{{product.id}}">
+          <tr *ngFor="let product of products" routerLink="/admin/produkty/{{product.id}}">
             <th><img src="{{product.pictureUrl}}" alt="{{product.name}}" class="img-fluid " style="height: 60px"></th>
             <td>{{product.name }}</td>
             <td>Szer {{product.width}}cm

@@ -1,7 +1,7 @@
 import { AccountService } from './account/account.service';
 import { Component, OnInit } from '@angular/core';
 import { BasketService } from './basket/basket.service';
-import { FacebookService, InitParams } from 'ngx-facebook';
+import { Title, Meta } from '@angular/platform-browser';
 
 
 
@@ -12,11 +12,13 @@ import { FacebookService, InitParams } from 'ngx-facebook';
 })
 export class AppComponent {
   
-  title = 'Panienka z okienka';
+  title = 'Panienka z okienka - Firany';
 
-  constructor(private basketService: BasketService, private accountService: AccountService) {}
+  constructor(private basketService: BasketService, private accountService: AccountService, private titleService: Title, private metaTagService: Meta) {}
 
   ngOnInit(): void {
+    this.titleService.setTitle(this.title);
+    this.metaTagService.updateTag({ name: 'description', content: 'Firany oraz firanki do salonu lub do kuchni szyte na wymiar, Gotowe i nowoczesne panele okienne | Sklep internetowy Panienka z okienka, Firany szyte na wymiar'})
    this.loadBasket();
    this.loadCurrentUser();
   }

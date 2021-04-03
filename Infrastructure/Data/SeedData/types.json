@@ -1,17 +1,24 @@
 [
 
     {
-        "Name": "Zazdroski"
+        "Id": 1,
+        "Name": "Firany"
     },
     {
+        "Id": 2,
         "Name": "Panele"
     },
     {
+        "Id": 3,
         "Name": "Zasłony"
     },
     {
-        "Name": "Firany"
+        "Id": 4,
+        "Name": "Zazdroski"
+    },
+    {
+        "Id": 5,
+        "Name": "Rolety"
     }
-   
 ]
   

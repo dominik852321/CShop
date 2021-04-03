@@ -1,14 +1,22 @@
 [
     {
-        "Name": "Salon"
+        "Id": 1,
+        "Name": "Firany"
     },
     {
-        "Name": "Sypialnia"
+        "Id": 2,
+        "Name": "Firany Gotowe"
     },
     {
-        "Name": "Kuchnia"
+        "Id": 3,
+        "Name": "Firany nowoczesne"
     },
     {
-        "Name": "Inne"
+        "Id": 4,
+        "Name": "Firany do salonu"
+    },
+    {
+        "Id": 5,
+        "Name": "Firany do kuchni"
     }
 ]

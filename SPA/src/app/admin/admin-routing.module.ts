@@ -10,11 +10,11 @@ import { AdminProductsComponent } from './admin-products/admin-products.componen
 
 const routes: Routes = [
   {path: '', component: AdminComponent},
-  {path: 'orders', canActivate: [AdminGuard], component: AdminOrdersComponent, data: {breadcrumb: 'Zamówienia'}},
-  {path: 'products', canActivate: [AdminGuard], component: AdminProductsComponent, data: {breadcrumb: 'Produkty'}},
-  {path: 'add', canActivate: [AdminGuard], component: AdminAddComponent, data: {breadcrumb: 'Dodaj'}},
-  {path: 'products/:id', canActivate: [AdminGuard], component: AdminEditComponent, data: {breadcrumb: 'Edytuj'}},
-  {path: 'orders/:id', canActivate: [AdminGuard], component: OrdersDetailedComponent, data: {breadcrumb: 'Zamówienie'}}
+  {path: 'zamowienia', canActivate: [AdminGuard], component: AdminOrdersComponent, data: {breadcrumb: 'Zamówienia'}},
+  {path: 'produkty', canActivate: [AdminGuard], component: AdminProductsComponent, data: {breadcrumb: 'Produkty'}},
+  {path: 'dodaj', canActivate: [AdminGuard], component: AdminAddComponent, data: {breadcrumb: 'Dodaj'}},
+  {path: 'produkty/:id', canActivate: [AdminGuard], component: AdminEditComponent, data: {breadcrumb: 'Edytuj'}},
+  {path: 'zamowienia/:id', canActivate: [AdminGuard], component: OrdersDetailedComponent, data: {breadcrumb: 'Zamówienie'}}
 ];
 
 @NgModule({

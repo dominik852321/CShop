@@ -1,8 +1,7 @@
 <div class="container row mx-auto" *ngIf="product">
-        <div class="col-lg-7 p-2 ">
-                <ngx-gallery class="shadow " [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
-        </div>
-        <div class="col-lg-5 p-2 shadow-sm ">
+        <ngx-gallery class="col-lg-7 p-0 border"  style="z-index: 1;" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+    
+        <div class="col-lg-5 p-1 shadow-sm border ">
             <app-change-default [product]="product" ></app-change-default>
         </div>
     
@@ -37,7 +36,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    Rodzaj pokoju
+                                    Rodzaj
                                 </td>
                                 <th>
                                     {{product.productRoom}}

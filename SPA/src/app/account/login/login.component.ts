@@ -2,6 +2,8 @@ import { AccountService } from './../account.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Meta, Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -10,12 +12,17 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  title = 'Zaloguj się! | Sklep internetowy Panienka z okienka'; 
+
   loginForm: FormGroup;
   returnUrl: string;
 
-  constructor(private accountService: AccountService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private accountService: AccountService, private router: Router, private activatedRoute: ActivatedRoute,  private toastr: ToastrService, private titleService: Title, private metaTagService: Meta) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle(this.title);
+    this.metaTagService.updateTag({ name: 'description', content: 'Zaloguj się do sklepu internetowego | Sklep internetowy Panienka z okienka, Firany szyte na wymiar'})
     this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl || '';
     this.createLoginForm();
   }
@@ -30,7 +37,9 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.accountService.login(this.loginForm.value).subscribe(() => {
         this.router.navigateByUrl(this.returnUrl);
+        this.toastr.success('Zalogowano pomyślnie');
     }, error => {
+      this.toastr.error('Błędne dane');
       console.log(error);
     });
   }

@@ -2,14 +2,14 @@
     <div class="i fa fa-check-circle fa-5x" style="color: green;"></div>
     <h3>Dziękuję! Twoje numer zamówienia to <span class="font-weight-normal">{{order.numberOrder}}</span></h3>
     <h6 class="font-weight-normal my-5">Na maila otrzymałaś/eś potwierdzenie zamówienia!</h6>
-    <h6 class="my-3 font-weight-normal">W zakładce <a class="font-weight-bold" routerLink="/information/delivery-payments">płatności</a> omówiłam w jaki sposób odbywa się płatność oraz dostarczenie </h6>
+    <h6 class="my-3 font-weight-normal">W zakładce <a class="font-weight-bold" routerLink="/informacje/dostawa-platnosc">płatności</a> omówiłam w jaki sposób odbywa się płatność oraz dostarczenie </h6>
     <div class="mt-5">
     <ng-container>
-        <button *ngIf="(currentUser$ | async) !== null && order" routerLink="/orders/{{order?.id}}" class="btn btn-outline-success">Zobacz swoje zamówienie</button>
+        <button *ngIf="(currentUser$ | async) !== null && order" routerLink="/zamowienia/{{order?.id}}" class="btn btn-outline-success">Zobacz swoje zamówienie</button>
     </ng-container>
 
     <ng-container>
-        <button *ngIf="(currentUser$ | async) !== null && !order" routerLink="/orders" class="btn btn-primary">Zobacz wszystkie swoje zamówienia</button>
+        <button *ngIf="(currentUser$ | async) !== null && !order" routerLink="/zamowienia" class="btn btn-primary">Zobacz wszystkie swoje zamówienia</button>
     </ng-container>
     </div>
 </div>

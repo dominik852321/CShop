@@ -1,4 +1,4 @@
-import { CollapseModule } from 'ngx-bootstrap/collapse';
+
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,6 +11,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { SectionHeaderComponent } from './section-header/section-header.component';
 import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -19,12 +21,13 @@ import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
     CommonModule,
     RouterModule,
     BreadcrumbModule,
-    SharedModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       preventDuplicates: true
     }),
-    NgxNavbarModule
+    NgxNavbarModule,
+    SharedModule,
   ],
   exports: [
     NavbarComponent,

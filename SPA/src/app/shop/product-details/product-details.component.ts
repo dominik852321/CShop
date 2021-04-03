@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { ShopService } from '../shop.service';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryImageSize, NgxGalleryOptions } from 'ngx-gallery-9';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-product-details',
@@ -12,7 +13,10 @@ import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryImageSize, NgxGalleryOp
 })
 export class ProductDetailsComponent implements OnInit {
 
+  
+   
   product: IProduct;
+
 
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
@@ -21,7 +25,9 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private shopService: ShopService,
     private activateRoute: ActivatedRoute,
-    private bcService: BreadcrumbService
+    private bcService: BreadcrumbService,
+    private titleService: Title,
+    private metaTagService: Meta
   ) {
     this.bcService.set('@productDetails', ' ');
   }
@@ -29,6 +35,7 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.loadProduct();
     this.gallerySettings();
+
   }
 
   loadProduct() {
@@ -37,6 +44,8 @@ export class ProductDetailsComponent implements OnInit {
       .subscribe(
         (response) => {
           this.product = response;
+          this.titleService.setTitle(this.product.name + ' | Sklep internetowy Panienka z okienka');
+          this.metaTagService.updateTag({ name: 'description', content: this.product.name +" "+ this.product.productRoom +" "+ this.product.material1 + " | Sklep internetowy Panienka z okienka, Firany szyte na wymiar"})
           this.bcService.set('@productDetails', this.product.name);
           if (this.product.photos.length > 0 || this.product.pictureUrl.length > 0)
           {
@@ -75,6 +84,7 @@ export class ProductDetailsComponent implements OnInit {
         width: '100%',
         thumbnails: false,
         imageAnimation: NgxGalleryAnimation.Slide,
+        imageSize: NgxGalleryImageSize.Contain,
         previewZoom: true,
         imageSwipe: true,
         previewZoomStep: 0.4,

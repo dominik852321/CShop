@@ -95,17 +95,6 @@ namespace Infrastructure.Data
 
                     await context.SaveChangesAsync();
                 }
-                if (!context.Orders.Any())
-                {
-                    Order order = new Order 
-                    {
-                        NumberOrder = 1000
-                    };
-                    
-                    context.Orders.Add(order);
-
-                    await context.SaveChangesAsync();
-                }
             }
             catch (Exception ex)
             {

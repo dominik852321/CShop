@@ -8,10 +8,11 @@ import { InformationRoutingModule } from './information-routing.module';
 import { PaymentsComponent } from './payments/payments.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { SewingComponent } from './sewing/sewing.component';
 
 
 @NgModule({
-  declarations: [AboutmeComponent, PaymentsComponent, PrivacypolicyComponent, RegulationsComponent, PaymentsComponent],
+  declarations: [AboutmeComponent, PaymentsComponent, PrivacypolicyComponent, RegulationsComponent, PaymentsComponent, SewingComponent],
   imports: [
     CommonModule,
     InformationRoutingModule,

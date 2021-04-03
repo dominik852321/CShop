@@ -16,24 +16,18 @@ namespace API.Controllers
     public class ProductController: BaseApiController
     {
         private readonly IGenericRepository<Product> _productRepo;
-        private readonly IGenericRepository<ProductType> _productTypeRepo;
-        private readonly IGenericRepository<ProductRoom> _productRoomRepo;
         private readonly IMapper _mapper;
 
         public ProductController(
         IGenericRepository<Product> productRepo,
-        IGenericRepository<ProductType> productTypeRepo,
-        IGenericRepository<ProductRoom> productRoomRepo,
         IMapper mapper)
         {
             _productRepo = productRepo;
-            _productTypeRepo = productTypeRepo;
-            _productRoomRepo = productRoomRepo;
             _mapper = mapper;
         }
 
 
-        [Cached(600)]
+        [Cached(400)]
         [HttpGet]
         public async Task<ActionResult<Pagination<ProductToListDto>>> GetProducts(
             [FromQuery]ProductSpecParams productParams)
@@ -42,7 +36,7 @@ namespace API.Controllers
 
             var countSpec = new ProductWithFiltersForCountSpecification(productParams);
 
-            var totalItems = await _productRepo.CountAsync();
+            var totalItems = await _productRepo.CountAsync(countSpec);
             
             var products = await _productRepo.ListAsync(spec);
 
@@ -51,7 +45,7 @@ namespace API.Controllers
             return Ok(new Pagination<ProductToListDto>(productParams.PageIndex, productParams.PageSize, totalItems, data));
         }
 
-        [Cached(600)]
+        [Cached(400)]
         [HttpGet("3products")]
         public async Task<ActionResult<IReadOnlyList<ProductToListDto>>> Get3Products()
         {
@@ -63,7 +57,7 @@ namespace API.Controllers
         }
 
 
-        [Cached(600)]
+        [Cached(400)]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
@@ -78,19 +72,7 @@ namespace API.Controllers
             return Ok(_mapper.Map<Product, ProductToReturnDto>(product));
         }
 
-        [Cached(600)]
-        [HttpGet("rooms")]
-        public async Task<ActionResult<IReadOnlyList<ProductRoom>>> GetProductRooms()
-        {
-            return Ok(await _productRoomRepo.ListAllAsync());
-        }
-
-        [Cached(600)]
-        [HttpGet("types")]
-        public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
-        {
-            return Ok(await _productTypeRepo.ListAllAsync());
-        }
+      
         
     }
 

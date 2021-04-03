@@ -29,7 +29,7 @@ namespace Infrastructure.Services
             str.Close();
 
             MailText = MailText.Replace("[name]", order.ShipToAddress.FirstName)
-                               .Replace("[date]", order.OrderDate.Date.ToString())
+                               .Replace("[date]", order.OrderDate.DateTime.ToShortDateString())
                                .Replace("[numberOrder]", order.NumberOrder.ToString())
                                .Replace("[price]", order.GetTotal().ToString());
 

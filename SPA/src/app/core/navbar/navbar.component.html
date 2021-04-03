@@ -1,50 +1,58 @@
-<nav class="navbar navbar-light navbar-expand-lg border-bottom shadow-sm bg-white" >
+<nav ngxNavbarDynamicExpand class="navbar navbar-light navbar-expand-lg border-bottom shadow-sm bg-white" >
 
 
-  <img src="/assets/images/logo4.png" routerLink="/" class="logo border" style="height: 60px;" alt="logo"
+  <img src="/assets/images/logo4.png" routerLink="/" class="logo border" style="height: 60px;" alt="panienkazokienka-logo"
     class="d-none d-lg-block">
 
-  <button class="navbar-toggler" type="button" (click)="collapse.toggle()" aria-controls="main-nav"
-    aria-expanded="false">
+  <button class="navbar-toggler" type="button" (click)="collapse.toggle()" aria-controls="main-nav" aria-expanded="false">
     <span class="navbar-toggler-icon d-flex align-items-center justify-content-center"></span>
   </button>
 
   <div class="d-lg-none d-flex align-items-center">
     <div style="border-right: 1px solid #aaa;" class="mr-3">
-      <a routerLink="/basket" class="position-relative mr-4">
+      <a routerLink="/koszyk" class="position-relative mr-4">
         <i class="fa fa-shopping-cart icon-basket" style="color: #008CBA;"></i>
         <div *ngIf="(basket$ | async)" class="cart-no">{{(basket$ | async).items.length}}</div>
       </a>
     </div>
 
     <ng-container *ngIf="(currentUser$ | async) === null">
-      <div class="dropdown" dropdown>
-        <a class="dropdown-toggle" style="cursor: pointer;" dropdownToggle>
-          <a><i class="fa fa-user-o  icon-user" style="color:grey;"></i></a>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu>
-          <a routerLink="/account/login" class="dropdown-item d-flex align-items-center">Zaloguj</a>
-          <a routerLink="/account/register" class="dropdown-item d-flex align-items-center">Rejestracja</a>
+       <div ngDropdown #dropdown="ngDropdown">
+        <a ngDropdownControl class="dropdown-toggle" ><i  class="fa fa-user-o  icon-user" style="color:grey;"></i></a>
+        <div ngDropdownContent dropdownClass="slide-fade">
+          <ul class="m-2 list-unstyled">
+            <li ><a routerLink="/konto/login" class="dropdown-item d-flex align-items-center" (click)="dropdown.close()">Zaloguj</a></li>
+            <div class="dropdown-divider"></div>
+            <li ><a routerLink="/konto/rejestracja" class="dropdown-item d-flex align-items-center" (click)="dropdown.close()">Rejestracja</a></li>
+          </ul>
         </div>
       </div>
+     
+
     </ng-container>
 
     <ng-container *ngIf="currentUser$ | async">
-      <div class="dropdown" dropdown>
-        <a class="dropdown-toggle" style="cursor: pointer" dropdownToggle>
-          <a><i style="color: #0791b7;" class="fa fa-user-o icon-user"></i></a>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu>
-          <a routerLink="/basket" class="dropdown-item d-flex align-items-center py-2">
-            <i class="fa fa-shopping-cart mr-3"></i> Koszyk
-          </a>
-          <a routerLink="/orders" class="dropdown-item d-flex align-items-center py-2 ">
-            <i class="fa fa-history mr-3"></i> Zamówienia
-          </a>
-          <div class="dropdown-divider"></div>
-          <a (click)="logout()" class="dropdown-item d-flex align-items-center py-2">
-            <i class="fa fa-sign-out mr-3"></i> Wyloguj
-          </a>
+      <div ngDropdown #dropdown="ngDropdown">
+        <a ngDropdownControl class="dropdown-toggle" ><i style="color: #0791b7;" class="fa fa-user-o icon-user"></i></a>
+        <div ngDropdownContent dropdownClass="slide-fade">
+          <ul class="m-2 list-unstyled">
+            <li>
+              <a routerLink="/koszyk" class="dropdown-item d-flex align-items-center " (click)="dropdown.close()">
+                <i class="fa fa-shopping-cart mr-3" ></i> Koszyk
+              </a>
+            </li>
+            <li>
+              <a routerLink="/zamowienia" class="dropdown-item d-flex align-items-center " (click)="dropdown.close()">
+                <i class="fa fa-history mr-3"></i> Zamówienia
+              </a>
+            </li>
+            <div class="dropdown-divider"></div>
+            <li>
+              <a (click)="logout()" class="dropdown-item d-flex align-items-center " (click)="dropdown.close()">
+                <i class="fa fa-sign-out mr-3"></i> Wyloguj
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </ng-container>
@@ -52,22 +60,42 @@
   </div>
 
   <ngx-navbar-collapse id="main-nav"  #collapse="ngxNavbarCollapse">
-    <ul class="navbar-nav ml-3 py-3">
+    <ul class="navbar-nav ml-4 py-3">
       <li class="d-block d-lg-none nav-item " (click)="collapse.close()">
         <a class="nav-link" [routerLink]="['/']" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact: true}">Strona główna</a>
       </li>
-      <li class="nav-item" (click)="collapse.close()">
-        <a class="nav-link " routerLink="/shop" routerLinkActive="active">Firany</a>
+      <li class="nav-item" style="cursor: pointer;" ngDropdown #dropdown="ngDropdown"  routerLinkActive="active">
+        <a ngDropdownControl class="dropdown-toggle nav-link ">
+           Firany
+         </a>
+         <div ngDropdownContent dropdownClass="slide-fade">
+           <ul class="m-2 list-unstyled" (click)="collapse.close()" >
+             <li ><a class="dropdown-item" routerLink="/sklep/firany" (click)="dropdown.close()">Firany</a></li>
+             <li ><a class="dropdown-item" routerLink="/sklep/firany-gotowe" (click)="dropdown.close()">Firany gotowe</a></li>
+             <li ><a class="dropdown-item" routerLink="/sklep/firany-nowoczesne" (click)="dropdown.close()">Firany nowoczesne</a></li>
+             <li ><a class="dropdown-item" routerLink="/sklep/firany-do-salonu" (click)="dropdown.close()">Firany do salonu</a></li>
+             <li ><a class="dropdown-item" routerLink="/sklep/firany-do-kuchni" (click)="dropdown.close()">Firany do kuchni</a></li>
+           </ul>
+         </div>
+       </li>
+       <li class="nav-item" (click)="collapse.close()">
+        <a class="nav-link " routerLink="/sklep/rolety-rzymskie" routerLinkActive="active">Rolety rzymskie</a>
       </li>
-      <li class="nav-item dropdown" dropdown>
-        <a class="nav-link dropdown-toggle" style="cursor: pointer;" id="navbardrop" routerLinkActive="active"
-          data-toggle="dropdown" dropdownToggle>Informacje</a>
-        <div class="dropdown-menu" *dropdownMenu (click)="collapse.close()">
-          <a class="dropdown-item" routerLink="/information/aboutme">O mnie</a>
-          <a class="dropdown-item" routerLink="/information/delivery-payments">Płatność</a>
-          <a class="dropdown-item" routerLink="/information/regulations">Regulamin</a>
-          <a class="dropdown-item" routerLink="/information/privacypolicy">Polityka prywatności</a>
+      <li class="nav-item" (click)="collapse.close()">
+        <a class="nav-link " routerLink="/sklep/panele" routerLinkActive="active">Panele</a>
+      </li>
+     
+      <li class="nav-item" style="cursor: pointer;" ngDropdown #dropdown1="ngDropdown" routerLinkActive="active" >
+       <a ngDropdownControl class="dropdown-toggle nav-link ">Informacje </a>
+        <div ngDropdownContent dropdownClass="slide-fade">
+          <ul class="m-2 list-unstyled" (click)="collapse.close()" >
+            <li ><a class="dropdown-item" routerLink="/informacje/omnie" (click)="dropdown1.close()">O mnie</a></li>
+            <li ><a class="dropdown-item" routerLink="/informacje/dostawa-platnosc" (click)="dropdown1.close()">Płatność</a></li>
+            <li ><a class="dropdown-item" routerLink="/informacje/szycie-na-miare" (click)="dropdown1.close()">Szycie na wymiar</a></li>
+            <li ><a class="dropdown-item" routerLink="/informacje/regulamin" (click)="dropdown1.close()">Regulamin</a></li>
+            <li ><a class="dropdown-item" routerLink="/informacje/polityka-prywatnosci" (click)="dropdown1.close()">Polityka prywatności</a></li>
+          </ul>
         </div>
       </li>
     </ul>
@@ -75,33 +103,41 @@
 
   <div class="d-none d-lg-flex align-items-center">
     <div style="border-right: 1px solid #aaa;" class="mr-3">
-      <a routerLink="/basket" class="position-relative mr-4">
+      <a routerLink="/koszyk" class="position-relative mr-4" >
         <i class="fa fa-shopping-cart icon-basket" style="color: #008CBA;"></i>
         <div *ngIf="(basket$ | async)" class="cart-no">{{(basket$ | async).items.length}}</div>
       </a>
     </div>
 
     <ng-container *ngIf="(currentUser$ | async) === null">
-      <button routerLink="/account/login" type="button" class="btn btn-info  mr-2">Zaloguj</button>
-      <button routerLink="/account/register" type="button" class="btn btn-info mr-3">Rejestracja</button>
+      <button routerLink="/konto/login" type="button" class="btn btn-info  mr-2">Zaloguj</button>
+      <button routerLink="/konto/rejestracja" type="button" class="btn btn-info mr-3">Rejestracja</button>
     </ng-container>
 
     <ng-container *ngIf="currentUser$ | async">
-      <div class="dropdown" dropdown>
-        <a class="dropdown-toggle" style="cursor: pointer" dropdownToggle>
-          <a style="font-size: large; font-weight: 400;">Witaj {{(currentUser$ | async).displayName}}</a>
+    <div ngDropdown #dropdown="ngDropdown">
+        <a ngDropdownControl class="dropdown-toggle text-decoration-none" style="cursor: pointer;">
+          <span style="font-size: large; font-weight: 400;">Witaj {{(currentUser$ | async).displayName}}</span>
         </a>
-        <div class="dropdown-menu dropdown-menu-right" style="cursor: pointer;" *dropdownMenu>
-          <a routerLink="/basket" class="dropdown-item d-flex align-items-center py-2">
-            <i class="fa fa-shopping-cart mr-3"></i> Koszyk
-          </a>
-          <a routerLink="/orders" class="dropdown-item d-flex align-items-center py-2 ">
-            <i class="fa fa-history mr-3"></i> Zamówienia
-          </a>
-          <div class="dropdown-divider"></div>
-          <a (click)="logout()" class="dropdown-item d-flex align-items-center py-2">
-            <i class="fa fa-sign-out mr-3"></i> Wyloguj
-          </a>
+        <div ngDropdownContent dropdownClass="slide-fade">
+          <ul class="m-2 list-unstyled">
+            <li>
+              <a routerLink="/koszyk" class="dropdown-item d-flex align-items-center py-2" (click)="dropdown.close()">
+                <i class="fa fa-shopping-cart mr-3"></i> Koszyk
+              </a>
+            </li>
+            <li>
+              <a routerLink="/zamowienia" class="dropdown-item d-flex align-items-center py-2 " (click)="dropdown.close()">
+                <i class="fa fa-history mr-3"></i> Zamówienia
+              </a>
+            </li>
+            <div class="dropdown-divider"></div>
+            <li>
+              <a (click)="logout()" style="cursor: pointer;" class="dropdown-item d-flex align-items-center py-2" (click)="dropdown.close()">
+                <i class="fa fa-sign-out mr-3"></i> Wyloguj
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </ng-container>

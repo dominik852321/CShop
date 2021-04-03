@@ -1,0 +1,89 @@
+<div class="col-10 mx-auto ">
+   
+    <h3 class="my-4" >Firanki i firany</h3>
+    <div class="row">
+        <section class="d-none d-lg-block col-2 mb-3">
+            <ng-container>
+                <h5 class="text-primary mt-3"><strong>Sortuj</strong></h5>
+                <select class="custom-select mb-3" (change)="onSortSelected($event.target.value)">
+                    <option *ngFor="let sort of sortOptions" [value]="sort.value">
+                         <h6>{{sort.name}}</h6>
+                    </option>
+                </select>
+                
+
+                
+                <h5 class="text-primary mt-4"><strong>Filtruj</strong></h5>
+                <ul class="list-group list-group-flush shadow-sm">
+                    <li class="list-group-item list-group-item-action active " style="cursor: pointer;" routerLink="/sklep/firany">
+                        <p class="m-0 font-weight-normal">Firany ({{totalCount}})</p>
+                    </li>
+                    <li class="list-group-item list-group-item-action" style="cursor: pointer;" routerLink="/sklep/firany-gotowe">
+                        <p class="m-0 font-weight-normal" >Firany gotowe</p>
+                    </li>
+                    <li class="list-group-item list-group-item-action" style="cursor: pointer;" routerLink="/sklep/firany-nowoczesne">
+                        <p class="m-0 font-weight-normal" >Firany nowoczesne</p>
+                    </li>
+                    <li class="list-group-item list-group-item-action" style="cursor: pointer;" routerLink="/sklep/firany-do-salonu">
+                        <p class="m-0 font-weight-normal">Firany do salonu</p>
+                    </li>
+                    <li class="list-group-item list-group-item-action" style="cursor: pointer;" routerLink="/sklep/firany-do-kuchni">
+                        <p class="m-0 font-weight-normal" >Firany do kuchni</p>
+                    </li>
+                </ul>
+
+
+            </ng-container>
+        </section> 
+        <section class="d-md-block d-lg-none col-12 ">
+            <button type="button" class="btn btn-block btn-sm btn-info mt-4" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed"
+                aria-controls="collapse"><span class="h5">Kategorie <i class="fa fa-angle-down"></i></span>
+            </button>
+            <br>
+            <div class="row" id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
+                <li class="list-group-item list-group-item-action active" style="cursor: pointer;" routerLink="/sklep/firany">
+                    <p class="m-0" >Firany</p>
+                </li>
+                <li class="list-group-item list-group-item-action" style="cursor: pointer;"  routerLink="/sklep/firany-gotowe">
+                    <p class="m-0">Firany gotowe</p>
+                </li>
+                <li class="list-group-item list-group-item-action" style="cursor: pointer;" routerLink="/sklep/firany-nowoczesne">
+                    <p class="m-0" >Firany nowoczesne</p>
+                </li>
+                <li class="list-group-item list-group-item-action" style="cursor: pointer;" routerLink="/sklep/firany-do-salonu">
+                    <p class="m-0" >Firany do salonu</p>
+                </li>
+                <li class="list-group-item list-group-item-action" style="cursor: pointer;"  routerLink="/sklep/firany-do-kuchni">
+                    <p class="m-0">Firany do kuchni</p>
+                </li>
+            </div>
+            <hr>
+        </section>
+
+
+
+
+        <section class="col-lg-10">
+
+            <div class="row mb-4">
+                <div class="col-lg-4 mb-4 p-2 " *ngFor="let product of products">
+                    <app-product-item [product]="product"></app-product-item>
+                </div>
+
+                <div class="col-12 row">
+                        <app-pager class="mx-auto"
+                        [pageSize]="shopParams.pageSize"
+                        [pageNumber]="shopParams.pageNumber"
+                        [totalCount]="totalCount"
+                        (pageChanged)="onPageChanged($event)"
+                        ></app-pager>
+                </div>
+
+
+            </div>
+
+            
+
+        </section>
+    </div>
+</div>

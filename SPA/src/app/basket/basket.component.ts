@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { IBasket, IBasketItem, IBasketTotals } from '../shared/models/basket';
 import { BasketService } from './basket.service';
@@ -9,12 +10,19 @@ import { BasketService } from './basket.service';
   styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent implements OnInit {
+
+  title = 'Koszyk | Sklep internetowy Panienka z okienka';
+  
   basket$: Observable<IBasket>;
   basketTotal$: Observable<IBasketTotals>;
+
   
-  constructor(private basketService: BasketService) { }
+  constructor(private basketService: BasketService, private titleService: Title, private metaTagService: Meta) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle(this.title);
+    this.metaTagService.updateTag({ name: 'description', content: 'Koszyk - firany dodane do koszyka | Sklep internetowy Panienka z okienka, Firany szyte na wymiar'})
+
     this.basket$ = this.basketService.basket$;
     this.basketTotal$ = this.basketService.basketTotal$;
   }

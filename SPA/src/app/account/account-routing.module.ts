@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent, data: {breadcrumb: 'Logowanie'}},
-  {path: 'register', component: RegisterComponent, data: {breadcrumb: 'Rejestracja'}}
+  {path: 'rejestracja', component: RegisterComponent, data: {breadcrumb: 'Rejestracja'}}
 ]
 
 @NgModule({

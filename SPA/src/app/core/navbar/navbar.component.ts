@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
   currentUser$: Observable<IUser>;
 
   isCollapsed = false;
+  isFade = false;
 
 
   constructor(private basketService: BasketService, private accountService: AccountService) { }

@@ -1,5 +1,6 @@
 import { BsDropdownConfig, BsDropdownDirective, BsDropdownState } from 'ngx-bootstrap/dropdown';
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-regulations',
@@ -8,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegulationsComponent implements OnInit {
 
-  isCollapsed = true;
-  constructor() { }
+  title = 'Regulamin sklepu | Sklep internetowy Panienka z okienka';
+
+  constructor(private titleService: Title, private metaTagService: Meta) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle(this.title);
+    this.metaTagService.updateTag({ name: 'description', content: 'Regulamin obowiązujący na stronie | Sklep internetowy Panienka z okienka, Firany szyte na wymiar'})
   }
 
 }

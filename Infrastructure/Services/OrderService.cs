@@ -107,6 +107,8 @@ namespace Infrastructure.Services
         {
             var item = await _unitOfWork.Repository<Order>().GetLast();
 
+            if(item==null) return 5000;
+
             return item.NumberOrder;
         }
     }

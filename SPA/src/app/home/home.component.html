@@ -2,36 +2,26 @@
 
    
     <carousel *ngIf="!mobile" [isAnimated]="true" class="carousel">
-
         <slide class="slide">
-            <img src="../../assets/images/1920x6001.png" alt="first slide" class="img">
-        </slide>
-        <slide class="slide">
-            <img src="../../assets/images/1920x6002.png" alt="second slide" class="img">
-        </slide>
-        <slide class="slide">
-            <img src="../../assets/images/1920x6003.png" alt="third slide" class=" img">
+            <img src="../../assets/images/1920x6003.jpg" alt="Panienka z okienka zdjecie glowne" class=" img">
         </slide>
     </carousel>
 
     <carousel *ngIf="mobile" [isAnimated]="true" class="carousel">
         <slide class="slide">
-            <img src="../../assets/images/800x4001.jpg" alt="first slide" class="img">
+            <img src="../../assets/images/800x4003.jpg" alt="Panienka z okienka zdjecie glowne" class=" img">
         </slide>
         <slide class="slide">
-            <img src="../../assets/images/800x4002.jpg" alt="second slide" class="img">
-        </slide>
-        <slide class="slide">
-            <img src="../../assets/images/800x4003.jpg" alt="third slide" class=" img">
+            <img src="../../assets/images/800x4002.jpg" alt="Panienka z okienka zdjecie glowne" class="img">
         </slide>
     </carousel>
 
 
    
-        <section class="featured mt-3  mb-5 p-4">
+        <section class="featured mt-3  mb-3 p-4">
             <div class="col-lg-10 mx-auto" *ngIf="products">
-                <div class="text-center mb-4" routerLink="/shop" style="cursor: pointer; outline: none;">
-                    <a class="newc text-primary">Najnowsze firany</a>
+                <div class="text-center mb-4" routerLink="/sklep/firany" style="cursor: pointer; outline: none;">
+                    <h2 class="newc text-primary">Najnowsze firany</h2>
                     <h6 class="line" >Zobacz więcej</h6>
                 </div>
                 <div class="row mb-5">
@@ -41,15 +31,20 @@
                 </div>
             </div>
 
-            <div class="col-12 p-3 mb-4 shadow-sm" style="background-color:#96d8ec;">
-                <div class="text-center ">
-                    <a style="font-size: medium; font-weight: 400;">Jeśli chcesz dowiedzieć się więcej jak zamawiać firany, przeczytaj zakładke płatności</a>
-                    <hr>
-                    <a class="line text-white text-decoration-none " style="cursor: pointer; font-size: x-large; " routerLink="/information/delivery-payments">Płatności</a>
-                </div>
+            <div class="col-12 mb-4" style="background-color: white;">
+                
+                    <div class=" mx-auto col-lg-8  p-3 ">
+                      
+                            <h3 class="text-primary font-weight-normal">Firany i firanki  </h3> od zawsze pełniły funkcję dekoracyjną, ale również ochronną, zasłonową, sprawiającą że będąc w pomieszczeniu czujemy się o niebo przytulniej,
+                            okna ozdobione firanami stwarzają zamożny oraz przyjazny nastrój dla właściciela oraz gości, pod warunkiem że są dopasowane do pomieszczenia!  natomiast w przypadku braku okrycia okien, nie czujemy komfortu z przysłowiowego <br>
+                            <span class="text-primary "> "Czuć się, jak u siebię w domu"</span>. <br> <br>
+                             Serdecznie zapraszam  wszystkich, do obejerzenia oraz zamówienia moich aranżacji okiennych, których <span class="text-primary font-weight-bold">rozmiar możemy dostosować </span>według własnego uznania, natomiast cena zmieni się adekwatnie pod dany rozmiar. Każdy wymagający, jak i również ci mniej wymagający z pewnością znajdą tu <span class="text-success font-weight-bold">coś dla siebie!.</span>
+                            <hr>
+                    </div>
+                
             </div>
 
-            <div class="col-lg-10 row mx-auto p-4">
+            <div class="col-lg-10 row mb-5 mx-auto p-4" style="outline: none;">
                 <div class="col-lg-4 mb-2">
                     <div class="card shadow-sm">
                         <div class="card-body">
@@ -61,8 +56,8 @@
                 <div class="col-lg-4 mb-2">
                     <div class="card shadow-sm">
                         <div class="card-body">
-                            Wzór zależny od ciebie
-                            <i class="fa fa-pencil"></i>
+                            Dekoracje okienne
+                            <i class="fa fa-book"></i>
                         </div>
                     </div>
                 </div>
@@ -74,6 +69,8 @@
                     </div>
                 </div>
             </div>
+
+         
 
             
         </section>

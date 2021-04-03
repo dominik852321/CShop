@@ -3,13 +3,7 @@
     font-weight: 350;
 }
 
-a {
-    text-decoration: none;
-    font-weight: normal;
-    &.active {
-        color: black;
-    }
-}
+
 
 img {
     cursor: pointer;
@@ -59,8 +53,7 @@ img {
     font-weight: 400;
 }
 
-.dropdown-menu {
-    border-radius: 5% ;
-}
+
+
 
 

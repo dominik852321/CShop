@@ -1,13 +1,38 @@
 <!doctype html>
-<html lang="en">
+<html lang="pl-PL">
 <head>
   <meta charset="utf-8">
-  <title>Panienka z okienka</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="./assets/images/ikona.png">
 </head>
 <body>
   <app-root></app-root>
+
+ <!-- Load Facebook SDK for JavaScript -->
+ <div id="fb-root"></div>
+ <script>
+   window.fbAsyncInit = function() {
+     FB.init({
+       xfbml            : true,
+       version          : 'v9.0'
+     });
+   };
+
+   (function(d, s, id) {
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) return;
+   js = d.createElement(s); js.id = id;
+   js.src = 'https://connect.facebook.net/pl_PL/sdk/xfbml.customerchat.js';
+   fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));</script>
+
+ <!-- Your Chat Plugin code -->
+ <div class="fb-customerchat"
+   attribution="setup_tool"
+   page_id="330003794231828"
+logged_in_greeting="Witaj! jak mogę ci pomóc?"
+logged_out_greeting="Witaj! jak mogę ci pomóc?">
+ </div>
 </body>
 </html>

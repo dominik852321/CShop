@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, AsyncValidatorFn } from '@angular/forms';
 import { of, timer } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-register',
@@ -11,12 +13,17 @@ import { map, switchMap } from 'rxjs/operators';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+
+  title = 'Rejestracja | Sklep internetowy Panienka z okienka'; 
+
   registerForm: FormGroup;
   errors: string[];
 
-  constructor(private fb: FormBuilder, private accountService: AccountService, private router: Router) { }
+  constructor(private fb: FormBuilder, private accountService: AccountService, private router: Router, private toastr: ToastrService,  private titleService: Title, private metaTagService: Meta) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle(this.title);
+    this.metaTagService.updateTag({ name: 'description', content: 'Zarejestruj się do sklepu internetowego | Sklep internetowy Panienka z okienka, Firany szyte na wymiar'})
     this.createRegisterForm();
   }
 
@@ -34,9 +41,9 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.accountService.register(this.registerForm.value).subscribe(() => {
       this.router.navigateByUrl('');
+      this.toastr.success('Zarejestrowano pomyślnie');
     }, error => {
-      console.log(error);
-      this.errors = error.errors;
+      this.toastr.error('Niepoprawne dane');
     });
   }
 

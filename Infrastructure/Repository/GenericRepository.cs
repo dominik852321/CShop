@@ -43,12 +43,12 @@ namespace Infrastructure.Repository
         }
         public async Task<T> GetLast()
         {
-            return await _context.Set<T>().OrderByDescending(x => x.Id).Take(1).FirstAsync();
+            return await _context.Set<T>().OrderByDescending(x => x.Id).Take(1).FirstOrDefaultAsync();
         }
 
-        public async Task<int> CountAsync()
+        public async Task<int> CountAsync(ISpecification<T> spec)
         {
-             return await _context.Set<T>().CountAsync();
+            return await ApplySpecification(spec).CountAsync();
         }
         
 

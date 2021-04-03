@@ -26,11 +26,8 @@ export class ChangeDefaultComponent implements OnInit {
   sizeForm: FormGroup;
   quantity = 1;
 
-  options: Options = {
-    floor: 0,
-    ceil: 500,
-    step: 10
-  };
+  optionsWidth: Options;
+  optionsHeight: Options;
 
   changeModeSize = false;
 
@@ -40,7 +37,12 @@ export class ChangeDefaultComponent implements OnInit {
     this.mainWidth = this.product.width;
     this.mainHeight = this.product.height;
     this.mainPrice = this.product.price;
+    this.newWidth = this.mainWidth;
+    this.newHeight = this.mainHeight;
   }
+ 
+
+
 
 
   cancel() {
@@ -54,41 +56,87 @@ export class ChangeDefaultComponent implements OnInit {
 
   changeSize(){
     this.sizeForm = this.fb.group({
-      width: [this.mainWidth, [Validators.required, Validators.max(500), Validators.min(1)]],
-      height: [this.mainHeight, [Validators.required, Validators.max(500), Validators.min(1)]]
+      width: [this.newWidth, [Validators.required, Validators.max(500), Validators.min(1)]],
+      height: [this.newHeight, [Validators.required, Validators.max(500), Validators.min(1)]]
     });
+    this.optionsWidth = {
+      floor: this.mainWidth-100,
+      ceil: this.mainWidth+100,
+      step: 10
+    };
+
+    if(this.optionsWidth.floor < 0 )
+    {
+      this.optionsWidth.floor = 0;
+    }
+    if(this.optionsWidth.ceil < 0)
+    {
+      this.optionsWidth.ceil = 0;
+    }
+  
+    this.optionsHeight = {
+      floor: this.mainHeight-50,
+      ceil: this.mainHeight+50,
+      step: 10
+    };
+
+    if(this.optionsHeight.floor < 0 )
+    {
+      this.optionsHeight.floor = 0;
+    }
+    if(this.optionsHeight.ceil < 0)
+    {
+      this.optionsHeight.ceil = 0;
+    }
+    
     this.changeModeSize = true;
   }
 
-  saveSize(){
+
+
+  saveSize2(){
     if(this.newWidth != this.mainWidth && this.newWidth != undefined)
     {
-      this.resultWidth = Math.abs((this.newWidth / this.mainWidth) * 1.5);
+      this.resultWidth = Math.abs((this.newWidth / this.mainWidth));
     }
     else
     {
-      this.resultWidth = 1.5;
+      this.newWidth = this.mainWidth;
+      this.resultWidth = 1;
     }
 
     if(this.newHeight != this.mainHeight && this.newHeight != undefined)
     {
-      this.resultHeight = Math.abs((this.newHeight / this.mainHeight) * 0.5);
+      this.resultHeight = Math.abs((this.newHeight / this.mainHeight));
     }
     else
     {
-      this.resultHeight =  0.5;
+      this.newHeight = this.mainHeight;
+      this.resultHeight =  1;
     }
-  
-    var result = (this.resultHeight + this.resultWidth) / 2;
-    var resultPrice = Math.ceil(this.mainPrice * result);
-  
-    this.product.price = resultPrice;
-    this.product.width = this.newWidth;
-    this.product.height = this.newHeight;
+
+      var resultPrice = Math.ceil(this.mainPrice * this.resultWidth);
+      var resultPrice2 = 0;
+
+      if(this.resultHeight != 1)
+      {
+         resultPrice2 = Math.ceil((this.mainPrice * (((this.resultHeight-1)/2)+1))-this.mainPrice);
+      }
+    
+      this.product.price =resultPrice + resultPrice2;
+      this.product.width = this.newWidth;
+      this.product.height = this.newHeight;
+    
+    
   
 
     this.changeModeSize = false;
   }
+
+ 
+  
+  
+  
 
   incrementQuantity() {
     this.quantity++;
